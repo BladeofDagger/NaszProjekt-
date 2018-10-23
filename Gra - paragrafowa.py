@@ -1,3 +1,20 @@
+# zmienne
+bateria = 3
+pozycja = 1
+
+
+equipment = {
+    "latarka" : bateria, # liczba określa poziom baterii
+    "krótkofalówka" : " ",
+    "kartki" : []
+}
+
+
+
+
+
+
+
 def mod1():  # Kuchnia
     print("""                         >>> Jesteś w Kuchni <<<   
 
@@ -13,6 +30,8 @@ def mod1():  # Kuchnia
           ###################################################
 
   """)
+
+    pozycja = 1
 
 
 def mod2():
@@ -31,6 +50,8 @@ def mod2():
 
   """)
 
+    pozycja = 2
+
 
 def mod3():
     print("""                >>> Jesteś w Sypialni <<<   
@@ -47,6 +68,8 @@ def mod3():
           ###################################################
 
   """)
+
+    pozycja = 3
 
 
 def mod4():
@@ -65,6 +88,8 @@ def mod4():
 
   """)
 
+    pozycja = 4
+
 
 def mod5():
     print("""                >>> Jesteś w Module Łącznikowym <<<   
@@ -81,6 +106,8 @@ def mod5():
           ###################################################
 
   """)
+
+    pozycja = 5
 
 
 def mod6():
@@ -99,6 +126,8 @@ def mod6():
 
   """)
 
+    pozycja = 6
+
 
 def mod7():
     print("""                >>> Jesteś w Module Energetycznym <<<   
@@ -115,6 +144,8 @@ def mod7():
           ###################################################
 
   """)
+
+    pozycja = 7
 
 
 def mod8():
@@ -133,47 +164,92 @@ def mod8():
 
   """)
 
-
-pozycja = 0  # numer pozycji odpowiada pokojowi
-
-
-def cls(): print
+    pozycja = 8
 
 
-"\n" * 40
+#pozycja = 0  # numer pozycji odpowiada pokojowi
 
 
-def cls2(): print
+def cls(): print ("\n" * 40) # poprawka na python 3.7
 
 
-"\n" * 20
+
+
+
+#def cls2(): print
+
+
+#"\n" * 20
 
 
 def move():  # funkcja poruszania sie pomiędzy pokojami
 
     cls()
-    mod1()
+# jesli jestesmy w kuchni to:
+    if pozycja == 1:
+        print("""         == == == ==  MENU  == == == ==
 
-    print("""         == == == ==  MENU  == == == ==
+                  << [1] Idź do Modułu Wypoczynku
+                  << [2] Wróć
+            """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == 1:
+            #pozycja = 2
+            cls()
+            mod2()
+            menu()
+        elif choice == 2:
+            cls()
+            mod1()
+            menu()
 
-          << [1] Idź do Modułu Wypoczynku
-          << [2] Wróć
-    """)
-    choice = input('                           ')  # przypisuje wybór
-    if choice == 1:
-        pozycja = 2
-        cls()
-        mod2()
-        menu()
+# jesli jestesmy w module wypoczynkowym to:
+    elif pozycja == 2:
+        print("""         == == == ==  MENU  == == == ==
 
-    if choice != 1:
-        cls()
-        mod1()
-        menu()
+                          << [1] Idź do Modułu Serwisowego
+                          << [2] Idź do Modułu Łącznikowego
+                          << [3] Wróć
+                           
+                    """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == 1:
+            #pozycja = 2 # pozycję najlepiej przypisac bezposrednio w modulach
+            cls()
+            mod3()
+            menu()
+        elif choice == 2:
+            cls()
+            mod4()
+            menu()
+        elif choice == 3:
+            cls()
+            mod1()
+            menu()
+    elif pozycja == 3:
+        
+
+
+
+
+
+
 
 
 def eq():
-    print  # zeby wyswietlalo zawartosc equipment
+    # jeśli w ekwipunku nie ma jeszcze żadnej kartki to nie pokazuj
+    if len(equipment["kartki"])== 0:
+        print (""" == == == EKWIPUNEK == == ==
+                
+                latarka : poziom baterii %d 
+                krótkofalówka""" % bateria )
+    else:
+        print ("""  == == == EKWIPUNEK == == ==
+        
+                latarka : poziom baterii %d 
+                krótkofalówka
+                kartki : %s """ % bateria, equipment["kartki"] )
+
 
 
 def call():
@@ -203,17 +279,18 @@ def menu():
         call()
     elif choice == 4:
         dialog()
-    else:
-        intro()
+
+
+        #intro()
 
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
-    pozycja = 1
+
     cls()
     mod1()
     menu()
-    print
-    pozycja  # to w sumie niepotrzebne, tylko do testu
+    print (pozycja)
+      # to w sumie niepotrzebne, tylko do testu
 
 
 intro()
