@@ -54,7 +54,7 @@ def mod2():
 
 
 def mod3():
-    print("""                >>> Jesteś w Sypialni <<<   
+    print("""                >>> Jesteś w Module Serwisowym <<<   
 
           ###################################################
           #
@@ -73,7 +73,7 @@ def mod3():
 
 
 def mod4():
-    print("""                >>> Jesteś w Module Botanicznym <<<   
+    print("""                >>> Jesteś w Module łącznikowym <<<   
 
           ###################################################
           #
@@ -92,7 +92,7 @@ def mod4():
 
 
 def mod5():
-    print("""                >>> Jesteś w Module Łącznikowym <<<   
+    print("""                >>> Jesteś w Module Botanicznym <<<   
 
           ###################################################
           #
@@ -111,7 +111,7 @@ def mod5():
 
 
 def mod6():
-    print("""                >>> Jesteś w Module Serwisowym <<<   
+    print("""                >>> Jesteś w Module Badawczym <<<   
 
           ###################################################
           #
@@ -130,7 +130,7 @@ def mod6():
 
 
 def mod7():
-    print("""                >>> Jesteś w Module Energetycznym <<<   
+    print("""                >>> Jesteś w Module Energetycznym  <<<   
 
           ###################################################
           #
@@ -149,7 +149,7 @@ def mod7():
 
 
 def mod8():
-    print("""                >>> Jesteś w Module Module Ewakuacyjnym <<<   
+    print("""                >>> Jesteś w Module Nawigacyjnym <<<   
 
           ###################################################
           #
@@ -190,18 +190,14 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
         print("""         == == == ==  MENU  == == == ==
 
                   << [1] Idź do Modułu Wypoczynku
-                  << [2] Wróć
+                  
             """)
         choice = input('                           ')  # przypisuje wybór
         if choice == 1:
             #pozycja = 2
             cls()
             mod2()
-            menu()
-        elif choice == 2:
-            cls()
-            mod1()
-            menu()
+            menu() # nie ma sensu wywoływać ,,wróć bo sytuacja troche sie komplikuje przy dalszych modulach
 
 # jesli jestesmy w module wypoczynkowym to:
     elif pozycja == 2:
@@ -209,7 +205,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
                           << [1] Idź do Modułu Serwisowego
                           << [2] Idź do Modułu Łącznikowego
-                          << [3] Wróć
+                          << [3] Idź do Kuchni
                            
                     """)
         choice = input('                           ')  # przypisuje wybór
@@ -226,8 +222,105 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
             cls()
             mod1()
             menu()
+
+    # jesli jestesmy w module serwisowym to:
     elif pozycja == 3:
-        
+        print("""         == == == ==  MENU  == == == ==
+
+                                  << [1] Wróć
+                                  
+                            """)
+        choice = input('                           ')  # tu mozna dac wroc bo nie ma innej opcji
+        if choice == 1:
+
+            cls()
+            mod2()
+            menu()
+
+    elif pozycja == 4:
+        print("""         == == == ==  MENU  == == == ==
+
+                                 << [1] Idź do Modułu Botanicznego
+                                 << [2] Idź do Modułu Energetycznego
+                                 << [3] Idż do Modułu Badawczego
+                                 << [4] Idź do Modułu Wypoczynkowego
+
+                           """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == 1:
+
+            cls()
+            mod5()
+            menu()
+        elif choice == 2:
+            cls()
+            mod7()
+            menu()
+        elif choice == 3:
+            cls()
+            mod6()
+            menu()
+        elif choice == 4:
+            cls()
+            mod2()
+            menu()
+
+    # gdy jestes w module botanicznym lub  w module badawczym lub nawigacyjnym : to
+    elif (pozycja == 5) or (pozycja == 6):
+        print("""         == == == ==  MENU  == == == ==
+
+                                << [1] Wróć
+
+                                   """)
+        choice = input('                           ')  
+        if choice == 1:
+
+            cls()
+            mod4() # mod4!!!!
+            menu()
+
+    elif pozycja == 7:
+        print("""         == == == ==  MENU  == == == ==
+
+                                  << [1] Idź do Modułu Nawigacyjnego
+                                  << [2] Idź do Modułu Łącznikowego
+                                  
+
+                            """)
+        choice = input('                           ')
+        if choice == 1:
+            # pozycja = 2 # pozycję najlepiej przypisac bezposrednio w modulach
+            cls()
+            mod8()
+            menu()
+        elif choice == 2:
+            cls()
+            mod4()
+            menu()
+
+    elif pozycja == 8:
+        print("""         == == == ==  MENU  == == == ==
+
+                                        << [1] Wróć
+
+                                           """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == 1:
+            cls()
+            mod7() #mod 7!!!!!!
+            menu()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
