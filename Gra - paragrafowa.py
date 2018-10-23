@@ -2,34 +2,28 @@
 bateria = 3
 pozycja = 1 #globalnie bez sensu
 
-
+# poczatkowe wartosci
 equipment = {
     "latarka" : bateria, # liczba określa poziom baterii
     "krótkofalówka" : " ",
-    "kartki" : ["Jest super","Jest fajne"]
+    "kartki" : []
 }
 
+# pusta lista przygotowana na ofiary Slendera ;)
+dead = []
 
-
+# nasz gracz zawsze będzie ostatnim elementem listy więc załoga[4]
+załoga = ["Dave","Steve","John","Ann"]
 
 
 
 
 def mod1():  # Kuchnia
     print("""                         >>> Jesteś w Kuchni <<<   
+            .....
 
-          ###################################################
-          #
-          #
-          #
-          #        C   O   Ś            1
-          #
-          #
-          #
-          #
-          ###################################################
+        """)
 
-  """)
     global pozycja
     pozycja = 1
 
@@ -402,7 +396,25 @@ def menu():
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
     pozycja = 1
-    cls()
+
+    name = input("Podaj swoje imię: ")
+    załoga.append(name)
+    print("""                           
+
+ Witaj %s !!! Jesteś członkiem misji badawczej. 
+ Razem z %s'em, %s'em, %s'em i %s byłeś w drodze na jedną z nowo odkrytych 
+ planet układu TRAPPIST, gdy nagle z niewiadomej przyczyny rdzeń statku został 
+ uszkodzony i dalsza podróż stała się niemożliwa. Z powodu awarii uniemożliwiona 
+ została również komunikacja z bazą na Ziemi. Od tej pory jesteście zdani sami na siebie. 
+ Statek mknie przez niezbadaną przestrzeń, a co najgorsze jesteście na kursie kolizyjnym,
+ gdyż przed wami rozciąga się rozległy pas planetoid?! Na szczęście okazało się, 
+ że znajdujecie się niedaleko pewnej planety, której pole grawitacyjne stopniowo
+ przyciągało wasz statek i w zaistniałej sytuacji, zdecydowaliście się stacjonować
+ na jej orbicie aż do momentu zlikwidowania awarii.
+
+
+      """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3]))
+    #cls()
     mod1()
     menu()
 
