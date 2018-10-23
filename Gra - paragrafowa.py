@@ -1,6 +1,6 @@
 # zmienne
 bateria = 3
-pozycja = 1
+pozycja = 1 #globalnie bez sensu
 
 
 equipment = {
@@ -30,7 +30,7 @@ def mod1():  # Kuchnia
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 1
 
 
@@ -49,7 +49,7 @@ def mod2():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 2
 
 
@@ -68,7 +68,7 @@ def mod3():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 3
 
 
@@ -87,7 +87,7 @@ def mod4():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 4
 
 
@@ -106,7 +106,7 @@ def mod5():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 5
 
 
@@ -125,7 +125,7 @@ def mod6():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 6
 
 
@@ -144,7 +144,7 @@ def mod7():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 7
 
 
@@ -163,7 +163,7 @@ def mod8():
           ###################################################
 
   """)
-
+    global pozycja
     pozycja = 8
 
 
@@ -193,7 +193,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                   
             """)
         choice = input('                           ')  # przypisuje wybór
-        if choice == 1:
+        if choice == "1":
             #pozycja = 2
             cls()
             mod2()
@@ -209,16 +209,16 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                            
                     """)
         choice = input('                           ')  # przypisuje wybór
-        if choice == 1:
+        if choice == "1":
             #pozycja = 2 # pozycję najlepiej przypisac bezposrednio w modulach
             cls()
             mod3()
             menu()
-        elif choice == 2:
+        elif choice == "2":
             cls()
             mod4()
             menu()
-        elif choice == 3:
+        elif choice == "3":
             cls()
             mod1()
             menu()
@@ -231,7 +231,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                                   
                             """)
         choice = input('                           ')  # tu mozna dac wroc bo nie ma innej opcji
-        if choice == 1:
+        if choice == "1":
 
             cls()
             mod2()
@@ -247,20 +247,20 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
                            """)
         choice = input('                           ')  # przypisuje wybór
-        if choice == 1:
+        if choice == "1":
 
             cls()
             mod5()
             menu()
-        elif choice == 2:
+        elif choice == "2":
             cls()
             mod7()
             menu()
-        elif choice == 3:
+        elif choice == "3":
             cls()
             mod6()
             menu()
-        elif choice == 4:
+        elif choice == "4":
             cls()
             mod2()
             menu()
@@ -272,8 +272,8 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                                 << [1] Wróć
 
                                    """)
-        choice = input('                           ')  
-        if choice == 1:
+        choice = input('                           ')
+        if choice == "1":
 
             cls()
             mod4() # mod4!!!!
@@ -288,12 +288,12 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
                             """)
         choice = input('                           ')
-        if choice == 1:
+        if choice == "1":
             # pozycja = 2 # pozycję najlepiej przypisac bezposrednio w modulach
             cls()
             mod8()
             menu()
-        elif choice == 2:
+        elif choice == "2":
             cls()
             mod4()
             menu()
@@ -305,27 +305,10 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
                                            """)
         choice = input('                           ')  # przypisuje wybór
-        if choice == 1:
+        if choice == "1":
             cls()
             mod7() #mod 7!!!!!!
             menu()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -364,13 +347,13 @@ def menu():
 
     choice = input('                           ')
 
-    if choice == 1:
+    if choice == "1":
         move()
-    elif choice == 2:
+    elif choice == "2":
         eq()
-    elif choice == 3:
+    elif choice == "3":
         call()
-    elif choice == 4:
+    elif choice == "4":
         dialog()
 
 
@@ -378,12 +361,13 @@ def menu():
 
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
-
+    global pozycja
+    pozycja = 1
     cls()
     mod1()
     menu()
-    print (pozycja)
-      # to w sumie niepotrzebne, tylko do testu
+
+
 
 
 intro()
