@@ -240,10 +240,10 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
     elif pozycja == 4:
         print("""         == == == ==  MENU  == == == ==
 
-                                 << [1] Idź do Modułu Botanicznego
-                                 << [2] Idź do Modułu Energetycznego
-                                 << [3] Idż do Modułu Badawczego
-                                 << [4] Idź do Modułu Wypoczynkowego
+                            << [1] Idź do Modułu Botanicznego
+                            << [2] Idź do Modułu Energetycznego
+                            << [3] Idż do Modułu Badawczego
+                            << [4] Idź do Modułu Wypoczynkowego
 
                            """)
         choice = input('                           ')  # przypisuje wybór
@@ -282,8 +282,8 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
     elif pozycja == 7:
         print("""         == == == ==  MENU  == == == ==
 
-                                  << [1] Idź do Modułu Nawigacyjnego
-                                  << [2] Idź do Modułu Łącznikowego
+                            << [1] Idź do Modułu Nawigacyjnego
+                            << [2] Idź do Modułu Łącznikowego
                                   
 
                             """)
@@ -301,7 +301,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
     elif pozycja == 8:
         print("""         == == == ==  MENU  == == == ==
 
-                                        << [1] Wróć
+                            << [1] Wróć
 
                                            """)
         choice = input('                           ')  # przypisuje wybór
