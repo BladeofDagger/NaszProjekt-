@@ -19,7 +19,78 @@ dead = []
 # nasz gracz zawsze będzie ostatnim elementem listy więc załoga[4]
 załoga = ["Dave","Steve","John","Ann"]
 
+# tu będą teksty które mówią poszczególne osoby
+# kf= krótkofalówka
+Dave_kf = {
+    "mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
 
+
+}
+
+Dave_dialog = {
+"mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+
+    }
+
+Steve_kf = {
+    "mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+
+}
+
+Steve_dialog = {
+"mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+
+}
+
+John_kf = {
+"mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+
+}
+
+John_dialog = {
+"mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+}
+
+Ann_kf= {
+    "mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+}
+
+Ann_dialog = {
+    "mod_serwisowy": "",
+    "mod_badawczy ": "",
+    "mod_botaniczny": "",
+    "mod_ener":"",
+    "mod_nawig":""
+
+}
 
 
 def mod1():  # Kuchnia
