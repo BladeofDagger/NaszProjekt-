@@ -313,18 +313,23 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
 
 def eq():
+    cls()
     # jeśli w ekwipunku nie ma jeszcze żadnej kartki to nie pokazuj
     if len(equipment["kartki"])== 0:
-        print (""" == == == EKWIPUNEK == == ==
+        print ("""          == == == EKWIPUNEK == == ==
                 
-                latarka : poziom baterii %d 
-                krótkofalówka""" % bateria )
+                            latarka : poziom baterii %d 
+                            krótkofalówka""" % bateria )
+
+        menu()
     else:
-        print ("""  == == == EKWIPUNEK == == ==
+        print ("""           == == == EKWIPUNEK == == ==
         
-                latarka : poziom baterii %d 
-                krótkofalówka
-                kartki : %s """ % bateria, equipment["kartki"] )
+                latarka : poziom baterii %d  
+                krótkofalówka """ % bateria)
+        print ( """                kartki : """ , len(equipment["kartki"]))
+
+        menu()
 
 
 
