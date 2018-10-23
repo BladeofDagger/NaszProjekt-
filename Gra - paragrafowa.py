@@ -6,7 +6,7 @@ pozycja = 1 #globalnie bez sensu
 equipment = {
     "latarka" : bateria, # liczba określa poziom baterii
     "krótkofalówka" : " ",
-    "kartki" : []
+    "kartki" : ["Jest super","Jest fajne"]
 }
 
 
@@ -309,13 +309,17 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
             cls()
             mod7() #mod 7!!!!!!
             menu()
-
-
+# funkcja dodana do menu żeby móc odczytać kartki od Slendera
+def view_text():
+    cls()
+    for kartka in equipment["kartki"]:
+        print ("".join(kartka)),
+    menu()
 
 def eq():
     cls()
     # jeśli w ekwipunku nie ma jeszcze żadnej kartki to nie pokazuj
-    if len(equipment["kartki"])== 0:
+    if len(equipment["kartki"]) ==  0:
         print ("""          == == == EKWIPUNEK == == ==
                 
                             latarka : poziom baterii %d 
@@ -329,6 +333,9 @@ def eq():
                 krótkofalówka """ % bateria)
         print ( """                kartki : """ , len(equipment["kartki"]))
 
+        # wyświetla tekst kartek:
+
+        view_text()
         menu()
 
 
@@ -342,25 +349,52 @@ def dialog():
 
 
 def menu():
-    print("""         == == == ==  MENU  == == == ==
 
-                 >> Co chcesz zrobić?
-          << [1] Idź gdzieś
-          << [2] Zobacz ekwipunek
-          << [3] Zadzwoń
-          << [4] Rozmawiaj """)
+    if len(equipment["kartki"])>0:
+        print("""         == == == ==  MENU  == == == ==
 
-    choice = input('                           ')
+                         >> Co chcesz zrobić?
+                  << [1] Idź gdzieś
+                  << [2] Zobacz ekwipunek
+                  << [3] Zadzwoń
+                  << [4] Rozmawiaj
+                  << [5] Czytaj kartki """)
 
-    if choice == "1":
-        move()
-    elif choice == "2":
-        eq()
-    elif choice == "3":
-        call()
-    elif choice == "4":
-        dialog()
+        choice = input('                           ')
 
+        if choice == "1":
+            move()
+        elif choice == "2":
+            eq()
+        elif choice == "3":
+            call()
+        elif choice == "4":
+            dialog()
+        elif choice == "5":
+            view_text()
+
+
+
+    else:
+        print("""         == == == ==  MENU  == == == ==
+
+                         >> Co chcesz zrobić?
+                  << [1] Idź gdzieś
+                  << [2] Zobacz ekwipunek
+                  << [3] Zadzwoń
+                  << [4] Rozmawiaj
+                  """)
+
+        choice = input('                           ')
+
+        if choice == "1":
+            move()
+        elif choice == "2":
+            eq()
+        elif choice == "3":
+            call()
+        elif choice == "4":
+            dialog()
 
         #intro()
 
