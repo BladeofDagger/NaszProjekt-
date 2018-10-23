@@ -1,3 +1,7 @@
+#biblioteki
+from time import sleep
+
+
 # zmienne
 bateria = 3
 pozycja = 1 #globalnie bez sensu
@@ -399,22 +403,33 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
     name = input("Podaj swoje imię: ")
     załoga.append(name)
+    cls()
     print("""                           
 
  Witaj %s !!! Jesteś członkiem misji badawczej. 
- Razem z %s'em, %s'em, %s'em i %s byłeś w drodze na jedną z nowo odkrytych 
- planet układu TRAPPIST, gdy nagle z niewiadomej przyczyny rdzeń statku został 
- uszkodzony i dalsza podróż stała się niemożliwa. Z powodu awarii uniemożliwiona 
- została również komunikacja z bazą na Ziemi. Od tej pory jesteście zdani sami na siebie. 
- Statek mknie przez niezbadaną przestrzeń, a co najgorsze jesteście na kursie kolizyjnym,
- gdyż przed wami rozciąga się rozległy pas planetoid?! Na szczęście okazało się, 
- że znajdujecie się niedaleko pewnej planety, której pole grawitacyjne stopniowo
- przyciągało wasz statek i w zaistniałej sytuacji, zdecydowaliście się stacjonować
- na jej orbicie aż do momentu zlikwidowania awarii.
+ Razem z %s'em, %s'em, %s'em i %s byłeś w drodze na 
+ jedną z nowo odkrytych planet układu TRAPPIST, gdy 
+ nagle z niewiadomej przyczyny rdzeń statku został 
+ uszkodzony i dalsza podróż stała się niemożliwa. 
+ Z powodu awarii uniemożliwiona została również komunikacja 
+ z bazą na Ziemi. Od tej pory jesteście zdani sami na siebie. 
+ Statek mknie przez niezbadaną przestrzeń, a co najgorsze
+ jesteście na kursie kolizyjnym, gdyż przed wami rozciąga 
+ się rozległy pas planetoid?! Na szczęście okazało się, 
+ że znajdujecie się niedaleko pewnej planety, której pole 
+ grawitacyjne stopniowo przyciągało wasz statek i w zaistniałej 
+ sytuacji, zdecydowaliście się stacjonować na jej orbicie aż do 
+ momentu zlikwidowania awarii. W miarę upływu czasu przestają 
+ działać kolejne funkcje statku. %s jako wasz Kapitan, 
+ przydzielił wam zadania do wykonania, po czym
+ rozdzieliliście się , a Ty zgodnie z rozkazem udałeś się do 
+ modułu kuchennego.  
 
 
-      """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3]))
-    #cls()
+      """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
+    # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
+    sleep(35)
+    cls()
     mod1()
     menu()
 
