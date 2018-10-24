@@ -643,44 +643,6 @@ def eq():
                     mapa(i)
                     menu()
 
-
-
-
-
-
-
-            """if (pozycja == 1):
-                cls()
-                mapa1()
-                menu()
-            if (pozycja == 2):
-                cls()
-                mapa2()
-                menu()
-            if (pozycja == 3):
-                cls()
-                mapa3()
-                menu()
-            if (pozycja == 4):
-                cls()
-                mapa4()
-                menu()
-            if (pozycja == 5):
-                cls()
-                mapa5()
-                menu()
-            if (pozycja == 6):
-                cls()
-                mapa6()
-                menu()
-            if (pozycja == 7):
-                cls()
-                mapa7()
-                menu()
-            if (pozycja == 8):
-                cls()
-                mapa8()
-                menu()"""
     else:
         print("""           == == == EKWIPUNEK == == ==
 
@@ -690,44 +652,11 @@ def eq():
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
             for i in range(1, 8):
-                for j in range(0, 7):
-                    if (pozycja == i) and (pozycja == j+1):
-                        cls()
-                        print(mapa[j])
-                        menu()
+                if pozycja == i:
+                    cls()
+                    mapa(i)
+                    menu()
 
-            """if (pozycja == 1):
-                cls()
-                mapa1()
-                menu()
-            elif (pozycja == 2):
-                cls()
-                mapa2()
-                menu()
-            elif (pozycja == 3):
-                cls()
-                mapa3()
-                menu()
-            elif (pozycja == 4):
-                cls()
-                mapa4()
-                menu()
-            elif (pozycja == 5):
-                cls()
-                mapa5()
-                menu()
-            elif (pozycja == 6):
-                cls()
-                mapa6()
-                menu()
-            elif (pozycja == 7):
-                cls()
-                mapa7()
-                menu()
-            elif (pozycja == 8):
-                cls()
-                mapa8()
-                menu()"""
 
         # wyświetla tekst kartek:
 
