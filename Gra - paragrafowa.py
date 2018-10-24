@@ -6,17 +6,12 @@ from time import sleep
 bateria = 3
 pozycja = 1 #globalnie bez sensu
 
-# poczatkowe wartosci
-equipment = {
-    "latarka" : bateria, # liczba określa poziom baterii
-    "krótkofalówka" : " ",
-    "kartki" : [],
-    "Mapa" : []
-}
 
 
-def mapa1():
-    print("""                         >>> Jesteś w Kuchni <<< 
+
+def mapa(pozycja):
+    if pozycja == 1:
+        print("""                         >>> Jesteś w Kuchni <<< 
 
 
                      == == == ==  MAPA  == == == ==         
@@ -43,217 +38,221 @@ def mapa1():
                            #         #                          
                            # # # # # #
 
-        """)
+            """)
+
+    elif pozycja == 2:
+        print("""                >>> Jesteś w Module Wypoczynku <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         |   [X]   |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |         |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
+
+    elif pozycja == 3:
+        print("""                >>> Jesteś w Module Serwisowym <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #   [X]   |         |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |         |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
+
+    elif pozycja == 4:
+        print("""                >>> Jesteś w Module łącznikowym <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         |         |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |   [X]   |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
+
+    elif pozycja == 5:
+        print("""                >>> Jesteś w Module Botanicznym <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         |         |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |         |   [X]   #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
+
+    elif pozycja == 6:
+        print("""                >>> Jesteś w Module Badawczym <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         |         |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #   [X]   |         |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
+
+    elif pozycja == 7:
+        print("""                >>> Jesteś w Module Energetycznym  <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         |         |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |         |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #             [X]             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
+
+    elif pozycja == 8:
+        print("""                >>> Jesteś w Module Nawigacyjnym <<<   
+
+                             == == == ==  MAPA  == == == ==         
+
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         |         |         #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |         |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #   [X]   #
+                                   #         #                          
+                                   # # # # # #
+
+                """)
 
 
-def mapa2():
-    print("""                >>> Jesteś w Module Wypoczynku <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #         |   [X]   |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |         |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
-
-        """)
+# poczatkowe wartosci
+equipment = {
+    "latarka" : bateria, # liczba określa poziom baterii
+    "krótkofalówka" : " ",
+    "kartki" : [],
+    "Mapa" : []
+}
 
 
-def mapa3():
-    print("""                >>> Jesteś w Module Serwisowym <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #   [X]   |         |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |         |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
-
-        """)
-
-
-def mapa4():
-    print("""                >>> Jesteś w Module łącznikowym <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #         |         |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |   [X]   |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
-
-        """)
-
-
-def mapa5():
-    print("""                >>> Jesteś w Module Botanicznym <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #         |         |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |         |   [X]   #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
-
-        """)
-
-
-def mapa6():
-    print("""                >>> Jesteś w Module Badawczym <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #         |         |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #   [X]   |         |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
-
-        """)
-
-
-def mapa7():
-    print("""                >>> Jesteś w Module Energetycznym  <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #         |         |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |         |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #             [X]             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
-
-        """)
-
-
-def mapa8():
-    print("""                >>> Jesteś w Module Nawigacyjnym <<<   
-
-                     == == == ==  MAPA  == == == ==         
-
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
-                 #         |         |         #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |         |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #   [X]   #
-                           #         #                          
-                           # # # # # #
-
-        """)
 
 # pusta lista przygotowana na ofiary Slendera ;)
 dead = []
@@ -638,7 +637,19 @@ def eq():
                   << [3] krótkofalówka""" % bateria)
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
-            if (pozycja == 1):
+            for i in range(1, 8):
+                if pozycja == i:
+                    cls()
+                    mapa(i)
+                    menu()
+
+
+
+
+
+
+
+            """if (pozycja == 1):
                 cls()
                 mapa1()
                 menu()
@@ -669,7 +680,7 @@ def eq():
             if (pozycja == 8):
                 cls()
                 mapa8()
-                menu()
+                menu()"""
     else:
         print("""           == == == EKWIPUNEK == == ==
 
@@ -678,7 +689,14 @@ def eq():
                   << [3] kartki : %s """ % bateria, equipment["kartki"])
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
-            if (pozycja == 1):
+            for i in range(1, 8):
+                for j in range(0, 7):
+                    if (pozycja == i) and (pozycja == j+1):
+                        cls()
+                        print(mapa[j])
+                        menu()
+
+            """if (pozycja == 1):
                 cls()
                 mapa1()
                 menu()
@@ -709,7 +727,7 @@ def eq():
             elif (pozycja == 8):
                 cls()
                 mapa8()
-                menu()
+                menu()"""
 
         # wyświetla tekst kartek:
 
@@ -807,7 +825,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
       """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
     # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
-    sleep(5)
+    sleep(1)
     cls()
     mod1()
     menu()
