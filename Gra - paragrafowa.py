@@ -6,8 +6,21 @@ from time import sleep
 bateria = 3
 pozycja = 1 #globalnie bez sensu
 
+def flash(): #latarka
+    print("""
+                   == == ==  LATARKA  == == ==         
+                        
+                         >> Czy chcesz włączyć latarkę?
+                  << [1] Tak
+                  << [2] Nie
+                  """)
 
+    choice = input('                           ')
 
+    if choice == "1":
+        print
+    if choice == "2":
+        print
 
 def mapa(pozycja):
     if pozycja == 1:
@@ -246,7 +259,7 @@ def mapa(pozycja):
 
 # poczatkowe wartosci
 equipment = {
-    "latarka" : bateria, # liczba określa poziom baterii
+    "Latarka" : bateria, # liczba określa poziom baterii
     "krótkofalówka" : " ",
     "kartki" : [],
     "Mapa" : []
@@ -497,7 +510,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
     cls()
 # jesli jestesmy w kuchni to:
     if pozycja == 1:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
                   << [1] Idź do Modułu Wypoczynku
                   
@@ -630,9 +643,9 @@ def eq():
     cls()
     # jeśli w ekwipunku nie ma jeszcze żadnej kartki to nie pokazuj
     if len(equipment["kartki"]) ==  0:
-        print("""           == == == EKWIPUNEK == == ==
+        print("""                   == == == EKWIPUNEK == == ==
 
-                  << [1] latarka : poziom baterii %d
+                  << [1] Latarka : poziom baterii %d
                   << [2] Mapa
                   << [3] krótkofalówka""" % bateria)
         choice = input('                           ')  # przypisuje wybór
@@ -642,11 +655,14 @@ def eq():
                     cls()
                     mapa(i)
                     menu()
-
+        elif (choice == "1"):
+                    cls()
+                    flash()
+                    menu()
     else:
-        print("""           == == == EKWIPUNEK == == ==
+        print("""                   == == == EKWIPUNEK == == ==
 
-                  << [1] latarka : poziom baterii %d
+                  << [1] Latarka : poziom baterii %d
                   << [2] krótkofalówka
                   << [3] kartki : %s """ % bateria, equipment["kartki"])
         choice = input('                           ')  # przypisuje wybór
@@ -655,6 +671,10 @@ def eq():
                 if pozycja == i:
                     cls()
                     mapa(i)
+                    menu()
+        elif (choice == "1"):
+                    cls()
+                    flash()
                     menu()
 
 
@@ -675,7 +695,7 @@ def dialog():
 def menu():
 
     if len(equipment["kartki"])>0:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                  == == == ==  MENU  == == == ==
 
                          >> Co chcesz zrobić?
                   << [1] Idź gdzieś
@@ -700,7 +720,7 @@ def menu():
 
 
     else:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                  == == == ==  MENU  == == == ==
 
                          >> Co chcesz zrobić?
                   << [1] Idź gdzieś
