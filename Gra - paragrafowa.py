@@ -454,6 +454,18 @@ Ann_dialog = {
 
 }
 
+#dictionary z nazwami modułów i listami, na początku resztę załogi przydzielamy
+# losowo do modułów = zapisujemy na daną listę
+
+mod = {
+    "mod_serwisowy": [],
+    "mod_badawczy ": [],
+    "mod_botaniczny": [],
+    "mod_ener": [],
+    "mod_nawig": []
+
+}
+
 
 def mod1():  # Kuchnia
     print("""                         >>> Jesteś w Kuchni <<<   
@@ -792,7 +804,9 @@ def eq():
 
 
 
-def call():
+def call(name):
+    name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+
     print  # dzwoni
 
 
