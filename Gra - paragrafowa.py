@@ -1,5 +1,6 @@
 #biblioteki
 from time import sleep
+from random import *
 
 
 # zmienne ###########
@@ -458,8 +459,7 @@ Ann_dialog = {
 # losowo do modułów = zapisujemy na daną listę
 
 mod = {
-    "mod_serwisowy": [],
-    "mod_badawczy ": [],
+    "mod_badawczy": [],
     "mod_botaniczny": [],
     "mod_ener": [],
     "mod_nawig": []
@@ -876,6 +876,21 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     global pozycja
     pozycja = 1
 
+    #przypisanie reszty załogi do innych modułów
+    shuffle(załoga) # za każdym razem będą mieć inne indeksy na liście załoga
+    i=0
+    for key in mod:
+        if len(mod[key]) == 0:
+            mod[key].append(załoga[i])
+            i+=1
+
+
+
+
+
+
+
+
     cls2()
     name = input("""Podaj swoje imię: 
     
@@ -927,6 +942,11 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     sleep(1)
     cls()
     mod1()
+    print (mod["mod_botaniczny"])
+    print (mod["mod_badawczy"])
+    print (mod["mod_ener"])
+    print (mod["mod_nawig"])
+
     menu()
 
 
