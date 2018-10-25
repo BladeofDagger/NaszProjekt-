@@ -385,7 +385,7 @@ załoga = ["Dave","Steve","John","Ann"]
 # tu będą teksty które mówią poszczególne osoby
 # kf= krótkofalówka
 Dave_kf = {
-    "mod_badawczy ": "Super jest!",
+    "mod_badawczy": "Super jest!",
     "mod_botaniczny": "Okej ",
     "mod_ener":"Wszystko Gra",
     "mod_nawig":" Suhe"
@@ -394,7 +394,7 @@ Dave_kf = {
 }
 
 Dave_dialog = {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
@@ -402,7 +402,7 @@ Dave_dialog = {
     }
 
 Steve_kf = {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
@@ -410,7 +410,7 @@ Steve_kf = {
 }
 
 Steve_dialog = {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
@@ -418,7 +418,7 @@ Steve_dialog = {
 }
 
 John_kf = {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
@@ -426,21 +426,21 @@ John_kf = {
 }
 
 John_dialog = {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
 }
 
 Ann_kf= {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
 }
 
 Ann_dialog = {
-    "mod_badawczy ": "",
+    "mod_badawczy": "",
     "mod_botaniczny": "",
     "mod_ener":"",
     "mod_nawig":""
@@ -796,14 +796,16 @@ def eq():
 
 
 
-def call(name):
+def call(Name):
 
-    cls()
+    #cls()
     #funkcja call dla Dave'a
-    if name == "Dave":
+    if Name == "Dave":
         for key in mod:
-            if name in key:
+            if Name in mod[key]:
                 print(Dave_kf[key])
+    menu()
+
 
 
 
@@ -835,8 +837,8 @@ def menu():
         elif choice == "2":
             eq()
         elif choice == "3":
-            name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-            call(name)
+            Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+            call(Name)
         elif choice == "4":
             dialog()
         elif choice == "5":
@@ -865,7 +867,9 @@ def menu():
         elif choice == "2":
             eq()
         elif choice == "3":
-            call()
+            Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+            call(Name)
+
         elif choice == "4":
             dialog()
         elif choice == "5":
@@ -936,9 +940,11 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
       """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
     # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
     sleep(1)
+
+
     # przypisanie reszty załogi do innych modułów
     osoby = załoga[0:4]
-    shuffle(osoby)  # za każdym razem będą mieć inne indeksy na liście załoga
+    shuffle(osoby)  # za każdym razem będą mieć inne indeksy na liście osoby
 
     i = 0
     for key in mod:
