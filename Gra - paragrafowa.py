@@ -798,12 +798,25 @@ def eq():
 
 def call(Name):
 
-    #cls()
+    cls()
     #funkcja call dla Dave'a
     if Name == "Dave":
         for key in mod:
             if Name in mod[key]:
-                print(Dave_kf[key])
+                print("Dave: ",  Dave_kf[key] )
+    elif Name == "John":
+        for key in mod:
+            if Name in mod[key]:
+                print("John: ",  John_kf[key] )
+    elif Name == "Steve":
+        for key in mod:
+            if Name in mod[key]:
+                print("Steve: ",  Steve_kf[key] )
+    elif Name == "Ann":
+        for key in mod:
+            if Name in mod[key]:
+                print("Ann: ",  Ann_kf[key] )
+
     menu()
 
 
