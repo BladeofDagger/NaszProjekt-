@@ -126,7 +126,7 @@ def flash(): #latarka
         on = 1
 
     if choice == "2":
-        print
+        cls()
 
         on = 0
 
@@ -494,9 +494,11 @@ def mod3():
 
 
 def mod4():
-    print("""                >>> Jesteś w Module łącznikowym <<<   
+    print("""                >>> Jesteś w Module Łącznikowym <<<   
 
-        Moduł ten łączy pozostałe pomieszczenia statku.       
+        Moduł ten łączy pozostałe pomieszczenia statku. Jego blokada może oznaczać
+        brak możliwości poruszania się po obiekcie. Wszystkie drzwi powinny być sprawne.
+        Zauważyć można liczne uszkodzenia ścian. Co się tutaj wydarzyło?
 
         """)
     global pozycja
@@ -506,16 +508,9 @@ def mod4():
 def mod5():
     print("""                >>> Jesteś w Module Botanicznym <<<   
 
-          ###################################################
-          #
-          #
-          #
-          #        C   O   Ś            5
-          #
-          #
-          #
-          #
-          ###################################################
+          Tutaj znajdują się rośliny, których owoce potem jemy, a także
+          produkują tlen niezbędny do życia. Miejmy nadzieję, że nie zostały
+          uszkodzone.
 
   """)
     global pozycja
@@ -525,16 +520,9 @@ def mod5():
 def mod6():
     print("""                >>> Jesteś w Module Badawczym <<<   
 
-          ###################################################
-          #
-          #
-          #
-          #        C   O   Ś            6
-          #
-          #
-          #
-          #
-          ###################################################
+          Wszelkie próbki i dokumenty rozmieszczone są w schowkach w tym
+          pomieszczeniu. Przeróżne chemikalia mogą w nieodpowiednich rękach
+          narobić wielkie szkody. Nikt by tego nie chciał.
 
   """)
     global pozycja
