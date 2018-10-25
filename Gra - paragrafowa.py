@@ -385,17 +385,15 @@ załoga = ["Dave","Steve","John","Ann"]
 # tu będą teksty które mówią poszczególne osoby
 # kf= krótkofalówka
 Dave_kf = {
-    "mod_serwisowy": "",
-    "mod_badawczy ": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy ": "Super jest!",
+    "mod_botaniczny": "Okej ",
+    "mod_ener":"Wszystko Gra",
+    "mod_nawig":" Suhe"
 
 
 }
 
 Dave_dialog = {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -404,7 +402,6 @@ Dave_dialog = {
     }
 
 Steve_kf = {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -413,7 +410,6 @@ Steve_kf = {
 }
 
 Steve_dialog = {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -422,7 +418,6 @@ Steve_dialog = {
 }
 
 John_kf = {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -431,7 +426,6 @@ John_kf = {
 }
 
 John_dialog = {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -439,7 +433,6 @@ John_dialog = {
 }
 
 Ann_kf= {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -447,7 +440,6 @@ Ann_kf= {
 }
 
 Ann_dialog = {
-    "mod_serwisowy": "",
     "mod_badawczy ": "",
     "mod_botaniczny": "",
     "mod_ener":"",
@@ -805,7 +797,16 @@ def eq():
 
 
 def call(name):
-    name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+
+    cls()
+    #funkcja call dla Dave'a
+    if name == "Dave":
+        for key in mod:
+            if name in key:
+                print(Dave_kf[key])
+
+
+
 
     print  # dzwoni
 
@@ -834,7 +835,8 @@ def menu():
         elif choice == "2":
             eq()
         elif choice == "3":
-            call()
+            name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+            call(name)
         elif choice == "4":
             dialog()
         elif choice == "5":
@@ -876,13 +878,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     global pozycja
     pozycja = 1
 
-    #przypisanie reszty załogi do innych modułów
-    shuffle(załoga) # za każdym razem będą mieć inne indeksy na liście załoga
-    i=0
-    for key in mod:
-        if len(mod[key]) == 0:
-            mod[key].append(załoga[i])
-            i+=1
+
 
 
 
@@ -940,12 +936,25 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
       """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
     # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
     sleep(1)
+    # przypisanie reszty załogi do innych modułów
+    osoby = załoga[0:4]
+    shuffle(osoby)  # za każdym razem będą mieć inne indeksy na liście załoga
+
+    i = 0
+    for key in mod:
+        if len(mod[key]) == 0:
+            mod[key].append(osoby[i])
+            i += 1
     cls()
     mod1()
+
+    print (załoga)
+    print (osoby)
     print (mod["mod_botaniczny"])
     print (mod["mod_badawczy"])
     print (mod["mod_ener"])
-    print (mod["mod_nawig"])
+    print (mod["mod_nawig"]) # to było do kontroli
+
 
     menu()
 
