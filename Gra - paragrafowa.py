@@ -402,41 +402,41 @@ Dave_dialog = {
     }
 
 Steve_kf = {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": "Spoko",
+    "mod_botaniczny": "Eureka",
+    "mod_ener":"Dej mi spokój!!!",
+    "mod_nawig":"Won!"
 
 }
 
 Steve_dialog = {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": "Nic",
+    "mod_botaniczny": "Coś tam",
+    "mod_ener":"Alert",
+    "mod_nawig":"Mapa"
 
 }
 
 John_kf = {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": "Rosół",
+    "mod_botaniczny": "Kotlet",
+    "mod_ener":"Ama",
+    "mod_nawig":"Zupa"
 
 }
 
 John_dialog = {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": "Slon",
+    "mod_botaniczny": "Omlet",
+    "mod_ener":"garnek",
+    "mod_nawig":"rolada"
 }
 
 Ann_kf= {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": "super",
+    "mod_botaniczny": "Nie wiem",
+    "mod_ener":"Nie mam ochoty ",
+    "mod_nawig":"Fajna pogoda"
 }
 
 Ann_dialog = {
@@ -803,19 +803,21 @@ def call(Name):
     if Name == "Dave":
         for key in mod:
             if Name in mod[key]:
-                print("Dave: ",  Dave_kf[key] )
+                print("""                       Dave: """,  Dave_kf[key] )
     elif Name == "John":
         for key in mod:
             if Name in mod[key]:
-                print("John: ",  John_kf[key] )
+                print("""                       John: """,  John_kf[key] )
     elif Name == "Steve":
         for key in mod:
             if Name in mod[key]:
-                print("Steve: ",  Steve_kf[key] )
+                print("""                       Steve: """,  Steve_kf[key] )
     elif Name == "Ann":
         for key in mod:
             if Name in mod[key]:
-                print("Ann: ",  Ann_kf[key] )
+                print("""                       Ann:  """,  Ann_kf[key] )
+    cls2()
+
 
     menu()
 
