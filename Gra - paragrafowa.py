@@ -1065,6 +1065,7 @@ def dialog():
 
 
 def menu():
+    global pozycja
     #licznik kontrolny
     licznik = True
     while licznik:
