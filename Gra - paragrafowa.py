@@ -480,28 +480,28 @@ Ann_kf= {
 
 Dialog = {
     "Dave": {
-    "mod_badawczy": ["Widzę cię",""],
+    "mod_badawczy":["Widzę cię",""],
     "mod_botaniczny":["Słyszę cię",""],
     "mod_ener":["Cieszę się",""],
     "mod_nawig":["Pamiętam cię",""]
 
 },
     "Steve": {
-    "mod_badawczy": ["Uwielbiam",""],
+    "mod_badawczy":["Uwielbiam",""],
     "mod_botaniczny":["Marzę",""],
     "mod_ener":["Statek",""],
     "mod_nawig":["Mówię",""]
 
 } ,
     "John": {
-    "mod_badawczy": ["Śpię",""],
+    "mod_badawczy":["Śpię",""],
     "mod_botaniczny":["Marznę",""],
     "mod_ener":["Konam",""],
     "mod_nawig":["Wstaję",""]
 
 } ,
     "Ann": {
-    "mod_badawczy": ["Latam",""],
+    "mod_badawczy":["Latam",""],
     "mod_botaniczny":["Grawitacja",""],
     "mod_ener":["Sustem",""],
     "mod_nawig":["Dialog",""]
@@ -626,6 +626,9 @@ def mod4(q):
 
 
 def mod5(q):
+    global pozycja
+    pozycja = 5
+
     if (q == 1):
         print("""                >>> Jesteś w Module Botanicznym <<<   
 
@@ -640,11 +643,11 @@ def mod5(q):
          że rośliny nie zostały uszkodzone. Skąd on może pochodzić?
 
         """)
-    global pozycja
-    pozycja = 5
 
 
 def mod6(q):
+    global pozycja
+    pozycja = 6
     if (q == 1):
         print("""                >>> Jesteś w Module Badawczym <<<   
 
@@ -662,11 +665,12 @@ def mod6(q):
         ten zapach. Wdychanie go może spowodować śmierć! 
 
         """)
-    global pozycja
-    pozycja = 6
+
 
 
 def mod7(q):
+    global pozycja
+    pozycja = 7
     if (q == 1):
         print("""                >>> Jesteś w Module Energetycznym  <<<   
 
@@ -683,11 +687,12 @@ def mod7(q):
         sprawdzać... 
 
         """)
-    global pozycja
-    pozycja = 7
+
 
 
 def mod8(q):
+    global pozycja
+    pozycja = 8
     if (q == 1):
         print("""                >>> Jesteś w Module Nawigacyjnym <<<   
 
@@ -703,8 +708,7 @@ def mod8(q):
         ich odblokować.
 
         """)
-    global pozycja
-    pozycja = 8
+
 
 
 #pozycja = 0  # numer pozycji odpowiada pokojowi
@@ -1026,9 +1030,9 @@ def call(Name):
 #kontrola ilości wywołań funkcji dialog()
 number_of_talks = {
     "Dave": 0,
-    "Steve":0,
-    "John":0,
-    "Ann":0
+    "Steve": 0,
+    "John": 0,
+    "Ann": 0
 }
 
 def dialog():
@@ -1120,7 +1124,7 @@ def dialog():
 
 
 def menu():
-
+    global pozycja
     #licznik kontrolny
     licznik = True
     while licznik:
@@ -1148,7 +1152,7 @@ def menu():
                     Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
                     call(Name)
                 elif choice == "4":
-                    if pozycja == (5 or 6 or 7 or 8):
+                    if (pozycja == 5 or pozycja == 6 or pozycja == 7 or pozycja == 8):
                         dialog()
                     else:
                         cls2()
@@ -1192,7 +1196,7 @@ def menu():
                     call(Name)
 
                 elif choice == "4":
-                    if pozycja == (5 or 6 or 7 or 8):
+                    if (pozycja == 5 or pozycja == 6 or pozycja == 7 or pozycja == 8):
                         dialog()
                     else:
                         cls2()
@@ -1285,13 +1289,13 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     cls()
     mod1(q)
 
-    print (załoga)
-    print (osoby)
+    #print (załoga)
+    #print (osoby)
     print (mod["mod_botaniczny"])
     print (mod["mod_badawczy"])
     print (mod["mod_ener"])
     print (mod["mod_nawig"]) # to było do kontroli
-
+    print (mod)
     #alarm()
 
 
