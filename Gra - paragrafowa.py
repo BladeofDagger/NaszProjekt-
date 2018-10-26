@@ -977,9 +977,9 @@ def call(Name):
                 for key in mod:
                     if Name in mod[key]:
                         if number_of_phonecalls[Name] == 0:
-                            print("""                       Ann:  """, Ann_kf[key])
+                            print("""                       Ann:  """, Ann_kf[key][0])
                         else:
-                            print("""                       Ann:  """, Ann_kf[key])
+                            print("""                       Ann:  """, Ann_kf[key][1])
 
                         number_of_phonecalls[Name] += 1
                         cls2()
