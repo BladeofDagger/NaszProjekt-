@@ -1,7 +1,7 @@
 #biblioteki
 from time import sleep
 from random import *
-
+import sys
 
 
 
@@ -29,7 +29,6 @@ on = 0 # 1 dla włączonej latarki, 0 dla wyłączonej
 def cls(): print ("\n" * 40) # poprawka na python 3.7
 
 def cls2(): print ("\n" * 5)
-
 
 def alarm():
     cls()
