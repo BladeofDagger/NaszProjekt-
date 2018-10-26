@@ -444,13 +444,9 @@ Dave_kf = {
 }
 
 
-Dave_dialog = {
-    "mod_badawczy": ["",""],
-    "mod_botaniczny": [""],
-    "mod_ener":[""],
-    "mod_nawig":[""]
 
-    }
+
+
 
 Steve_kf = {
     "mod_badawczy": ["Spoko","Super"],
@@ -460,13 +456,7 @@ Steve_kf = {
 
 }
 
-Steve_dialog = {
-    "mod_badawczy": ["Nic"],
-    "mod_botaniczny": ["Coś tam"],
-    "mod_ener":["Alert"],
-    "mod_nawig":["Mapa"]
 
-}
 
 John_kf = {
     "mod_badawczy": ["Rosół",""],
@@ -476,12 +466,7 @@ John_kf = {
 
 }
 
-John_dialog = {
-    "mod_badawczy": ["Slon",""],
-    "mod_botaniczny": ["Omlet",""],
-    "mod_ener":["garnek",""],
-    "mod_nawig":["rolada",""]
-}
+
 
 Ann_kf= {
     "mod_badawczy": ["super",""],
@@ -490,13 +475,8 @@ Ann_kf= {
     "mod_nawig":["Fajna pogoda",""]
 }
 
-Ann_dialog = {
-    "mod_badawczy": [""],
-    "mod_botaniczny":[""],
-    "mod_ener":[""],
-    "mod_nawig":[""]
 
-}
+
 
 Dialog = {
     "Dave": {
@@ -1046,31 +1026,32 @@ def call(Name):
 
 def dialog():
     global pozycja
+    cls()
 
     if pozycja == 5:
 
         for member in załoga:
             if member in mod["mod_botaniczny"]:
-                print ("""           %s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"]))
+                print ("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
                 cls2()
     elif pozycja == 6:
 
         for member in załoga:
             if member in mod["mod_badawczy"]:
-                print ("""          %s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
+                print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
                 cls2()
     elif pozycja == 7:
 
         for member in załoga:
             if member in mod["mod_ener"]:
-                print ("""          %s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
+                print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
                 cls2()
 
     elif pozycja == 8:
 
         for member in załoga:
             if member in mod["mod_nawig"]:
-                print ("""          %s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
+                print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
                 cls2()
 
 
@@ -1088,76 +1069,138 @@ def menu():
     licznik = True
     while licznik:
         if len(equipment["Kartki"])>0:
-            print("""                  == == == ==  MENU  == == == ==
-    
-                             >> Co chcesz zrobić?
-                      << [1] Idź gdzieś
-                      << [2] Zobacz ekwipunek
-                      << [3] Zadzwoń
-                      << [4] Rozmawiaj
-                      << [5] Czytaj kartki 
-                      << [6] Pokaż zadanie
-                      << [7] Wróć
-                      << [8] Działaj""")
+            if pozycja == (5 or 6 or 7 or 8):
+                print("""                  == == == ==  MENU  == == == ==
+        
+                                 >> Co chcesz zrobić?
+                          << [1] Idź gdzieś
+                          << [2] Zobacz ekwipunek
+                          << [3] Zadzwoń
+                          << [4] Rozmawiaj
+                          << [5] Czytaj kartki 
+                          << [6] Pokaż zadanie
+                          << [7] Wróć
+                          << [8] Działaj""")
 
-            choice = input('                           ')
+                choice = input('                           ')
 
-            if choice == "1":
-                move()
-            elif choice == "2":
-                eq()
-            elif choice == "3":
-                Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-                call(Name)
-            elif choice == "4":
-                dialog()
-            elif choice == "5":
-                view_text()
-            elif choice == "6":
-                quest(q)
-            elif choice == "7":
-                back()
-            elif choice == "8":
-                action()
+                if choice == "1":
+                    move()
+                elif choice == "2":
+                    eq()
+                elif choice == "3":
+                    Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                    call(Name)
+                elif choice == "4":
+                    dialog()
+                elif choice == "5":
+                    view_text()
+                elif choice == "6":
+                    quest(q)
+                elif choice == "7":
+                    back()
+                elif choice == "8":
+                    action()
+                else:
+                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
             else:
-                print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                print("""                  == == == ==  MENU  == == == ==
+
+                                                 >> Co chcesz zrobić?
+                                          << [1] Idź gdzieś
+                                          << [2] Zobacz ekwipunek
+                                          << [3] Zadzwoń
+                                          << [4] Czytaj kartki 
+                                          << [5] Pokaż zadanie
+                                          << [6] Wróć
+                                          << [7] Działaj""")
+
+                choice = input('                           ')
+
+                if choice == "1":
+                    move()
+                elif choice == "2":
+                    eq()
+                elif choice == "3":
+                    Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                    call(Name)
+                elif choice == "4":
+                    view_text()
+                elif choice == "5":
+                    quest(q)
+                elif choice == "6":
+                    back()
+                elif choice == "7":
+                    action()
+                else:
+                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
 
 
 
 
 
         else:
-            print("""                  == == == ==  MENU  == == == ==
-    
-                             >> Co chcesz zrobić?
-                      << [1] Idź gdzieś
-                      << [2] Zobacz ekwipunek
-                      << [3] Zadzwoń
-                      << [4] Rozmawiaj
-                      << [5] Pokaż zadanie
-                      << [6] Wróć
-                      << [7] Działaj""")
+            if pozycja == (5 or 6 or 7 or 8):
+                print("""                  == == == ==  MENU  == == == ==
+        
+                                 >> Co chcesz zrobić?
+                          << [1] Idź gdzieś
+                          << [2] Zobacz ekwipunek
+                          << [3] Zadzwoń
+                          << [4] Rozmawiaj
+                          << [5] Pokaż zadanie
+                          << [6] Wróć
+                          << [7] Działaj""")
 
-            choice = input('                           ')
+                choice = input('                           ')
 
-            if choice == "1":
-                move()
-            elif choice == "2":
-                eq()
-            elif choice == "3":
-                Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-                call(Name)
+                if choice == "1":
+                    move()
+                elif choice == "2":
+                    eq()
+                elif choice == "3":
+                    Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                    call(Name)
 
-            elif choice == "4":
-                dialog()
-            elif choice == "5":
-                quest(q)
-            elif choice == "6":
-                back()
-            elif choice == "7":
-                action()
+                elif choice == "4":
+                    dialog()
+                elif choice == "5":
+                    quest(q)
+                elif choice == "6":
+                    back()
+                elif choice == "7":
+                    action()
+                else:
+                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
             else:
-                print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                print("""                  == == == ==  MENU  == == == ==
+
+                                                 >> Co chcesz zrobić?
+                                          << [1] Idź gdzieś
+                                          << [2] Zobacz ekwipunek
+                                          << [3] Zadzwoń
+                                          << [4] Pokaż zadanie
+                                          << [5] Wróć
+                                          << [6] Działaj""")
+
+                choice = input('                           ')
+
+                if choice == "1":
+                    move()
+                elif choice == "2":
+                    eq()
+                elif choice == "3":
+                    Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                    call(Name)
+                elif choice == "4":
+                    quest(q)
+                elif choice == "5":
+                    back()
+                elif choice == "6":
+                    action()
+                else:
+                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+
 
         #intro()
 
