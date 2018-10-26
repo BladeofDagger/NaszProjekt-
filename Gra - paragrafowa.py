@@ -929,29 +929,57 @@ number_of_phonecalls = {
 
 
 def call(Name):
-
     cls()
-    #funkcja call dla Dave'a
-    if Name == "Dave":
-        for key in mod:
-            if Name in mod[key]:
-                print("""                       Dave: """,  Dave_kf[key] )
-    elif Name == "John":
-        for key in mod:
-            if Name in mod[key]:
-                print("""                       John: """,  John_kf[key] )
-    elif Name == "Steve":
-        for key in mod:
-            if Name in mod[key]:
-                print("""                       Steve: """,  Steve_kf[key] )
-    elif Name == "Ann":
-        for key in mod:
-            if Name in mod[key]:
-                print("""                       Ann:  """,  Ann_kf[key] )
-    cls2()
+    print("""                          Oczekiwanie na połączenie...""")
+    text_animation()
+    sleep(2)
+    cls()
 
+    if Name in załoga:
+        if number_of_phonecalls[Name] < 2:
+            # funkcja call dla Dave'a
+            if Name == "Dave":
+
+                for key in mod:
+                    number_of_phonecalls[Name] += 1
+                    if Name in mod[key]:
+                        print("""                       Dave: """, Dave_kf[key])
+
+                        cls2()
+            elif Name == "John":
+                number_of_phonecalls[Name] += 1
+                for key in mod:
+                    if Name in mod[key]:
+                        print("""                       John: """, John_kf[key])
+
+                        cls2()
+            elif Name == "Steve":
+                number_of_phonecalls[Name] += 1
+                for key in mod:
+                    if Name in mod[key]:
+                        print("""                       Steve: """, Steve_kf[key])
+
+                        cls2()
+            elif Name == "Ann":
+                number_of_phonecalls[Name] += 1
+                for key in mod:
+                    if Name in mod[key]:
+                        print("""                       Ann:  """, Ann_kf[key])
+
+                        cls2()
+        else:
+            print("""                          Nie ma sygnału...""")
+            text_animation()
+            sleep(2)
+            cls()
+
+    else:
+        print('                       Nie ma takiego numeru')
+        cls2()
 
     menu()
+
+
 
 
 
