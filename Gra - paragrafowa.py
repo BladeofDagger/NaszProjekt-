@@ -498,7 +498,7 @@ Ann_dialog = {
 
 }
 
-dialog = {
+Dialog = {
     "Dave": {
     "mod_badawczy": ["Widzę cię"],
     "mod_botaniczny":["Słyszę cię"],
@@ -1045,28 +1045,29 @@ def call(Name):
 
 
 def dialog():
+    global pozycja
 
     if pozycja == 5:
-        gracz_mod["mod_botaniczny"].append(1)
+
         for member in załoga:
             if member in mod["mod_botaniczny"]:
-                print (dialog[member]["mod_botaniczny"])
+                print ("""           %s: %s""" % member, Dialog[str(member)]["mod_botaniczny"])
     elif pozycja == 6:
-        gracz_mod["mod_badawczy"].append(1)
+
         for member in załoga:
             if member in mod["mod_badawczy"]:
-                print ("""          %s: %s""" % member, dialog[member]["mod_badawczy"])
+                print ("""          %s: %s""" % member, Dialog[str(member)]["mod_badawczy"][0])
     elif pozycja == 7:
-        gracz_mod["mod_ener"].append(1)
+
         for member in załoga:
             if member in mod["mod_ener"]:
-                print ("""          %s: %s""" % member, dialog[member]["mod_ener"])
+                print ("""          %s: %s""" % member, Dialog[str(member)]["mod_ener"][0])
 
     elif pozycja == 8:
-        gracz_mod["mod_nawig"].append(1)
+
         for member in załoga:
             if member in mod["mod_nawig"]:
-                print ("""          %s: %s""" % member, dialog[member]["mod_nawig"])
+                print ("""          %s: %s""" % member, Dialog[str(member)]["mod_nawig"][0])
 
     cls2()
     menu()
