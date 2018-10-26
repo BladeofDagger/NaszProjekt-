@@ -507,24 +507,24 @@ dialog = {
 
 },
     "Steve": {
-    "mod_badawczy": [""],
-    "mod_botaniczny":[""],
-    "mod_ener":[""],
-    "mod_nawig":[""]
+    "mod_badawczy": ["Uwielbiam"],
+    "mod_botaniczny":["Marzę"],
+    "mod_ener":["Statek"],
+    "mod_nawig":["Mówię"]
 
 } ,
     "John": {
-    "mod_badawczy": [""],
-    "mod_botaniczny":[""],
-    "mod_ener":[""],
-    "mod_nawig":[""]
+    "mod_badawczy": ["Śpię"],
+    "mod_botaniczny":["Marznę"],
+    "mod_ener":["Konam"],
+    "mod_nawig":["Wstaję"]
 
 } ,
     "Ann": {
-    "mod_badawczy": [""],
-    "mod_botaniczny":[""],
-    "mod_ener":[""],
-    "mod_nawig":[""]
+    "mod_badawczy": ["Latam"],
+    "mod_botaniczny":["Grawitacja"],
+    "mod_ener":["Sustem"],
+    "mod_nawig":["Dialog"]
 
 }
 
@@ -1055,18 +1055,18 @@ def dialog():
         gracz_mod["mod_badawczy"].append(1)
         for member in załoga:
             if member in mod["mod_badawczy"]:
-                print (dialog[member]["mod_badawczy"])
+                print ("""          %s: %s""" % member, dialog[member]["mod_badawczy"])
     elif pozycja == 7:
         gracz_mod["mod_ener"].append(1)
         for member in załoga:
             if member in mod["mod_ener"]:
-                print (dialog[member]["mod_ener"])
+                print ("""          %s: %s""" % member, dialog[member]["mod_ener"])
 
     elif pozycja == 8:
         gracz_mod["mod_nawig"].append(1)
         for member in załoga:
             if member in mod["mod_nawig"]:
-                print (dialog[member]["mod_nawig"])
+                print ("""          %s: %s""" % member, dialog[member]["mod_nawig"])
 
     cls2()
     menu()
