@@ -993,72 +993,81 @@ def dialog():
 
 
 def menu():
+    #licznik kontrolny
+    licznik = True
+    while licznik:
+        if len(equipment["Kartki"])>0:
+            print("""                  == == == ==  MENU  == == == ==
+    
+                             >> Co chcesz zrobić?
+                      << [1] Idź gdzieś
+                      << [2] Zobacz ekwipunek
+                      << [3] Zadzwoń
+                      << [4] Rozmawiaj
+                      << [5] Czytaj kartki 
+                      << [6] Pokaż zadanie
+                      << [7] Wróć
+                      << [8] Działaj""")
 
-    if len(equipment["Kartki"])>0:
-        print("""                  == == == ==  MENU  == == == ==
+            choice = input('                           ')
 
-                         >> Co chcesz zrobić?
-                  << [1] Idź gdzieś
-                  << [2] Zobacz ekwipunek
-                  << [3] Zadzwoń
-                  << [4] Rozmawiaj
-                  << [5] Czytaj kartki 
-                  << [6] Pokaż zadanie
-                  << [7] Wróć
-                  << [8] Działaj""")
-
-        choice = input('                           ')
-
-        if choice == "1":
-            move()
-        elif choice == "2":
-            eq()
-        elif choice == "3":
-            Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-            call(Name)
-        elif choice == "4":
-            dialog()
-        elif choice == "5":
-            view_text()
-        elif choice == "6":
-            quest(q)
-        elif choice == "7":
-            back()
-        elif choice == "8":
-            action()
+            if choice == "1":
+                move()
+            elif choice == "2":
+                eq()
+            elif choice == "3":
+                Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                call(Name)
+            elif choice == "4":
+                dialog()
+            elif choice == "5":
+                view_text()
+            elif choice == "6":
+                quest(q)
+            elif choice == "7":
+                back()
+            elif choice == "8":
+                action()
+            else:
+                print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                choice = input('                           ')
 
 
 
-    else:
-        print("""                  == == == ==  MENU  == == == ==
 
-                         >> Co chcesz zrobić?
-                  << [1] Idź gdzieś
-                  << [2] Zobacz ekwipunek
-                  << [3] Zadzwoń
-                  << [4] Rozmawiaj
-                  << [5] Pokaż zadanie
-                  << [6] Wróć
-                  << [7] Działaj""")
+        else:
+            print("""                  == == == ==  MENU  == == == ==
+    
+                             >> Co chcesz zrobić?
+                      << [1] Idź gdzieś
+                      << [2] Zobacz ekwipunek
+                      << [3] Zadzwoń
+                      << [4] Rozmawiaj
+                      << [5] Pokaż zadanie
+                      << [6] Wróć
+                      << [7] Działaj""")
 
-        choice = input('                           ')
+            choice = input('                           ')
 
-        if choice == "1":
-            move()
-        elif choice == "2":
-            eq()
-        elif choice == "3":
-            Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-            call(Name)
+            if choice == "1":
+                move()
+            elif choice == "2":
+                eq()
+            elif choice == "3":
+                Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                call(Name)
 
-        elif choice == "4":
-            dialog()
-        elif choice == "5":
-            quest(q)
-        elif choice == "6":
-            back()
-        elif choice == "7":
-            action()
+            elif choice == "4":
+                dialog()
+            elif choice == "5":
+                quest(q)
+            elif choice == "6":
+                back()
+            elif choice == "7":
+                action()
+            else:
+                print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                choice = input('                           ')
 
         #intro()
 
