@@ -911,6 +911,21 @@ def eq():
 
         view_text()
 
+def text_animation():
+    animation = "."
+
+    for i in range(19):
+        sleep(0.1)
+        sys.stdout.write("\t" + animation[i % len(animation)])
+        sys.stdout.flush()
+
+#kontroluje ilość wykonanych połączeń dla każdej osoby
+number_of_phonecalls = {
+    "Dave" : 0,
+    "John" : 0,
+    "Steve" : 0,
+    "Ann" : 0
+}
 
 
 def call(Name):
