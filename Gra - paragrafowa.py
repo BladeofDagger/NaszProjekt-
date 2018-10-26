@@ -6,11 +6,11 @@ import sys
 
 
 # zmienne ###########
-bateria = 3
+bateria = 5
 pozycja = 1 #globalnie bez sensu
 
 
-q = 1 #zmienna dla misji
+q = 2 #zmienna dla misji
 
 
 noc = 0 # dla noc == 0 bedzie jasno, dla noc == 1 będzie ciemno i nie będzie nic widać bez latarki
@@ -30,6 +30,37 @@ def cls(): print ("\n" * 40) # poprawka na python 3.7
 
 def cls2(): print ("\n" * 5)
 
+
+def Uwaga():
+    input("""
+                           == == ==  Uwaga  == == ==         
+
+                                 >> Udało się!
+
+
+                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+
+                          """)
+
+
+def gasnie():  # gaśnie światło
+    input("""
+                           == == ==  Uwaga  == == ==         
+
+                               Gaśnie światło!
+                            Zobacz, co się stało!
+
+
+                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+
+                          """)
+
 def alarm():
     cls()
     print("""
@@ -40,6 +71,13 @@ def alarm():
             !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
     """)
     cls2()
+
+def symbol():
+    global on
+    if (on == 1):
+        print("""       
+                                              >> Latarka jest włączona << 
+        """)
 
 def back():
     cls()
@@ -68,16 +106,73 @@ def back():
         mod8(q)
         menu()
 
-def action(): #jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to ona bedzie za to odpowiedzialna
-    print
+
+def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to ona bedzie za to odpowiedzialna
+    global pozycja
+    global q
+    global on
+    cls()
+    if (q == 2 and pozycja == 6):
+        print("""
+                       == == ==  Działaj  == == ==         
+
+                             >> Co chcesz zrobić?
+                      << [1] Posprzątaj niebezpieczną substancję
+                      << [2] Nic
+                      """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == "1":
+            cls()
+            Uwaga()
+            q = 3
+            sleep(2)
+            cls()
+            gasnie()
+            sleep(2)
+            cls()
+            back()
+        elif choice == "2":
+            back()
+
+    elif (q == 3 and pozycja == 7 and on == 1):
+        print("""
+                       == == ==  Działaj  == == ==         
+
+                             >> Co chcesz zrobić?
+                      << [1] Napraw system elektryczny
+                      << [2] Nic
+                      """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == "1":
+            cls()
+            Uwaga()
+            q = 4
+            sleep(2)
+            cls()
+            back()
+        elif choice == "2":
+            back()
+
+    else:
+        print("""
+                       == == ==  Działaj  == == == 
+
+                             >> Brak czynności do wykonania
+                      << [1] Wróć
+
+                              """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == "1":
+            cls()
+            back()
+
 
 def quest(q):
-
     cls()
     if (q == 1):
         print("""
                     == == ==  Misja 1  == == == 
-         
+
          Rozejrzyj się po Kuchni w celu rozpoznania szkód oraz
          oszacuj ilość prowiantu, który Wam pozostał. Następnie
          udaj się do dowódcy.""")
@@ -97,7 +192,7 @@ def quest(q):
         print("""
                     == == ==  Misja 3  == == == 
 
-         COŚ TU BĘDZIE""")
+                    Sprawdź przyczynę ciemności.""")
         cls2()
         menu()
 
@@ -155,30 +250,56 @@ uwaga = input("""!
     """)
 
 
+def flash():  # latarka
+    global bateria
+    global on
 
-def flash(): #latarka
-    print("""
+    if (on == 0):
+        print("""
                    == == ==  LATARKA  == == ==         
-                        
-                         >> Czy chcesz użyć latarkę?
+
+                         >> Czy chcesz włączyć latarkę?
                   << [1] Tak
                   << [2] Nie
                   """)
 
+        choice = input('                           ')
 
-    choice = input('                           ')
-    global on
-    if choice == "1":
-        cls()
-        print(("                 Włączono latarkę. Pozostałe baterie: %s") % bateria)
-        cls2()
+        if choice == "1":
+            cls()
+            print(("                 Włączono latarkę. Pozostałe baterie: %s") % bateria)
+            cls2()
 
-        on = 1
+            on = 1
+            bateria -= 1
 
-    if choice == "2":
-        cls()
+        if choice == "2":
+            cls()
 
-        on = 0
+            on = 0
+
+    elif (on == 1):
+        print("""
+                       == == ==  LATARKA  == == ==         
+
+                             >> Czy chcesz wyłączyć latarkę?
+                      << [1] Tak
+                      << [2] Nie
+                      """)
+
+        choice = input('                           ')
+
+        if choice == "1":
+            cls()
+            print(("                 Wyłączono latarkę. Pozostałe baterie: %s") % bateria)
+            cls2()
+
+            on = 0
+
+        if choice == "2":
+            cls()
+
+            on = 1
 
 
 def mapa(pozycja):
@@ -529,10 +650,12 @@ gracz_mod = {
     "mod_nawig": []
 }
 
+
 def mod1(q):  # Kuchnia
+
     if (q == 1):
         print("""                         >>> Jesteś w Kuchni <<<   
-        
+
         Wszystkie zapasy żywności i wody znajdują się tutaj.
         Nic się nie dzieje.
 
@@ -550,12 +673,14 @@ def mod1(q):  # Kuchnia
         if (on == 0):
             print("""                         >>> Jesteś w Kuchni <<<   
 
-        Ciemność!
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
             """)
         if (on == 1):
             print("""                         >>> Jesteś w Kuchni <<<   
 
-        Światło!
+        Możesz wreszcie się bezpiecznie poruszać. Widzisz
+        poprzewracane meble. Niewiadomo, co się tutaj stało...
 
             """)
     global pozycja
@@ -566,19 +691,33 @@ def mod2(q):
     if (q == 1):
         print("""                >>> Jesteś w Module Wypoczynku <<<   
 
-        Widzisz znajdujące się tutaj łóżka, rzeczy załogi
-        oraz sprzęt rozrywkowy. Wygląda na to, że nic tutaj
-        się nie działo.
+        Załoga spędza tu wolny czas na ćwiczeniach indywidualnych
+        i zespołowych. Różne formy rozrywki pozwalają
+        na odstresowaniu się po cięzkim dniu. 
 
         """)
     elif (q == 2):
         print("""                >>> Jesteś w Module Wypoczynku <<<   
 
-        Widzisz wszechobecny bałagan. Łóżka są poprzesuwane,
-        a rzeczy członków załogi porozrzucane. Ktoś musiał
-        czegoś szukać...
+        Na podłodze leżą małe części zamienne. Sprzęt
+        do ćwiczeń jest uszkodzony, nikt nie powinien go
+        używać w takim stanie...  
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Wypoczynku <<<   
+
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Wypoczynku <<<   
+
+        Możesz wreszcie się bezpiecznie poruszać. Na podłodze
+        leżą małe części zamienne...
+
+            """)
     global pozycja
     pozycja = 2
 
@@ -587,19 +726,33 @@ def mod3(q):
     if (q == 1):
         print("""                >>> Jesteś w Module Serwisowym <<<   
 
-        Załoga spędza tu wolny czas na ćwiczeniach indywidualnych
-        i zespołowych. Różne formy rozrywki pozwalają
-        na odstresowaniu się po cięzkim dniu.     
+        Widzisz znajdujące się tutaj łóżka, rzeczy załogi
+        oraz sprzęt rozrywkowy. Wygląda na to, że nic tutaj
+        się nie działo.   
 
         """)
     elif (q == 2):
         print("""                >>> Jesteś w Module Serwisowym <<<   
 
-        Na podłodze leżą małe części zamienne. Sprzęt
-        do ćwiczeń jest uszkodzony, nikt nie powinien go
-        używać w takim stanie...    
+        Widzisz wszechobecny bałagan. Łóżka są poprzesuwane,
+        a rzeczy członków załogi porozrzucane. Ktoś musiał
+        czegoś szukać...    
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Serwisowym <<<   
+
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Serwisowym <<<   
+
+        Możesz wreszcie się bezpiecznie poruszać. Widzisz
+        poprzesuwane łóżka i porozrzucane rzeczy.
+
+            """)
     global pozycja
     pozycja = 3
 
@@ -615,20 +768,31 @@ def mod4(q):
         """)
     elif (q == 2):
         print("""                >>> Jesteś w Module Łącznikowym <<<   
-        
+
         Zauważyć można liczne uszkodzenia ścian. Co się tutaj
         wydarzyło? Nie wygląda to dobrze. Czujesz intensywny
         zapach, lepiej sprawdzić, skąd on pochodzi.
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Łącznikowym <<<   
+
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Łącznikowym <<< 
+
+        Możesz wreszcie się bezpiecznie poruszać. Niewiadomo,
+        ile wytrzyma bateria, lepiej ją oszczędzać.
+
+            """)
     global pozycja
     pozycja = 4
 
 
 def mod5(q):
-    global pozycja
-    pozycja = 5
-
     if (q == 1):
         print("""                >>> Jesteś w Module Botanicznym <<<   
 
@@ -643,11 +807,29 @@ def mod5(q):
          że rośliny nie zostały uszkodzone. Skąd on może pochodzić?
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Botanicznym <<<   
+
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+        Rośliny bez światła nie są w stanie produkować tlenu,
+        jak najszybciej znajdź przyczynę awarii.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Botanicznym <<< 
+
+        Możesz wreszcie się bezpiecznie poruszać. Niewiadomo,
+        ile wytrzyma bateria, lepiej ją oszczędzać. Rośliny
+        bez światła nie są w stanie produkować tlenu, jak
+        najszybciej znajdź przyczynę awarii.
+
+            """)
+    global pozycja
+    pozycja = 5
 
 
 def mod6(q):
-    global pozycja
-    pozycja = 6
     if (q == 1):
         print("""                >>> Jesteś w Module Badawczym <<<   
 
@@ -665,12 +847,26 @@ def mod6(q):
         ten zapach. Wdychanie go może spowodować śmierć! 
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Badawczym <<<   
 
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Badawczym <<< 
+
+        Możesz wreszcie się bezpiecznie poruszać. Niewiadomo,
+        ile wytrzyma bateria, lepiej ją oszczędzać. Na szczęscie
+        nie ma już śladów siarkowodoru.
+
+            """)
+    global pozycja
+    pozycja = 6
 
 
 def mod7(q):
-    global pozycja
-    pozycja = 7
     if (q == 1):
         print("""                >>> Jesteś w Module Energetycznym  <<<   
 
@@ -687,12 +883,25 @@ def mod7(q):
         sprawdzać... 
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Energetycznym <<<   
 
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Energetycznym <<< 
+
+        Spróbuj naprawić światło. Bez niego, funkcjonowanie
+        będzie niemożliwe!
+
+            """)
+    global pozycja
+    pozycja = 7
 
 
 def mod8(q):
-    global pozycja
-    pozycja = 8
     if (q == 1):
         print("""                >>> Jesteś w Module Nawigacyjnym <<<   
 
@@ -708,46 +917,59 @@ def mod8(q):
         ich odblokować.
 
         """)
+    elif (q == 3):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Nawigacyjnym <<<    
+
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Nawigacyjnym <<<  
+
+        Nic ciekawego tutaj nie ma. Szukaj gdzie indziej.
+
+            """)
+    global pozycja
+    pozycja = 8
 
 
 
 #pozycja = 0  # numer pozycji odpowiada pokojowi
 
 
-
-
 def move():  # funkcja poruszania sie pomiędzy pokojami
 
     cls()
-# jesli jestesmy w kuchni to:
+    # jesli jestesmy w kuchni to:
     if pozycja == 1:
         print("""                 == == == ==  MENU  == == == ==
 
                   << [1] Idź do Modułu Wypoczynku
                   << [2] Wróć
-                  
+
             """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
-            #pozycja = 2
+            # pozycja = 2
             cls()
             mod2(q)
-            menu() # nie ma sensu wywoływać ,,wróć bo sytuacja troche sie komplikuje przy dalszych modulach
+            menu()  # nie ma sensu wywoływać ,,wróć bo sytuacja troche sie komplikuje przy dalszych modulach
         elif choice == "2":
             back()
-# jesli jestesmy w module wypoczynkowym to:
+    # jesli jestesmy w module wypoczynkowym to:
     elif pozycja == 2:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                          << [1] Idź do Modułu Serwisowego
-                          << [2] Idź do Modułu Łącznikowego
-                          << [3] Idź do Kuchni
-                          << [4] Wróć
-                           
+                  << [1] Idź do Modułu Serwisowego
+                  << [2] Idź do Modułu Łącznikowego
+                  << [3] Idź do Kuchni
+                  << [4] Wróć
+
                     """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
-            #pozycja = 2 # pozycję najlepiej przypisac bezposrednio w modulach
+            # pozycja = 2 # pozycję najlepiej przypisac bezposrednio w modulach
             cls()
             mod3(q)
             menu()
@@ -764,11 +986,11 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
     # jesli jestesmy w module serwisowym to:
     elif pozycja == 3:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                                  << [1] Idź do Modułu Wypoczynku
-                                  << [2] Wróć
-                                  
+                  << [1] Idź do Modułu Wypoczynku
+                  << [2] Wróć
+
                             """)
         choice = input('                           ')  # tu mozna dac wroc bo nie ma innej opcji
         if choice == "1":
@@ -779,13 +1001,13 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
             back()
 
     elif pozycja == 4:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                            << [1] Idź do Modułu Botanicznego
-                            << [2] Idź do Modułu Energetycznego
-                            << [3] Idż do Modułu Badawczego
-                            << [4] Idź do Modułu Wypoczynkowego
-                            << [5] Wróć
+                  << [1] Idź do Modułu Botanicznego
+                  << [2] Idź do Modułu Energetycznego
+                  << [3] Idż do Modułu Badawczego
+                  << [4] Idź do Modułu Wypoczynkowego
+                  << [5] Wróć
 
                            """)
         choice = input('                           ')  # przypisuje wybór
@@ -810,25 +1032,25 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
 
     # gdy jestes w module botanicznym lub  w module badawczym lub nawigacyjnym : to
     elif (pozycja == 5):
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                                << [1] Idź do Modułu Łącznikowego
-                                << [2] Wróć
+                  << [1] Idź do Modułu Łącznikowego
+                  << [2] Wróć
 
                                    """)
         choice = input('                           ')
         if choice == "1":
             cls()
-            mod4(q) # mod4!!!!
+            mod4(q)  # mod4!!!!
             menu()
         elif choice == "2":
             back()
 
     elif (pozycja == 6):
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                                        << [1] Idź do Modułu Łącznikowego
-                                        << [2] Wróć
+                  << [1] Idź do Modułu Łącznikowego
+                  << [2] Wróć
 
                                            """)
         choice = input('                           ')
@@ -840,12 +1062,12 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
             back()
 
     elif pozycja == 7:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                            << [1] Idź do Modułu Nawigacyjnego
-                            << [2] Idź do Modułu Łącznikowego
-                            << [3] Wróć
-                                  
+                  << [1] Idź do Modułu Nawigacyjnego
+                  << [2] Idź do Modułu Łącznikowego
+                  << [3] Wróć
+
                             """)
         choice = input('                           ')
         if choice == "1":
@@ -861,16 +1083,16 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
             back()
 
     elif pozycja == 8:
-        print("""         == == == ==  MENU  == == == ==
+        print("""                 == == == ==  MENU  == == == ==
 
-                            << [1] Idź do Modułu Energetycznego
-                            << [2] Wróć
+                  << [1] Idź do Modułu Energetycznego
+                  << [2] Wróć
 
                                            """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
             cls()
-            mod7(q) #mod 7!!!!!!
+            mod7(q)  # mod 7!!!!!!
             menu()
         elif choice == "2":
             back()
@@ -1125,6 +1347,7 @@ def dialog():
 
 def menu():
     global pozycja
+    symbol()
     #licznik kontrolny
     licznik = True
     while licznik:
