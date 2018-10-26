@@ -443,6 +443,7 @@ Dave_kf = {
 
 }
 
+
 Dave_dialog = {
     "mod_badawczy": ["",""],
     "mod_botaniczny": [""],
@@ -497,6 +498,38 @@ Ann_dialog = {
 
 }
 
+dialog = {
+    "Dave": {
+    "mod_badawczy": ["Widzę cię"],
+    "mod_botaniczny":["Słyszę cię"],
+    "mod_ener":["Cieszę się"],
+    "mod_nawig":["Pamiętam cię"]
+
+},
+    "Steve": {
+    "mod_badawczy": [""],
+    "mod_botaniczny":[""],
+    "mod_ener":[""],
+    "mod_nawig":[""]
+
+} ,
+    "John": {
+    "mod_badawczy": [""],
+    "mod_botaniczny":[""],
+    "mod_ener":[""],
+    "mod_nawig":[""]
+
+} ,
+    "Ann": {
+    "mod_badawczy": [""],
+    "mod_botaniczny":[""],
+    "mod_ener":[""],
+    "mod_nawig":[""]
+
+}
+
+}
+
 #dictionary z nazwami modułów i listami, na początku resztę załogi przydzielamy
 # losowo do modułów = zapisujemy na daną listę
 
@@ -508,6 +541,13 @@ mod = {
 
 }
 
+#
+gracz_mod = {
+    "mod_badawczy": [],
+    "mod_botaniczny": [],
+    "mod_ener": [],
+    "mod_nawig": []
+}
 
 def mod1(q):  # Kuchnia
     if (q == 1):
@@ -1005,6 +1045,36 @@ def call(Name):
 
 
 def dialog():
+
+    if pozycja == 5:
+        gracz_mod["mod_botaniczny"].append(1)
+        for member in załoga:
+            if member in mod["mod_botaniczny"]:
+                print (dialog[member]["mod_botaniczny"])
+    elif pozycja == 6:
+        gracz_mod["mod_badawczy"].append(1)
+        for member in załoga:
+            if member in mod["mod_badawczy"]:
+                print (dialog[member]["mod_badawczy"])
+    elif pozycja == 7:
+        gracz_mod["mod_ener"].append(1)
+        for member in załoga:
+            if member in mod["mod_ener"]:
+                print (dialog[member]["mod_ener"])
+
+    elif pozycja == 8:
+        gracz_mod["mod_nawig"].append(1)
+        for member in załoga:
+            if member in mod["mod_nawig"]:
+                print (dialog[member]["mod_nawig"])
+
+    cls2()
+    menu()
+
+
+
+
+
     print  # rozmawia
 
 
