@@ -1030,7 +1030,7 @@ def menu():
                 action()
             else:
                 print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
-                choice = input('                           ')
+
 
 
 
@@ -1067,7 +1067,6 @@ def menu():
                 action()
             else:
                 print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
-                choice = input('                           ')
 
         #intro()
 
