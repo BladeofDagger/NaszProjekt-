@@ -435,65 +435,65 @@ załoga = ["Dave","Steve","John","Ann"]
 # tu będą teksty które mówią poszczególne osoby
 # kf= krótkofalówka
 Dave_kf = {
-    "mod_badawczy": "Super jest!",
-    "mod_botaniczny": "Okej ",
-    "mod_ener":"Wszystko Gra",
-    "mod_nawig":" Suhe"
+    "mod_badawczy": ["Super jest!","Spoko"],
+    "mod_botaniczny": ["Okej","Mega"],
+    "mod_ener":["Wszystko Gra","Ej"],
+    "mod_nawig":["Suhe","Wow"]
 
 
 }
 
 Dave_dialog = {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": ["",""],
+    "mod_botaniczny": [""],
+    "mod_ener":[""],
+    "mod_nawig":[""]
 
     }
 
 Steve_kf = {
-    "mod_badawczy": "Spoko",
-    "mod_botaniczny": "Eureka",
-    "mod_ener":"Dej mi spokój!!!",
-    "mod_nawig":"Won!"
+    "mod_badawczy": ["Spoko","Super"],
+    "mod_botaniczny": ["Eureka",""],
+    "mod_ener":["Dej mi spokój!!!",""],
+    "mod_nawig":["Won!",""]
 
 }
 
 Steve_dialog = {
-    "mod_badawczy": "Nic",
-    "mod_botaniczny": "Coś tam",
-    "mod_ener":"Alert",
-    "mod_nawig":"Mapa"
+    "mod_badawczy": ["Nic"],
+    "mod_botaniczny": ["Coś tam"],
+    "mod_ener":["Alert"],
+    "mod_nawig":["Mapa"]
 
 }
 
 John_kf = {
-    "mod_badawczy": "Rosół",
-    "mod_botaniczny": "Kotlet",
-    "mod_ener":"Ama",
-    "mod_nawig":"Zupa"
+    "mod_badawczy": ["Rosół",""],
+    "mod_botaniczny": ["Kotlet",""],
+    "mod_ener":["Ama",""],
+    "mod_nawig":["Zupa",""]
 
 }
 
 John_dialog = {
-    "mod_badawczy": "Slon",
-    "mod_botaniczny": "Omlet",
-    "mod_ener":"garnek",
-    "mod_nawig":"rolada"
+    "mod_badawczy": ["Slon",""],
+    "mod_botaniczny": ["Omlet",""],
+    "mod_ener":["garnek",""],
+    "mod_nawig":["rolada",""]
 }
 
 Ann_kf= {
-    "mod_badawczy": "super",
-    "mod_botaniczny": "Nie wiem",
-    "mod_ener":"Nie mam ochoty ",
-    "mod_nawig":"Fajna pogoda"
+    "mod_badawczy": ["super",""],
+    "mod_botaniczny": ["Nie wiem",""],
+    "mod_ener":["Nie mam ochoty ",""],
+    "mod_nawig":["Fajna pogoda",""]
 }
 
 Ann_dialog = {
-    "mod_badawczy": "",
-    "mod_botaniczny": "",
-    "mod_ener":"",
-    "mod_nawig":""
+    "mod_badawczy": [""],
+    "mod_botaniczny":[""],
+    "mod_ener":[""],
+    "mod_nawig":[""]
 
 }
 
@@ -941,31 +941,47 @@ def call(Name):
             if Name == "Dave":
 
                 for key in mod:
-                    number_of_phonecalls[Name] += 1
+
                     if Name in mod[key]:
-                        print("""                       Dave: """, Dave_kf[key])
+                        if number_of_phonecalls[Name] == 0:
+                            print("""                       Dave: """, Dave_kf[key][0])
+                        else:
+                            print("""                       Dave: """, Dave_kf[key][1])
+                        number_of_phonecalls[Name] += 1
 
                         cls2()
             elif Name == "John":
-                number_of_phonecalls[Name] += 1
+
                 for key in mod:
                     if Name in mod[key]:
-                        print("""                       John: """, John_kf[key])
+                        if number_of_phonecalls[Name] == 0:
+                            print("""                       John: """, John_kf[key][0])
+                        else:
+                            print("""                       John: """, John_kf[key][1])
+                        number_of_phonecalls[Name] += 1
 
                         cls2()
             elif Name == "Steve":
-                number_of_phonecalls[Name] += 1
+
                 for key in mod:
                     if Name in mod[key]:
-                        print("""                       Steve: """, Steve_kf[key])
+                        if number_of_phonecalls[Name] == 0:
+                            print("""                       Steve: """, Steve_kf[key][0])
+                        else:
+                            print("""                       Steve: """, Steve_kf[key][1])
+                        number_of_phonecalls[Name] += 1
 
                         cls2()
             elif Name == "Ann":
-                number_of_phonecalls[Name] += 1
+
                 for key in mod:
                     if Name in mod[key]:
-                        print("""                       Ann:  """, Ann_kf[key])
+                        if number_of_phonecalls[Name] == 0:
+                            print("""                       Ann:  """, Ann_kf[key])
+                        else:
+                            print("""                       Ann:  """, Ann_kf[key])
 
+                        number_of_phonecalls[Name] += 1
                         cls2()
         else:
             print("""                          Nie ma sygnału...""")
