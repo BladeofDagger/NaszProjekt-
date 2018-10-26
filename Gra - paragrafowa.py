@@ -1052,24 +1052,28 @@ def dialog():
         for member in załoga:
             if member in mod["mod_botaniczny"]:
                 print ("""           %s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"]))
+                cls2()
     elif pozycja == 6:
 
         for member in załoga:
             if member in mod["mod_badawczy"]:
                 print ("""          %s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
+                cls2()
     elif pozycja == 7:
 
         for member in załoga:
             if member in mod["mod_ener"]:
                 print ("""          %s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
+                cls2()
 
     elif pozycja == 8:
 
         for member in załoga:
             if member in mod["mod_nawig"]:
                 print ("""          %s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
+                cls2()
 
-    cls2()
+
     menu()
 
 
