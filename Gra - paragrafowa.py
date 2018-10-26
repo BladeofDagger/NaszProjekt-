@@ -10,7 +10,7 @@ bateria = 5
 pozycja = 1 #globalnie bez sensu
 
 
-q = 2 #zmienna dla misji
+q = 1 #zmienna dla misji
 
 
 noc = 0 # dla noc == 0 bedzie jasno, dla noc == 1 będzie ciemno i nie będzie nic widać bez latarki
@@ -30,15 +30,48 @@ def cls(): print ("\n" * 40) # poprawka na python 3.7
 
 def cls2(): print ("\n" * 5)
 
+def card():
+    input("""
+                        == == ==  Karta  == == ==         
+
+                                     
+                                314159265
+                                     
+                                     
+                        == == ==  == ==  == == ==      
+
+
+                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+
+                              """)
+
 
 def Uwaga():
     input("""
-                           == == ==  Uwaga  == == ==         
+                     == == ==  Uwaga  == == ==         
 
-                                 >> Udało się!
+                          >> Udało się!
 
 
-                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+
+                          """)
+    cls()
+
+def Uwaga1():
+    input("""
+                    == == ==  Uwaga  == == ==         
+
+                    >> Udaj się do Modułu Nawigacyjnego
+
+
+            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
@@ -48,13 +81,13 @@ def Uwaga():
 
 def gasnie():  # gaśnie światło
     input("""
-                           == == ==  Uwaga  == == ==         
+                    == == ==  Uwaga  == == ==         
 
-                               Gaśnie światło!
-                            Zobacz, co się stało!
+                        Gaśnie światło!
+                    Zobacz, co się stało!
 
 
-                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
@@ -69,8 +102,16 @@ def alarm():
             !=!   ! ! !   A  L  A  R  M   ! ! !   !=!
             !=!                                   !=!
             !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
+            
+            
+            
+            
+            
+            
     """)
-    cls2()
+    sleep(2)
+    cls()
+    back()
 
 def symbol():
     global on
@@ -111,8 +152,57 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
     global pozycja
     global q
     global on
+    global ok
     cls()
-    if (q == 2 and pozycja == 6):
+
+    if (q == 1 and pozycja == 1):
+        print("""
+                       == == ==  Działaj  == == ==         
+
+                             >> Co chcesz zrobić?
+                      << [1] Sprawdź zapasy
+                      << [2] Nic
+                      """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == "1":
+            cls()
+            Uwaga1()
+            ok = 1
+            cls()
+            back()
+        elif choice == "2":
+            back()
+    elif (q == 1 and pozycja == 8 and ok == 1):
+        Uwaga()
+        q = 2
+        sleep(2)
+        input("""                >>> Jesteś w Module Nawigacyjnym <<<   
+
+        To tutaj podejmowane są najważniejsze decyzje oraz znajduje
+        się tutaj panel sterowania pojazdem. Z tyłu możesz dostrzec
+        umieszczone kapsuły ewakuacyjne.
+        
+        
+        
+             >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                        
+                                
+        
+                  == == == ==  MENU  == == == ==
+        
+                        >> Co chcesz zrobić?
+                << [1] Idź gdzieś
+                << [2] Zobacz ekwipunek
+                << [3] Zadzwoń
+                << [4] Rozmawiaj
+                << [5] Pokaż zadanie
+                << [6] Wróć
+                << [7] Działaj
+        """)
+        alarm()
+        back()
+
+    elif (q == 2 and pozycja == 6):
         print("""
                        == == ==  Działaj  == == ==         
 
@@ -175,7 +265,7 @@ def quest(q):
 
          Rozejrzyj się po Kuchni w celu rozpoznania szkód oraz
          oszacuj ilość prowiantu, który Wam pozostał. Następnie
-         udaj się do dowódcy.""")
+         udaj się do Modułu Nawigacyjnego.""")
         cls2()
         menu()
 
@@ -913,8 +1003,8 @@ def mod8(q):
     elif (q == 2):
         print("""                >>> Jesteś w Module Nawigacyjnym <<<   
 
-        Kapsuły ewakuacyjne są zablokowane. Bez karty - klucza nie uda Ci się
-        ich odblokować.
+        Kapsuły ewakuacyjne są zablokowane. Bez karty - klucza nie
+        uda Ci się ich odblokować.
 
         """)
     elif (q == 3):
@@ -1355,15 +1445,15 @@ def menu():
 
                 print("""                  == == == ==  MENU  == == == ==
         
-                                 >> Co chcesz zrobić?
-                          << [1] Idź gdzieś
-                          << [2] Zobacz ekwipunek
-                          << [3] Zadzwoń
-                          << [4] Rozmawiaj
-                          << [5] Czytaj kartki 
-                          << [6] Pokaż zadanie
-                          << [7] Wróć
-                          << [8] Działaj""")
+                        >> Co chcesz zrobić?
+                << [1] Idź gdzieś
+                << [2] Zobacz ekwipunek
+                << [3] Zadzwoń
+                << [4] Rozmawiaj
+                << [5] Czytaj kartki 
+                << [6] Pokaż zadanie
+                << [7] Wróć
+                << [8] Działaj""")
 
                 choice = input('                           ')
 
@@ -1399,14 +1489,14 @@ def menu():
 
                 print("""                  == == == ==  MENU  == == == ==
         
-                                 >> Co chcesz zrobić?
-                          << [1] Idź gdzieś
-                          << [2] Zobacz ekwipunek
-                          << [3] Zadzwoń
-                          << [4] Rozmawiaj
-                          << [5] Pokaż zadanie
-                          << [6] Wróć
-                          << [7] Działaj""")
+                        >> Co chcesz zrobić?
+                << [1] Idź gdzieś
+                << [2] Zobacz ekwipunek
+                << [3] Zadzwoń
+                << [4] Rozmawiaj
+                << [5] Pokaż zadanie
+                << [6] Wróć
+                << [7] Działaj""")
 
                 choice = input('                           ')
 
