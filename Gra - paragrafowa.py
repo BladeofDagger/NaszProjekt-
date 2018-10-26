@@ -480,31 +480,31 @@ Ann_kf= {
 
 Dialog = {
     "Dave": {
-    "mod_badawczy": ["Widzę cię"],
-    "mod_botaniczny":["Słyszę cię"],
-    "mod_ener":["Cieszę się"],
-    "mod_nawig":["Pamiętam cię"]
+    "mod_badawczy": ["Widzę cię",""],
+    "mod_botaniczny":["Słyszę cię",""],
+    "mod_ener":["Cieszę się",""],
+    "mod_nawig":["Pamiętam cię",""]
 
 },
     "Steve": {
-    "mod_badawczy": ["Uwielbiam"],
-    "mod_botaniczny":["Marzę"],
-    "mod_ener":["Statek"],
-    "mod_nawig":["Mówię"]
+    "mod_badawczy": ["Uwielbiam",""],
+    "mod_botaniczny":["Marzę",""],
+    "mod_ener":["Statek",""],
+    "mod_nawig":["Mówię",""]
 
 } ,
     "John": {
-    "mod_badawczy": ["Śpię"],
-    "mod_botaniczny":["Marznę"],
-    "mod_ener":["Konam"],
-    "mod_nawig":["Wstaję"]
+    "mod_badawczy": ["Śpię",""],
+    "mod_botaniczny":["Marznę",""],
+    "mod_ener":["Konam",""],
+    "mod_nawig":["Wstaję",""]
 
 } ,
     "Ann": {
-    "mod_badawczy": ["Latam"],
-    "mod_botaniczny":["Grawitacja"],
-    "mod_ener":["Sustem"],
-    "mod_nawig":["Dialog"]
+    "mod_badawczy": ["Latam",""],
+    "mod_botaniczny":["Grawitacja",""],
+    "mod_ener":["Sustem",""],
+    "mod_nawig":["Dialog",""]
 
 }
 
@@ -1040,9 +1040,15 @@ def dialog():
         for member in załoga:
             if member in mod["mod_botaniczny"]:
                 if number_of_talks[member]<2:
-                    print ("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
-                    number_of_talks[member] += 1
-                    cls2()
+                    if number_of_talks[member] == 0:
+                        print ("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
+                        number_of_talks[member] += 1
+                        cls2()
+                    else:
+                        print("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][1]))
+                        number_of_talks[member] += 1
+                        cls2()
+
                 else:
                     print ("""           >>>%s nie jest już w nastroju na rozmowę...<<<""" % (member))
                     cls2()
@@ -1051,9 +1057,15 @@ def dialog():
         for member in załoga:
             if member in mod["mod_badawczy"]:
                 if number_of_talks[member]<2:
-                    print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
-                    number_of_talks[member] += 1
-                    cls2()
+                    if number_of_talks[member] == 0:
+                        print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
+                        number_of_talks[member] += 1
+                        cls2()
+                    else:
+                        print("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][1]))
+                        number_of_talks[member] += 1
+                        cls2()
+
                 else:
                     print("""           >>>%s chce skupić się na swojej pracy...Nie przeszkadzaj!<<<""" % (member))
                     cls2()
@@ -1063,9 +1075,15 @@ def dialog():
         for member in załoga:
             if member in mod["mod_ener"]:
                 if number_of_talks[member]<2:
-                    print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
-                    number_of_talks[member] += 1
-                    cls2()
+                    if number_of_talks[member] == 0:
+                        print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
+                        number_of_talks[member] += 1
+                        cls2()
+                    else:
+                        print("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][1]))
+                        number_of_talks[member] += 1
+                        cls2()
+
                 else:
                     print("""           >>>Sytuacja jest coraz bardziej napięta.
                                     %s wydaje się mieć już dosyć twojego towarzystwa...<<<""" % (member))
@@ -1077,9 +1095,15 @@ def dialog():
         for member in załoga:
             if member in mod["mod_nawig"]:
                 if number_of_talks[member]<2:
-                    print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
-                    number_of_talks[member] += 1
-                    cls2()
+                    if number_of_talks[member] == 0:
+                        print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
+                        number_of_talks[member] += 1
+                        cls2()
+                    else:
+                        print("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][1]))
+                        number_of_talks[member] += 1
+                        cls2()
+
                 else:
                     print("""           >>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
                     cls2()
