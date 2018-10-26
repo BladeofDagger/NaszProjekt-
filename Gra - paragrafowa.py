@@ -30,6 +30,7 @@ def cls(): print ("\n" * 40) # poprawka na python 3.7
 
 def cls2(): print ("\n" * 5)
 
+
 def alarm():
     cls()
     print("""
