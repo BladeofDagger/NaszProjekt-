@@ -1023,6 +1023,13 @@ def call(Name):
 
     print  # dzwoni
 
+#kontrola ilości wywołań funkcji dialog()
+number_of_talks = {
+    "Dave": 0,
+    "Steve":0,
+    "John":0,
+    "Ann":0
+}
 
 def dialog():
     global pozycja
@@ -1032,27 +1039,51 @@ def dialog():
 
         for member in załoga:
             if member in mod["mod_botaniczny"]:
-                print ("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
-                cls2()
+                if number_of_talks[member]<2:
+                    print ("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
+                    number_of_talks[member] += 1
+                    cls2()
+                else:
+                    print ("""           >>>%s nie jest już w nastroju na rozmowę...<<<""" % (member))
+                    cls2()
     elif pozycja == 6:
 
         for member in załoga:
             if member in mod["mod_badawczy"]:
-                print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
-                cls2()
+                if number_of_talks[member]<2:
+                    print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
+                    number_of_talks[member] += 1
+                    cls2()
+                else:
+                    print("""           >>>%s chce skupić się na swojej pracy...Nie przeszkadzaj!<<<""" % (member))
+                    cls2()
+
     elif pozycja == 7:
 
         for member in załoga:
             if member in mod["mod_ener"]:
-                print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
-                cls2()
+                if number_of_talks[member]<2:
+                    print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
+                    number_of_talks[member] += 1
+                    cls2()
+                else:
+                    print("""           >>>Sytuacja jest coraz bardziej napięta.
+                                    %s wydaje się mieć już dosyć twojego towarzystwa...<<<""" % (member))
+                    cls2()
+
 
     elif pozycja == 8:
 
         for member in załoga:
             if member in mod["mod_nawig"]:
-                print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
-                cls2()
+                if number_of_talks[member]<2:
+                    print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
+                    number_of_talks[member] += 1
+                    cls2()
+                else:
+                    print("""           >>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
+                    cls2()
+
 
 
     menu()
