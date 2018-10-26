@@ -190,7 +190,7 @@ def mapa(pozycja):
 
                  # # # # # # # # # # # # # # # #
                  #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Spoczynkowy
+                 #         #         #         #  2. Moduł Wypoczynkowy
                  #         |         |   [X]   #  3. Moduł Serwisowy
                  #         #         #         #  4. Moduł Łącznikowy
                  #         #         #         #  5. Moduł Botaniczny
@@ -219,7 +219,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #         |   [X]   |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
@@ -248,7 +248,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #   [X]   |         |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
@@ -277,7 +277,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #         |         |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
@@ -306,7 +306,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #         |         |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
@@ -335,7 +335,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #         |         |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
@@ -364,7 +364,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #         |         |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
@@ -393,7 +393,7 @@ def mapa(pozycja):
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
-                         #         #         #         #  2. Moduł Spoczynkowy
+                         #         #         #         #  2. Moduł Wypoczynkowy
                          #         |         |         #  3. Moduł Serwisowy
                          #         #         #         #  4. Moduł Łącznikowy
                          #         #         #         #  5. Moduł Botaniczny
