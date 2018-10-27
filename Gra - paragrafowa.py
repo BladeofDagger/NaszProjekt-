@@ -78,6 +78,11 @@ def symbol():
         print("""       
                                               >> Latarka jest włączona << 
         """)
+    for key in gracz_mod:
+        if pozycja == gracz_mod[key]:
+            if len(kartki_slender[key]) > 0:
+                print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
 
 def back():
     cls()
@@ -216,7 +221,7 @@ def quest(q):
 
          COŚ TU BĘDZIE""")
         cls2()
-        menu()
+
 
 
 def Test():
@@ -842,8 +847,7 @@ def mod4(q):
         ile wytrzyma bateria, lepiej ją oszczędzać.
 
             """)
-    elif len(kartki_slender["mod_łącznikowy"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
     global pozycja
     pozycja = 4
 
@@ -881,8 +885,7 @@ def mod5(q):
         najszybciej znajdź przyczynę awarii.
 
             """)
-    elif len(kartki_slender["mod_botaniczny"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
     global pozycja
     pozycja = 5
 
@@ -920,8 +923,7 @@ def mod6(q):
         nie ma już śladów siarkowodoru.
 
             """)
-    elif len(kartki_slender["mod_badawczy"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
     global pozycja
     pozycja = 6
 
@@ -957,8 +959,7 @@ def mod7(q):
         będzie niemożliwe!
 
             """)
-    elif len(kartki_slender["mod_ener"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
     global pozycja
     pozycja = 7
 
@@ -992,8 +993,7 @@ def mod8(q):
         Nic ciekawego tutaj nie ma. Szukaj gdzie indziej.
 
             """)
-    elif len(kartki_slender["mod_nawig"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
     global pozycja
     pozycja = 8
 
