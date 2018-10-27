@@ -8,7 +8,7 @@ import sys
 # zmienne ###########
 bateria = 5
 pozycja = 1 #globalnie bez sensu
-
+name = ""
 
 q = 1 #zmienna dla misji
 
@@ -549,10 +549,12 @@ equipment = {
 
 # pusta lista przygotowana na ofiary Slendera ;)
 dead = []
-alive =[]
+
 # nasz gracz zawsze będzie ostatnim elementem listy więc załoga[4]
 załoga = ["Dave","Steve","John","Ann"]
-osoby = załoga[0:4]
+osoby = załoga[0:4] # = alive
+#pomocnicza lista do funkcji slender()
+miejsca = ["mod_kuchenny","mod_serwisowy","mod_wypoczynkowy","mod_łącznikowy","mod_badawczy","mod_botaniczny","mod_ener","mod_nawig"]
 # tu będą teksty które mówią poszczególne osoby
 # kf= krótkofalówka
 Dave_kf = {
@@ -1361,6 +1363,38 @@ def dialog():
 
 def slender():
     sleep(5)
+    shuffle(miejsca)
+    index = randint(0,8)
+    slender_mod[miejsca[index]].append("Slender")
+    for key in mod:
+        if key == slender_mod[miejsca[index]]: #sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+            if len(mod[key]) > 0:
+                print ("""            >>>%s dzwoni!""" % (mod[key][0]))
+                sleep(2)
+                print ("""   == == ==  KRÓTKOFALÓWKA  == == ==         
+
+                         >> Czy chcesz odebrać?
+                  << [1] Tak
+                  << [2] Nie
+                  """)
+                while True:
+                    choice = input('            ')
+                    if choice == 1:
+                        print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
+                        sleep(2)
+                        print("""           Brak sygnału...""")
+                        text_animation()
+                    elif choice == 2:
+                        print ("""          >>>Połączenie zostało odrzucone.<<<""")
+                    else:
+                        print ("Nie ma takiej opcji. Spróbuj jeszcze raz.")
+
+                dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
+                mod[key].clear() # czyści listę przypisaną do miejsca czyli dana osoba znika
+            else:
+                
+
+
 
 
 def menu():
@@ -1474,6 +1508,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
 
     cls2()
+    global name
     name = input("""Podaj swoje imię: 
     
     
