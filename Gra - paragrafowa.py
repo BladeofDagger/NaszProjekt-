@@ -2,7 +2,7 @@
 from time import sleep
 from random import *
 import sys
-
+import threading
 
 
 # zmienne ###########
