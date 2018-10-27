@@ -199,6 +199,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
     global q
     global on
     global ok
+    ok = 0
     cls()
     for key in gracz_mod:
         if (pozycja == gracz_mod[key] and len(kartki_slender[key])>0):
@@ -714,10 +715,10 @@ miejsca = ["mod_kuchenny","mod_serwisowy","mod_wypoczynkowy","mod_łącznikowy",
 # tu będą teksty które mówią poszczególne osoby
 # kf= krótkofalówka
 Dave_kf = {
-    "mod_badawczy": ["Super jest!","Spoko"],
-    "mod_botaniczny": ["Okej","Mega"],
-    "mod_ener":["Wszystko Gra","Ej"],
-    "mod_nawig":["Suhe","Wow"]
+    "mod_badawczy": ["Sprzęt w porządku. Muszę zabezpieczyć próbki","Jeszcze wiele pracy przed nami..."],
+    "mod_botaniczny": ["Zająłem się oksygenatorem. Na razie działają systemy awaryjne.","Jest dobrze.Odbiór."],
+    "mod_ener":["Silniki manewrowe doznały uszkodzeń.","Stabilizatory w normie."],
+    "mod_nawig":["Karta do strefy ewakuacyjnej została w module serwisowym.","Przechodzimy na sterowanie ręczne. Nasz kod to 2436"]
 
 
 }
@@ -728,30 +729,30 @@ Dave_kf = {
 
 
 Steve_kf = {
-    "mod_badawczy": ["Spoko","Super"],
-    "mod_botaniczny": ["Eureka",""],
-    "mod_ener":["Dej mi spokój!!!",""],
-    "mod_nawig":["Won!",""]
+    "mod_badawczy": ["Wszystkie dane są bezpieczne!","Kontynuuję analizę..."],
+    "mod_botaniczny": ["Rośliny w porządku. Trzeba zająć się zasilaniem.","Wszystkie urządzenia są sprawne"],
+    "mod_ener":["Mamy tu poważny wyciek chłodziwa...","Możliwy czasowy zanik zasilania..."],
+    "mod_nawig":["Nie można nawiązać kontaktu ze stacją...","Spróbuję nadać sygnał. Hasło do terminala to: 3452"]
 
 }
 
 
 
 John_kf = {
-    "mod_badawczy": ["Rosół",""],
-    "mod_botaniczny": ["Kotlet",""],
-    "mod_ener":["Ama",""],
-    "mod_nawig":["Zupa",""]
+    "mod_badawczy": ["Zawsze to samo...ale bałagan! To przez te turbulencje...","Nadgodziny nas wykończą..."],
+    "mod_botaniczny": ["System dostarczania wody sprawny.","To nie tu tkwi problem. Trzeba się rozejrzeć."],
+    "mod_ener":["Włączyłem dodatkowe osłony.","Wyrwanie się z tego pola grawitacyjnego to będzie nie lada wyzwanie"],
+    "mod_nawig":["Staram się namierzyć sygnał...","Intercom zaciął się, ale zdążył zarejestrować współrzędne: 24.67.89"]
 
 }
 
 
 
 Ann_kf= {
-    "mod_badawczy": ["super",""],
-    "mod_botaniczny": ["Nie wiem",""],
-    "mod_ener":["Nie mam ochoty ",""],
-    "mod_nawig":["Fajna pogoda",""]
+    "mod_badawczy": ["Ta planeta wydaje się żyć własnym życiem. Musisz zobaczyć te odczyty!","To wszystko jest niepokojące..."],
+    "mod_botaniczny": ["Plantacja dobrze funkcjonuje. Odbiór!","Wszystko jest w porządku."],
+    "mod_ener":["Silniki są uszkodzone.","Napęd nadświetlny nie działa."],
+    "mod_nawig":["Nie mogę nawiązać łączności! Jesteśmy zdani sami na siebie.","Intercom nadal nie działa. Potrzebuję pomocy."]
 }
 
 
@@ -759,31 +760,31 @@ Ann_kf= {
 
 Dialog = {
     "Dave": {
-    "mod_badawczy":["Widzę cię",""],
-    "mod_botaniczny":["Słyszę cię",""],
-    "mod_ener":["Cieszę się",""],
-    "mod_nawig":["Pamiętam cię",""]
+    "mod_badawczy":["Podobno w bazie Intercomu pojawiły się jakieś współrzędne..","To było: 24.67..Musisz zapytać reszty. Teraz nie mam do tego głowy."],
+    "mod_botaniczny":["Powtarzam hasło do terminala: 3452","Dużo pracy przede mną, trzeba tutaj uważać..."],
+    "mod_ener":["Co raz częściej są jakieś awarie!","Zapamiętaj kod: 2436 i zejdź mi z oczu..."],
+    "mod_nawig":["Obowiązki wzywają!","Chciałbym już wrócić do domu..."]
 
 },
     "Steve": {
-    "mod_badawczy":["Uwielbiam",""],
-    "mod_botaniczny":["Marzę",""],
-    "mod_ener":["Statek",""],
-    "mod_nawig":["Mówię",""]
+    "mod_badawczy":["Jakby co, to karta pokładowa leży u mnie na łóżku.","Mam dużo pracy!"],
+    "mod_botaniczny":["Te rośliny są cudowne!","Jestem głodny..."],
+    "mod_ener":["Ta maszyna ciągle się psuje!","Nie mam już siły."],
+    "mod_nawig":["Na ekranie wyświetlają się współrzędne: 24.67.89. Nie wiem co to..","Może Dave jest lepiej zorientowany"]
 
 } ,
     "John": {
-    "mod_badawczy":["Śpię",""],
-    "mod_botaniczny":["Marznę",""],
-    "mod_ener":["Konam",""],
-    "mod_nawig":["Wstaję",""]
+    "mod_badawczy":["Nie mogę sobie przypomnieć hasła do terminala..","Tak! To było 3452."],
+    "mod_botaniczny":["Tu jest tak pięknie!","Boję się ciemności"],
+    "mod_ener":["Zająłem się usterkami.","Muszę się skupić!"],
+    "mod_nawig":["Kapsuły ewakuacyjne są zablokowane.","Karta podobno została w module serwisowym..."]
 
 } ,
     "Ann": {
-    "mod_badawczy":["Latam",""],
-    "mod_botaniczny":["Grawitacja",""],
-    "mod_ener":["Sustem",""],
-    "mod_nawig":["Dialog",""]
+    "mod_badawczy":["Trochę tu bałaganu...","Już padam z sił."],
+    "mod_botaniczny":["Poszłabym coś przekąsić!","Zajmiesz się tymi roślinami?"],
+    "mod_ener":["System sztucznej grawitacji działa w trybie awaryjnym.","Jesteśmy na sterowaniu ręcznym.Jaki był kod?"],
+    "mod_nawig":["Mam już dość tego kosmosu!","Zapamiętaj hasło do terminala: 3452"]
 
 }
 
@@ -1340,11 +1341,10 @@ def eq():
     else:
         print("""                   == == == EKWIPUNEK == == ==
 
-                  << [1] Latarka : poziom baterii %d
-                  << [2] Mapa
-                  << [3] Krótkofalówka
-                  << [4] Kartki : %s """ % bateria, equipment["Kartki"])
-        print("                  << [5] Wróć")
+                          << [1] Latarka : poziom baterii %d
+                          << [2] Krótkofalówka
+                          << [3] Kartki : %s """ % (bateria, len(equipment["Kartki"])))
+        print("                  << [4] Wróć")
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
             for i in range(1, 8):
@@ -1353,24 +1353,16 @@ def eq():
                     mapa(i)
                     menu()
         elif (choice == "1"):
-                    cls()
-                    flash()
-                    menu()
-        elif (choice == "3"):
             cls()
-            print("""                    == == == KRÓTKOFALÓWKA == == ==
-
-                          << Aby zadzwonić do kogoś,
-                             użyj opcji z menu
-
-                """)
-        elif (choice == "4"):
+            flash()
+            menu()
+        elif (choice == "3"):
             # wyświetla tekst kartek:
 
             view_text()
 
-        elif (choice == "5"):
-                    back()
+        elif (choice == "4"):
+            back()
 
 
 
