@@ -1397,19 +1397,19 @@ def wez_kartke():
                                         [1] Tak
                                         [2] Nie
                     """)
-    choice = input("     ")
-    if choice == 1:
+    choice = input("                            ")
+    if choice == "1":
         for key in kartki_slender:
             if  pozycja == gracz_mod[key]:
 
                 print ("".join(kartki_slender[key]))
                 print ("""          >>>Czy chcesz zachować kartkę?<<<
-                                        [1] Tak
-                                        [2] Nie
+                                        [a] Tak
+                                        [b] Nie
                                         
                 """)
-                Choice = input(' ')
-                if Choice == 1:
+                Choice = input('                                ')
+                if Choice == "a":
                     equipment["Kartki"].append(kartki_slender[key])
                     kartki_slender[key].clear()
                     print ("""          >>>Zachowałeś kartkę<<<""")
@@ -1430,40 +1430,40 @@ def wez_kartke():
 def slender1():
     sleep(5)
     shuffle(miejsca)
-    index = randint(0,8)
+    index = randint(0,7)
     slender_mod[miejsca[index]].append("Slender")
-    for key in mod:
-        if key == slender_mod[miejsca[index]]: #sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
-            if len(mod[key]) > 0:
-                print ("""            >>>%s dzwoni!""" % (mod[key][0]))
-                sleep(2)
-                print("""   == == ==  KRÓTKOFALÓWKA  == == ==         
-
-                                             >> Czy chcesz odebrać?
-                                      << [1] Tak
-                                      << [2] Nie
-                                      """)
-
-                choice = input('            ')
-                if choice == 1:
-                    print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
+    if miejsca[index] in mod: # jeśli dane pomieszczenie jest w słowniku mod z załogą
+        for key in mod:
+            if key == miejsca[index]: #sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                if len(mod[key]) > 0:
+                    print ("""            >>>%s dzwoni!""" % (mod[key][0]))
+                    cls2()
                     sleep(2)
-                    print("""           Brak sygnału...""")
-                    text_animation()
-                elif choice == 2:
-                    print("""          >>>Połączenie zostało odrzucone.<<<""")
-                else:
-                    print ("""      >>>Nie udało się odebrać połączenia.<<<""")
+                    print("""   == == ==  KRÓTKOFALÓWKA  == == ==         
+    
+                                    >> Czy chcesz odebrać?
+                                << [a] Tak
+                                << [b] Nie
+                                          """)
+
+                    choice = input('                                        ')
+                    if choice == "a":
+                        print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
+                        sleep(2)
+                        print("""           Brak sygnału...""")
+                        text_animation()
+                    elif choice == "b":
+                        print("""          >>>Połączenie zostało odrzucone.<<<""")
+                    else:
+                        print ("""      >>>Nie udało się odebrać połączenia.<<<""")
 
 
-                kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
-                dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
-                mod[key].clear() # czyści listę przypisaną do miejsca czyli dana osoba znika
-            else:
-                kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
-        else:
-            kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
-            # edycja funkcji call
+                    kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
+                    dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
+                    mod[key].clear() # czyści listę przypisaną do miejsca czyli dana osoba znika
+
+    else: # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
+        kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
             # jeśli pojawi się kartka to weź kartkę
             # cyfy to współrzędne środka planety = mają w pewnym sensie
             # zmylić gracza gdy bedzie musial pod koniec wpisac wspolrzedne
@@ -1517,8 +1517,8 @@ def menu():
                     back()
                 elif choice == "8":
                     action()
-                else:
-                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                #else:
+                    #print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
 
 
 
@@ -1562,9 +1562,12 @@ def menu():
                     back()
                 elif choice == "7":
                     action()
-                else:
-                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                #else:
+                    #print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
 
+
+#threads
+thread1 = threading.Thread( target = slender1)
 
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
@@ -1635,7 +1638,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     # przypisanie reszty załogi do innych modułów
     osoby = załoga[0:4]
     shuffle(osoby)  # za każdym razem będą mieć inne indeksy na liście osoby
-
+    global mod
     i = 0
     for key in mod:
         if len(mod[key]) == 0:
@@ -1643,13 +1646,20 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
             i += 1
     cls()
     mod1(q)
+
     print (slender_mod)
     print (kartki_slender)
     print (mod)
-    #alarm()
-
-
+    cls2()
+    #threads
+    thread1.start()
+    thread1.join()
+    print(slender_mod)
+    print(kartki_slender)
+    print(mod)
     menu()
+
+
 
 
 
