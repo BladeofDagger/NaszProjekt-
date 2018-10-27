@@ -1400,8 +1400,24 @@ def wez_kartke():
     choice = input("     ")
     if choice == 1:
         for key in kartki_slender:
-            if key == gracz
-        print ("".join(kartki_slender[gracz_mod[key]]))
+            if  pozycja == gracz_mod[key]:
+
+                print ("".join(kartki_slender[key]))
+                print ("""          >>>Czy chcesz zachować kartkę?<<<
+                                        [1] Tak
+                                        [2] Nie
+                                        
+                """)
+                Choice = input(' ')
+                if Choice == 1:
+                    equipment["Kartki"].append(kartki_slender[key])
+                    kartki_slender[key].clear()
+                    print ("""          >>>Zachowałeś kartkę<<<""")
+                else:
+                    print (""">>Nie zachowałeś kartki<<<""")
+                    #mozna kiedys dodac opcje zeby po nia wrocic
+    else:
+        print ("""              >>>To pewnie nic ważnego...""")
 
 
 
