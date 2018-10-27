@@ -51,6 +51,85 @@ def card():
 
                               """)
 
+
+def escape():
+    cls()
+    if (len(equipment["Karta pokładowa"]) > 0):
+        input("""       
+                     == == ==  UWAGA  == == ==         
+
+                        Wpisz współrzędne:
+
+            """)
+        if (choice == "24.67.89"):
+            cls()
+            input("""       
+                     == == ==  UWAGA  == == ==         
+
+                            Wpisz kod:
+
+                """)
+            if (choice == "2436"):
+                    cls()
+                    input("""       
+                     == == ==  UWAGA  == == ==         
+
+                            Wpisz hasło:
+
+                            """)
+                    if (choice == "3452"):
+                            cls()
+                            print("""
+                     == == ==  UWAGA  == == ==                              
+                            
+                Możesz udać się do kapsuły ratunkowej
+                i opuścić statek!
+                            
+                            """)
+                            sleep(3)
+                            cls()
+                            win()
+
+                    else:
+                        cls()
+                        print("""
+                     == == ==  UWAGA  == == ==         
+
+                            Złe hasło!
+                                    """)
+                        back()
+            else:
+                cls()
+                print("""
+                     == == ==  UWAGA  == == ==         
+
+                            Zły kod!
+                                    """)
+                back()
+
+        elif (choice == "23.74.85"):
+            cls()
+            lose()
+
+        else:
+            cls()
+            print("""
+                     == == ==  UWAGA  == == ==         
+
+                            Złe współrzędne!
+                    """)
+            back()
+    else:
+        cls()
+        print("""
+                     == == ==  UWAGA  == == ==         
+
+                        Nie masz karty!
+        """)
+        back()
+
+
+
 def Uwaga():
     input("""
                      == == ==  UWAGA  == == ==         
@@ -176,6 +255,8 @@ def back():
     if (pozycja == 8):
         mod8(q)
         menu()
+
+
 
 
 def minigra():
