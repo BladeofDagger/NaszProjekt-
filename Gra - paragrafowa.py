@@ -3,7 +3,7 @@ from time import sleep
 from random import *
 import sys
 import threading
-
+lock = threading.lock() # do blokowania
 
 # zmienne ###########
 bateria = 5
@@ -1428,6 +1428,7 @@ def wez_kartke():
 
 
 def slender1():
+    thread2.start()
     sleep(5)
     shuffle(miejsca)
     index = randint(0,7)
@@ -1439,6 +1440,7 @@ def slender1():
                     print ("""            >>>%s dzwoni!""" % (mod[key][0]))
                     cls2()
                     sleep(2)
+
                     print("""   == == ==  KRÓTKOFALÓWKA  == == ==         
     
                                     >> Czy chcesz odebrać?
@@ -1446,7 +1448,7 @@ def slender1():
                                 << [b] Nie
                                           """)
 
-                    choice = input('                                        ')
+                    choice = input('                ')
                     if choice == "a":
                         print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
                         sleep(2)
@@ -1455,12 +1457,13 @@ def slender1():
                     elif choice == "b":
                         print("""          >>>Połączenie zostało odrzucone.<<<""")
                     else:
-                        print ("""      >>>Nie udało się odebrać połączenia.<<<""")
-
+                        print("""      >>>Nie udało się odebrać połączenia.<<<""")
 
                     kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
-                    dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
-                    mod[key].clear() # czyści listę przypisaną do miejsca czyli dana osoba znika
+                    dead.append(mod[key][0])  # dana osoba przenosi się do dead # edycja funkcji call potrzebna
+                    mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
+
+
 
     else: # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
         kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
@@ -1479,16 +1482,16 @@ def menu():
         if len(equipment["Kartki"])>0:
 
                 print("""                  == == == ==  MENU  == == == ==
-        
-                                 >> Co chcesz zrobić?
-                          << [1] Idź gdzieś
-                          << [2] Zobacz ekwipunek
-                          << [3] Zadzwoń
-                          << [4] Rozmawiaj
-                          << [5] Czytaj kartki 
-                          << [6] Pokaż zadanie
-                          << [7] Wróć
-                          << [8] Działaj""")
+            
+                                     >> Co chcesz zrobić?
+                              << [1] Idź gdzieś
+                              << [2] Zobacz ekwipunek
+                              << [3] Zadzwoń
+                              << [4] Rozmawiaj
+                              << [5] Czytaj kartki 
+                              << [6] Pokaż zadanie
+                              << [7] Wróć
+                              << [8] Działaj""")
 
                 choice = input('                           ')
 
@@ -1517,8 +1520,10 @@ def menu():
                     back()
                 elif choice == "8":
                     action()
-                #else:
-                    #print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                else:
+                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+
+
 
 
 
@@ -1526,22 +1531,22 @@ def menu():
         else:
 
                 print("""                  == == == ==  MENU  == == == ==
-        
-                                 >> Co chcesz zrobić?
-                          << [1] Idź gdzieś
-                          << [2] Zobacz ekwipunek
-                          << [3] Zadzwoń
-                          << [4] Rozmawiaj
-                          << [5] Pokaż zadanie
-                          << [6] Wróć
-                          << [7] Działaj""")
+            
+                                     >> Co chcesz zrobić?
+                              << [1] Idź gdzieś
+                              << [2] Zobacz ekwipunek
+                              << [3] Zadzwoń
+                              << [4] Rozmawiaj
+                              << [5] Pokaż zadanie
+                              << [6] Wróć
+                              << [7] Działaj""")
 
                 choice = input('                           ')
 
                 if choice == "1":
-                    move()
+                        move()
                 elif choice == "2":
-                    eq()
+                        eq()
                 elif choice == "3":
 
                     print('Twoi przyjaciele: %s ' % (", ".join(osoby))),
@@ -1562,12 +1567,15 @@ def menu():
                     back()
                 elif choice == "7":
                     action()
-                #else:
-                    #print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                else:
+                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+
+    cls2()
 
 
 #threads
 thread1 = threading.Thread( target = slender1)
+thread2 = threading.Thread( target = menu)
 
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
@@ -1652,12 +1660,16 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     print (mod)
     cls2()
     #threads
+
     thread1.start()
+    # menu()
+
+
+
     thread1.join()
     print(slender_mod)
     print(kartki_slender)
     print(mod)
-    menu()
 
 
 
