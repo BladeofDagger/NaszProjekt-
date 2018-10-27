@@ -1372,6 +1372,24 @@ def dialog():
 
     print  # rozmawia
 
+def message():
+    print("""   == == ==  KRÓTKOFALÓWKA  == == ==         
+
+                             >> Czy chcesz odebrać?
+                      << [1] Tak
+                      << [2] Nie
+                      """)
+    while True:
+    choice = input('            ')
+    if choice == 1:
+        print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
+        sleep(2)
+        print("""           Brak sygnału...""")
+        text_animation()
+    elif choice == 2:
+        print("""          >>>Połączenie zostało odrzucone.<<<""")
+    else:
+        print("Nie ma takiej opcji. Spróbuj jeszcze raz.")
 
 def slender():
     sleep(5)
@@ -1383,23 +1401,7 @@ def slender():
             if len(mod[key]) > 0:
                 print ("""            >>>%s dzwoni!""" % (mod[key][0]))
                 sleep(2)
-                print ("""   == == ==  KRÓTKOFALÓWKA  == == ==         
 
-                         >> Czy chcesz odebrać?
-                  << [1] Tak
-                  << [2] Nie
-                  """)
-                while True:
-                    choice = input('            ')
-                    if choice == 1:
-                        print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
-                        sleep(2)
-                        print("""           Brak sygnału...""")
-                        text_animation()
-                    elif choice == 2:
-                        print ("""          >>>Połączenie zostało odrzucone.<<<""")
-                    else:
-                        print ("Nie ma takiej opcji. Spróbuj jeszcze raz.")
 
                 kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
                 dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
