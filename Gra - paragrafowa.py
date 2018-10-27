@@ -1224,6 +1224,10 @@ def call(Name):
                         number_of_phonecalls[Name] += 1
 
                         cls2()
+                    else:
+                        print ("""              Nie ma sygnału...""")
+                        text_animation()
+                        cls()
             elif Name == "John":
 
                 for key in mod:
@@ -1235,6 +1239,10 @@ def call(Name):
                         number_of_phonecalls[Name] += 1
 
                         cls2()
+                    else:
+                        print ("""              Nie ma sygnału...""")
+                        text_animation()
+                        cls()
             elif Name == "Steve":
 
                 for key in mod:
@@ -1246,6 +1254,10 @@ def call(Name):
                         number_of_phonecalls[Name] += 1
 
                         cls2()
+                    else:
+                        print ("""              Nie ma sygnału...""")
+                        text_animation()
+                        cls()
             elif Name == "Ann":
 
                 for key in mod:
@@ -1257,6 +1269,10 @@ def call(Name):
 
                         number_of_phonecalls[Name] += 1
                         cls2()
+                    else:
+                        print ("""              Nie ma sygnału...""")
+                        text_animation()
+                        cls()
         else:
             print("""                          Nie ma sygnału...""")
             text_animation()
@@ -1592,13 +1608,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
             i += 1
     cls()
     mod1(q)
-
-    #print (załoga)
-    #print (osoby)
-    print (mod["mod_botaniczny"])
-    print (mod["mod_badawczy"])
-    print (mod["mod_ener"])
-    print (mod["mod_nawig"]) # to było do kontroli
+    print (slender_mod)
+    print (kartki_slender)
     print (mod)
     #alarm()
 
