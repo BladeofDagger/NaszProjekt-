@@ -1372,7 +1372,8 @@ def dialog():
 
     print  # rozmawia
 
-
+def wez_kartke():
+    print ("""To dziwne...Jakaś kartka""")
 
 
 def slender1():
@@ -1408,11 +1409,13 @@ def slender1():
                 dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
                 mod[key].clear() # czyści listę przypisaną do miejsca czyli dana osoba znika
             else:
-                kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
+                kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
         else:
-            kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
-
-
+            kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
+            # edycja funkcji call
+            # jeśli pojawi się kartka to weź kartkę
+            # cyfy to współrzędne środka planety = mają w pewnym sensie
+            # zmylić gracza gdy bedzie musial pod koniec wpisac wspolrzedne
 
 
 
