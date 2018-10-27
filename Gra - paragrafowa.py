@@ -1473,7 +1473,12 @@ def slender1():
                     print("""                       == == ==  KRÓTKOFALÓWKA  == == ==         
         
                     >>>%s: %s, coś jest nie tak... Ktoś jest... 
-                    naciśnij cokolwiek aby kontynuować.
+                    
+                    
+                    
+                    
+                    
+                        naciśnij cokolwiek aby kontynuować.
                                     
                                     
                                               """ % (mod[key][0], name))
