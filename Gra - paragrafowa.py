@@ -1641,6 +1641,31 @@ def wez_kartke():
         cls2()
 
 
+def slender4():
+    global Alive
+    global dead
+    with lock:
+        sleep(20)
+        shuffle(miejsca)
+        index = randint(0, 7)
+        slender_mod[miejsca[index]].append("Slender")
+        if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
+            for key in mod:
+                if key == miejsca[
+                    index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                    if len(mod[key]) > 0:
+                        Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
+                        dead.append(mod[key][0])  # dana osoba przenosi się do dead
+                        kartki_slender[miejsca[index]].append( "Z prochu powstałeś i w proch się obrócisz... %s" % (",".join(dead)))
+
+                        mod[key].clear()
+        else:
+            kartki_slender[miejsca[index]].append("Zapomnienie boli najbardziej")
+
+        slender_mod[miejsca[index]].clear()
+
+
+
 def slender3():
     global Alive
     global dead
@@ -1842,6 +1867,7 @@ thread1 = threading.Thread( target = slender1)
 thread2 = threading.Thread( target = menu)
 thread3 = threading.Thread( target = slender2)
 thread4 = threading.Thread( target = slender3)
+thread5 = threading.Thread( target = slender4)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -1933,6 +1959,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread3.join()
     thread4.start()
     thread4.join()
+    thread5.start()
+    thread5.join()
     print(slender_mod)
     print(kartki_slender)
     print(mod)
