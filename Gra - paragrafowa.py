@@ -10,7 +10,7 @@ bateria = 5
 pozycja = 1 #globalnie bez sensu
 
 
-q = 2 #zmienna dla misji
+q = 1 #zmienna dla misji
 
 
 noc = 0 # dla noc == 0 bedzie jasno, dla noc == 1 będzie ciemno i nie będzie nic widać bez latarki
@@ -644,12 +644,26 @@ mod = {
 
 #
 gracz_mod = {
+    "mod_kuchenny": [],
+    "mod_wypoczynkowy": [],
+    "mod_serwisowy": [],
     "mod_badawczy": [],
     "mod_botaniczny": [],
     "mod_ener": [],
     "mod_nawig": []
 }
 
+#określa w którym module znajduje się slender
+slender_mod = {
+    "mod_kuchenny": [],
+    "mod_wypoczynkowy": [],
+    "mod_serwisowy": [],
+    "mod_badawczy": [],
+    "mod_botaniczny": [],
+    "mod_ener": [],
+    "mod_nawig": []
+
+}
 
 def mod1(q):  # Kuchnia
 
@@ -1343,6 +1357,10 @@ def dialog():
 
 
     print  # rozmawia
+
+
+def slender():
+    sleep(5)
 
 
 def menu():
