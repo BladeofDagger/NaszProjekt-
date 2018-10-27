@@ -53,9 +53,10 @@ def card():
 
 
 def escape():
+    global Win
     cls()
     if (len(equipment["Karta pokładowa"]) > 0):
-        input("""       
+        choice =input("""       
                      == == ==  UWAGA  == == ==         
 
                         Wpisz współrzędne:
@@ -63,7 +64,7 @@ def escape():
             """)
         if (choice == "24.67.89"):
             cls()
-            input("""       
+            choice=input("""       
                      == == ==  UWAGA  == == ==         
 
                             Wpisz kod:
@@ -71,7 +72,7 @@ def escape():
                 """)
             if (choice == "2436"):
                     cls()
-                    input("""       
+                    choice = input("""       
                      == == ==  UWAGA  == == ==         
 
                             Wpisz hasło:
@@ -86,6 +87,7 @@ def escape():
                 i opuścić statek!
                             
                             """)
+                            Win = 1
                             sleep(3)
                             cls()
                             win()
@@ -97,6 +99,7 @@ def escape():
 
                             Złe hasło!
                                     """)
+                        sleep(1)
                         back()
             else:
                 cls()
@@ -105,6 +108,7 @@ def escape():
 
                             Zły kod!
                                     """)
+                sleep(1)
                 back()
 
         elif (choice == "23.74.85"):
@@ -118,6 +122,7 @@ def escape():
 
                             Złe współrzędne!
                     """)
+            sleep(1)
             back()
     else:
         cls()
@@ -126,6 +131,7 @@ def escape():
 
                         Nie masz karty!
         """)
+        sleep(1)
         back()
 
 
@@ -187,9 +193,12 @@ def alarm2():
 
 
                 >>>Pożar w module botanicznym i badawczym!!!!<<<
+                
+                >>> Niestety %s nie przeżyli... <<< 
+                
 
 
-        """)
+        """ % (" i ".join(dead)))
     sleep(2)
     cls2()
 
@@ -416,6 +425,9 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print(" Karta w ekwipunku ")
             elif choice == "2":
                 print ("Karta została na miejscu. ")
+        elif pozycja == gracz_mod["mod_nawig"]:
+            escape()
+
 
 
     else:
@@ -1756,28 +1768,28 @@ def wez_kartke():
         print("""              >>>To pewnie nic ważnego...""")
         cls2()
 
-
+# unsupported character
 def win():
-    input("""
-                    == == ==  ! ! W Y G R A N A ! !  == == ==         
+    print (("""
+                        == == ==  ! ! W Y G R A N A ! !  == == ==         
 
 
-           ,@%     @@     &@         @@@@@@&(         @@*       @@                                 
-            @@,   @@@(   /@@         .,*@@%@@         @@@@      @@*                                
-            *@@  &@@@@   @@            (@@            @@/@@*    @@(                                
-             @@( @@ @@  @@*            #@@            @@. @@@   @@/                                
-              @@@@( @@%@@%             #@@            @@,   @@@ @@*                                
-              @@@&  .@@@@              #@@%%#         @@,     @@@@,                                
-               @@    @@@             @@@@@@@&         @@        @@   
+               ,@%     @@     &@         @@@@@@&(         @@*       @@                                 
+                @@,   @@@(   /@@         .,*@@%@@         @@@@      @@*                                
+                *@@  &@@@@   @@            (@@            @@/@@*    @@(                                
+                 @@( @@ @@  @@*            #@@            @@. @@@   @@/                                
+                  @@@@( @@%@@%             #@@            @@,   @@@ @@*                                
+                  @@@&  .@@@@              #@@%%#         @@,     @@@@,                                
+                   @@    @@@             @@@@@@@&         @@        @@   
 
 
-                            == == ==  == ==  == == ==      
+                                == == ==  == ==  == == ==     
 
-                                  """)
+                    >>> Gratulacje %s! Ucieczka zakończona powodzeniem!<<<
 
+                        >>>Niech %s spoczywają w pokoju... <<<
 
-
-
+                                      """) % ( ",".join(Alive), ",".join(dead)))
 
 
 def fire1():
@@ -1812,25 +1824,24 @@ def fire1():
 
 
 def lose():
-    input("""
-                  == == ==  ! ! P R Z E G R A N A ! !  == == ==         
+    print (("""
+                     == == ==  ! ! P R Z E G R A N A ! !  == == ==         
 
 
 
-        @@*                 .@@@@@&               ,&@%           *@@@@@@@@@                        
-        @@(               (@@@   ,@@@           @@@@%@@#          @@                               
-        @@/              @@@       @@          @@,               .@@                               
-        @@,              @@        @@           &@@@@@@@         (@@@@@@@@                         
-        @@               @@       @@@                 @@@        &@@                               
-        @@   ,&@,        #@@@   &@@&          @@*   *@@@*        #@@                               
-        @@@@@@@*           .@@@@@/             &@@@@@&            @@@@@@@@                         
+           @@*                 .@@@@@&               ,&@%           *@@@@@@@@@                        
+           @@(               (@@@   ,@@@           @@@@%@@#          @@                               
+           @@/              @@@       @@          @@,               .@@                               
+           @@,              @@        @@           &@@@@@@@         (@@@@@@@@                         
+           @@               @@       @@@                 @@@        &@@                               
+           @@   ,&@,        #@@@   &@@&          @@*   *@@@*        #@@                               
+           @@@@@@@*           .@@@@@/             &@@@@@&            @@@@@@@@                         
 
 
-                            == == ==  == ==  == == ==      
+                               == == ==  == ==  == == ==      
 
-                                  """)
-
-
+                       >>> Razem z %s jesteś już na tamtym świecie...<<<
+                                     """) % (",".join(dead)))
 
 
 def slender4():
@@ -2158,6 +2169,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread6.join()
     global Lose
     if Lose == 1:
+        sys.exit()
+    elif Win == 1:
         sys.exit()
     else:
         print(slender_mod)
