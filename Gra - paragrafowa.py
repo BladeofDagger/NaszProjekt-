@@ -12,7 +12,8 @@ name = ""
 Lose = 0
 Win = 0
 q = 1 #zmienna dla misji
-
+#kontrolka do końca misji
+poziom = 0
 
 noc = 0 # dla noc == 0 bedzie jasno, dla noc == 1 będzie ciemno i nie będzie nic widać bez latarki
 
@@ -142,6 +143,11 @@ def symbol():
         if pozycja == gracz_mod[key]:
             if len(kartki_slender[key]) > 0:
                 print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
+    if poziom == 1:
+        if pozycja == gracz_mod["mod_serwisowy"]:
+            if len(equipment["Karta pokładowa"]) ==  0:
+                print("Karta pokładowa leży na łóżku Johna. Raczej będziesz jej potrzebować")
 
 
 def back():
@@ -316,7 +322,19 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         elif choice == "2":
             back()
 
-
+    if poziom == 1:
+        if pozycja == gracz_mod["mod_serwisowy"]:
+            print ("""          >>Zabierz kartę!<<
+                                [1] Tak
+                                [2] Nie
+            """)
+            choice = input('   ')
+            if choice == "1":
+                card()
+                equipment["Karta pokładowa"].append("karta pokładowa")
+                print(" Karta w ekwipunku ")
+            elif choice == "2":
+                print ("Karta została na miejscu. ")
 
 
     else:
@@ -763,7 +781,8 @@ equipment = {
     "Latarka" : bateria, # liczba określa poziom baterii
     "Krótkofalówka" : " ",
     "Kartki" : [],
-    "Mapa" : []
+    "Mapa" : [],
+    "Karta pokładowa" : []
 }
 
 
@@ -1389,9 +1408,9 @@ def eq():
                     mapa(i)
                     menu()
         elif (choice == "1"):
-                    cls()
-                    flash()
-                    menu()
+                cls()
+                flash()
+                menu()
         elif (choice == "3"):
             cls()
             print("""                    == == == KRÓTKOFALÓWKA == == ==
@@ -1421,8 +1440,6 @@ def eq():
             flash()
             menu()
         elif (choice == "3"):
-            # wyświetla tekst kartek:
-
             view_text()
 
         elif (choice == "4"):
@@ -1680,11 +1697,15 @@ def win():
 
 
 
+
+
 def fire1():
     global Alive
     global dead
     global name
     global Lose
+    global poziom
+    poziom = 1
     with lock:
         sleep(5)
         alarm2()
