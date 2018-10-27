@@ -644,15 +644,16 @@ mod = {
 
 }
 
-#
+# określa pozycję gracza pozycja przypisana do modułu
 gracz_mod = {
-    "mod_kuchenny": [],
-    "mod_wypoczynkowy": [],
-    "mod_serwisowy": [],
-    "mod_badawczy": [],
-    "mod_botaniczny": [],
-    "mod_ener": [],
-    "mod_nawig": []
+    "mod_kuchenny": 1,
+    "mod_wypoczynkowy": 2,
+    "mod_serwisowy": 3,
+    "mod_łącznikowy": 4,
+    "mod_badawczy": 6,
+    "mod_botaniczny": 5,
+    "mod_ener": 7,
+    "mod_nawig": 8
 }
 
 #określa w którym module znajduje się slender
@@ -660,6 +661,7 @@ slender_mod = {
     "mod_kuchenny": [],
     "mod_wypoczynkowy": [],
     "mod_serwisowy": [],
+    "mod_łącznikowy":[],
     "mod_badawczy": [],
     "mod_botaniczny": [],
     "mod_ener": [],
@@ -1390,6 +1392,23 @@ def dialog():
 
 def wez_kartke():
     print ("""To dziwne...Jakaś kartka""")
+    sleep(1)
+    print ("""              >>>Czy chcesz odczytać jej treść?<<<
+                                        [1] Tak
+                                        [2] Nie
+                    """)
+    choice = input("     ")
+    if choice == 1:
+        for key in kartki_slender:
+            if key == gracz
+        print ("".join(kartki_slender[gracz_mod[key]]))
+
+
+
+
+
+
+
 
 
 def slender1():
