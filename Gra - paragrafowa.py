@@ -9,7 +9,8 @@ lock = threading.Lock()
 bateria = 5
 pozycja = 1 #globalnie bez sensu
 name = ""
-
+lose = 0
+win = 0
 q = 1 #zmienna dla misji
 
 
@@ -94,6 +95,23 @@ def gasnie():  # gaśnie światło
 
                           """)
 
+def alarm2():
+    cls()
+    print("""
+                !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
+                !=!                                   !=!
+                !=!   ! ! !   A  L  A  R  M   ! ! !   !=!
+                !=!                                   !=!
+                !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
+
+
+
+                >>>Pożar w module botanicznym i badawczym!!!!<<<
+
+
+        """)
+    sleep(2)
+    cls2()
 
 def alarm():
     cls()
@@ -1641,24 +1659,67 @@ def wez_kartke():
         cls2()
 
 
+def win():
+    input("""
+                    == == ==  ! ! W Y G R A N A ! !  == == ==         
+
+
+           ,@%     @@     &@         @@@@@@&(         @@*       @@                                 
+            @@,   @@@(   /@@         .,*@@%@@         @@@@      @@*                                
+            *@@  &@@@@   @@            (@@            @@/@@*    @@(                                
+             @@( @@ @@  @@*            #@@            @@. @@@   @@/                                
+              @@@@( @@%@@%             #@@            @@,   @@@ @@*                                
+              @@@&  .@@@@              #@@%%#         @@,     @@@@,                                
+               @@    @@@             @@@@@@@&         @@        @@   
+
+
+                            == == ==  == ==  == == ==      
+
+                                  """)
+
+
+def lose():
+    input("""
+                  == == ==  ! ! P R Z E G R A N A ! !  == == ==         
+
+
+
+        @@*                 .@@@@@&               ,&@%           *@@@@@@@@@                        
+        @@(               (@@@   ,@@@           @@@@%@@#          @@                               
+        @@/              @@@       @@          @@,               .@@                               
+        @@,              @@        @@           &@@@@@@@         (@@@@@@@@                         
+        @@               @@       @@@                 @@@        &@@                               
+        @@   ,&@,        #@@@   &@@&          @@*   *@@@*        #@@                               
+        @@@@@@@*           .@@@@@/             &@@@@@&            @@@@@@@@                         
+
+
+                            == == ==  == ==  == == ==      
+
+                                  """)
+
+
 def fire1():
     global Alive
     global dead
+    global name
+    global lose
     with lock:
-        sleep(10)
+        sleep(5)
+        alarm2()
+
         #możesz zginąć w pożarze
         for member in Alive:
-            if (member in mod["mod_botaniczny"]) or (member in mod["mod_badawczy"]):
+            if (member in mod["mod_botaniczny"]):
                 Alive.remove(member)
                 dead.append(member)
-                if member in mod["mod_botaniczny"]:
-                    mod["mod_botaniczny"].clear()
-                elif member in mod["mod_badawczy"]:
-                    mod["mod_badawczy"].clear()
-                elif
+                mod["mod_botaniczny"].clear()
+            elif member in mod["mod_badawczy"]:
+                Alive.remove(member)
+                dead.append(member)
+                mod["mod_badawczy"].clear()
 
-        alarm()
-        print(""">>>Pożar w module botanicznym i badawczym!!!!<<<""")
+
+
 
 
 
@@ -1666,7 +1727,7 @@ def slender4():
     global Alive
     global dead
     with lock:
-        sleep(20)
+        sleep(5)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -1691,7 +1752,7 @@ def slender3():
     global Alive
     global dead
     with lock:
-        sleep(15)
+        sleep(5)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -1715,7 +1776,7 @@ def slender3():
 def slender2():
     global Alive
     with lock:
-        sleep(10)
+        sleep(5)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -1889,6 +1950,7 @@ thread2 = threading.Thread( target = menu)
 thread3 = threading.Thread( target = slender2)
 thread4 = threading.Thread( target = slender3)
 thread5 = threading.Thread( target = slender4)
+thread6 = threading.Thread( target = fire1)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -1982,6 +2044,9 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread4.join()
     thread5.start() #4 kartka
     thread5.join()
+    thread6.start() #pożar w module botanicznym lub badawczym
+    thread6.join()
+
     print(slender_mod)
     print(kartki_slender)
     print(mod)
