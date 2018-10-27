@@ -1641,6 +1641,27 @@ def wez_kartke():
         cls2()
 
 
+def fire1():
+    global Alive
+    global dead
+    with lock:
+        sleep(10)
+        #możesz zginąć w pożarze
+        for member in Alive:
+            if (member in mod["mod_botaniczny"]) or (member in mod["mod_badawczy"]):
+                Alive.remove(member)
+                dead.append(member)
+                if member in mod["mod_botaniczny"]:
+                    mod["mod_botaniczny"].clear()
+                elif member in mod["mod_badawczy"]:
+                    mod["mod_badawczy"].clear()
+                elif
+
+        alarm()
+        print(""">>>Pożar w module botanicznym i badawczym!!!!<<<""")
+
+
+
 def slender4():
     global Alive
     global dead
@@ -1953,13 +1974,13 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     cls2()
     #threads
 
-    thread1.start()
+    thread1.start() #pierwsza kartka i call()
     thread1.join()
-    thread3.start()
+    thread3.start()# 2 kartka
     thread3.join()
-    thread4.start()
+    thread4.start()#3 kartka
     thread4.join()
-    thread5.start()
+    thread5.start() #4 kartka
     thread5.join()
     print(slender_mod)
     print(kartki_slender)
