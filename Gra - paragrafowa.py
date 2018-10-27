@@ -667,6 +667,18 @@ slender_mod = {
 
 }
 
+#tu jest określone gdzie dana kartka została zostawiona
+kartki_slender = {
+    "mod_kuchenny": [],
+    "mod_wypoczynkowy": [],
+    "mod_serwisowy": [],
+    "mod_badawczy": [],
+    "mod_botaniczny": [],
+    "mod_ener": [],
+    "mod_nawig": []
+
+}
+
 def mod1(q):  # Kuchnia
 
     if (q == 1):
@@ -1389,10 +1401,14 @@ def slender():
                     else:
                         print ("Nie ma takiej opcji. Spróbuj jeszcze raz.")
 
+                kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
                 dead.append(mod[key][0]) # dana osoba przenosi się do dead # edycja funkcji call potrzebna
                 mod[key].clear() # czyści listę przypisaną do miejsca czyli dana osoba znika
             else:
-                
+                kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
+        else:
+            kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
+
 
 
 
