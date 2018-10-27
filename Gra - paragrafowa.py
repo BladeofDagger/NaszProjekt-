@@ -3,7 +3,7 @@ from time import sleep
 from random import *
 import sys
 import threading
-lock = threading.lock() # do blokowania
+lock = threading.Lock() # do blokowania
 
 # zmienne ###########
 bateria = 5
@@ -671,6 +671,7 @@ slender_mod = {
 
 #tu jest określone gdzie dana kartka została zostawiona
 kartki_slender = {
+    "mod_łącznikowy": [],
     "mod_kuchenny": [],
     "mod_wypoczynkowy": [],
     "mod_serwisowy": [],
@@ -1416,13 +1417,10 @@ def wez_kartke():
                 else:
                     print (""">>Nie zachowałeś kartki<<<""")
                     #mozna kiedys dodac opcje zeby po nia wrocic
+                    cls2()
     else:
         print ("""              >>>To pewnie nic ważnego...""")
-
-
-
-
-
+        cls2()
 
 
 
@@ -1442,34 +1440,27 @@ def slender1():
                     sleep(2)
 
                     print("""   == == ==  KRÓTKOFALÓWKA  == == ==         
-    
-                                    >> Czy chcesz odebrać?
-                                << [a] Tak
-                                << [b] Nie
-                                          """)
+        
+                                        >>>%s: %s, coś jest nie tak... Ktoś jest... 
+                                    
+                                    
+                                              """ % (mod[key][0], name))
 
-                    choice = input('                ')
-                    if choice == "a":
-                        print("""           >>>%s: %s, coś jest nie tak... Ktoś jest... """ % (mod[key][0], name))
-                        sleep(2)
-                        print("""           Brak sygnału...""")
-                        text_animation()
-                    elif choice == "b":
-                        print("""          >>>Połączenie zostało odrzucone.<<<""")
-                    else:
-                        print("""      >>>Nie udało się odebrać połączenia.<<<""")
+
+
 
                     kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
                     dead.append(mod[key][0])  # dana osoba przenosi się do dead # edycja funkcji call potrzebna
                     mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
-
-
-
-    else: # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
+    else:
+            # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
         kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
-            # jeśli pojawi się kartka to weź kartkę
-            # cyfy to współrzędne środka planety = mają w pewnym sensie
-            # zmylić gracza gdy bedzie musial pod koniec wpisac wspolrzedne
+                # jeśli pojawi się kartka to weź kartkę
+                # cyfy to współrzędne środka planety = mają w pewnym sensie
+                # zmylić gracza gdy bedzie musial pod koniec wpisac wspolrzedne
+    slender_mod[miejsca[index]].clear()
+
+
 
 
 
@@ -1662,15 +1653,11 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     #threads
 
     thread1.start()
-    # menu()
-
-
-
     thread1.join()
     print(slender_mod)
     print(kartki_slender)
     print(mod)
-
+    menu()
 
 
 
