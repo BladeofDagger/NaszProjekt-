@@ -549,10 +549,10 @@ equipment = {
 
 # pusta lista przygotowana na ofiary Slendera ;)
 dead = []
-
+alive =[]
 # nasz gracz zawsze będzie ostatnim elementem listy więc załoga[4]
 załoga = ["Dave","Steve","John","Ann"]
-
+osoby = załoga[0:4]
 # tu będą teksty które mówią poszczególne osoby
 # kf= krótkofalówka
 Dave_kf = {
@@ -1372,6 +1372,9 @@ def menu():
                 elif choice == "2":
                     eq()
                 elif choice == "3":
+
+                    print ('Twoi przyjaciele: %s ' % (", ".join(osoby))),
+
                     Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
                     call(Name)
                 elif choice == "4":
@@ -1415,6 +1418,9 @@ def menu():
                 elif choice == "2":
                     eq()
                 elif choice == "3":
+
+                    print('Twoi przyjaciele: %s ' % (", ".join(osoby))),
+
                     Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
                     call(Name)
 
