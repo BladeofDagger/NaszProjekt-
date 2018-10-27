@@ -3,7 +3,7 @@ from time import sleep
 from random import *
 import sys
 import threading
-
+lock = threading.Lock()
 
 # zmienne ###########
 bateria = 5
@@ -1641,6 +1641,26 @@ def wez_kartke():
         cls2()
 
 
+def slender2():
+    global Alive
+    with lock:
+        sleep(10)
+        shuffle(miejsca)
+        index = randint(0, 7)
+        slender_mod[miejsca[index]].append("Slender")
+        if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
+            for key in mod:
+                if key == miejsca[index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                    if len(mod[key]) > 0:
+                        kartki_slender[miejsca[index]].append("Jedynie grawitacja może wygrać z czasem")
+                        Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
+                        dead.append(mod[key][0])  # dana osoba przenosi się do dead
+                        mod[key].clear()
+        else:
+            kartki_slender[miejsca[index]].append("Jedynie grawitacja może wygrać z czasem")
+
+        slender_mod[miejsca[index]].clear()
+
 
 
 def slender1():
@@ -1795,7 +1815,7 @@ def menu():
 #threads
 thread1 = threading.Thread( target = slender1)
 thread2 = threading.Thread( target = menu)
-
+thread3 = threading.Thread( target = slender2)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -1883,6 +1903,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
     thread1.start()
     thread1.join()
+    thread3.start()
+    thread3.join()
     print(slender_mod)
     print(kartki_slender)
     print(mod)
