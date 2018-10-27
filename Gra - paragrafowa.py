@@ -31,14 +31,47 @@ def cls(): print ("\n" * 40) # poprawka na python 3.7
 def cls2(): print ("\n" * 5)
 
 
+def card():
+    input("""
+                        == == ==  KARTA  == == ==         
+
+
+                                314159265
+
+
+                        == == ==  == ==  == == ==      
+
+
+                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+
+                              """)
+
 def Uwaga():
     input("""
-                           == == ==  Uwaga  == == ==         
+                     == == ==  UWAGA  == == ==         
 
-                                 >> Udało się!
+                          >> Udało się!
 
 
-                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+
+                          """)
+    cls()
+
+def Uwaga1():
+    input("""
+                    == == ==  UWAGA  == == ==         
+
+                    >> Udaj się do Modułu Nawigacyjnego
+
+
+            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
@@ -48,18 +81,19 @@ def Uwaga():
 
 def gasnie():  # gaśnie światło
     input("""
-                           == == ==  Uwaga  == == ==         
+                    == == ==  UWAGA  == == ==         
 
-                               Gaśnie światło!
-                            Zobacz, co się stało!
+                        Gaśnie światło!
+                    Zobacz, co się stało!
 
 
-                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
 
                           """)
+
 
 def alarm():
     cls()
@@ -69,8 +103,16 @@ def alarm():
             !=!   ! ! !   A  L  A  R  M   ! ! !   !=!
             !=!                                   !=!
             !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
+
+
+
+
+
+
     """)
-    cls2()
+    sleep(2)
+    cls()
+    back()
 
 def symbol():
     global on
@@ -112,15 +154,56 @@ def back():
         menu()
 
 
+def minigra():
+    global q
+    print("""                       == == ==  DZIAŁAJ  == == == 
+
+
+                       [1][2][3][4][5][6][7][8][9][X]
+                    [1] A  B  C  D  E  F  G  H  I
+                    [2] J  K  L  M  N  O  P  Q  R
+                    [3] S  T  U  V  W  X  Y  Z  !
+                    [4] 1  2  3  4  5  6  7  8  9 
+                    [5] 9  8  7  6  5  4  3  2  1
+                    [6] X  X  X  X  X  X  X  X  X
+                    [7] A  A  B  B  C  C  D  D  !
+                    [8] E  E  F  F  G     H  H  !  
+                    [9] O  O  O  O  O  O  O  O  O
+                    [Y]
+
+                        Wpisz współrzedną X,Y
+                        oraz brakujący symbol,
+                        np.  2,2,K
+
+        """)
+    choice = input('                           ')  # przypisuje wybór
+    if choice == "6,8,G":
+        cls()
+        Uwaga()
+        q = 4
+        sleep(2)
+        cls()
+        back()
+    elif choice != "6,8,G":
+        cls()
+        print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+        cls2()
+        sleep(2)
+        cls()
+        minigra()
+
+
+
 def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to ona bedzie za to odpowiedzialna
     global pozycja
     global q
     global on
+    global ok
     cls()
     for key in gracz_mod:
         if (pozycja == gracz_mod[key] and len(kartki_slender[key])>0):
             print("""
-                                   == == ==  Działaj  == == ==         
+                                   == == ==  DZIAŁAJ  == == ==         
 
                                          >> Co chcesz zrobić?
                                   << [1] Zachowaj kartkę
@@ -129,9 +212,57 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
             wez_kartke()
             cls2()
 
-    if (q == 2 and pozycja == 6):
+    if (q == 1 and pozycja == 1):
         print("""
-                       == == ==  Działaj  == == ==         
+                       == == ==  DZIAŁAJ  == == ==         
+
+                             >> Co chcesz zrobić?
+                      << [1] Sprawdź zapasy
+                      << [2] Nic
+                      """)
+        choice = input('                           ')  # przypisuje wybór
+        if choice == "1":
+            cls()
+            Uwaga1()
+            ok = 1
+            cls()
+            back()
+        elif choice == "2":
+            back()
+    elif (q == 1 and pozycja == 8 and ok == 1):
+        Uwaga()
+        q = 2
+        sleep(2)
+        input("""                >>> Jesteś w Module Nawigacyjnym <<<   
+
+        To tutaj podejmowane są najważniejsze decyzje oraz znajduje
+        się tutaj panel sterowania pojazdem. Z tyłu możesz dostrzec
+        umieszczone kapsuły ewakuacyjne.
+
+
+
+             >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+
+
+                  == == == ==  MENU  == == == ==
+
+                        >> Co chcesz zrobić?
+                << [1] Idź gdzieś
+                << [2] Zobacz ekwipunek
+                << [3] Zadzwoń
+                << [4] Rozmawiaj
+                << [5] Pokaż zadanie
+                << [6] Wróć
+                << [7] Działaj
+        """)
+        alarm()
+        back()
+
+
+    elif (q == 2 and pozycja == 6):
+        print("""
+                       == == ==  DZIAŁAJ  == == ==         
 
                              >> Co chcesz zrobić?
                       << [1] Posprzątaj niebezpieczną substancję
@@ -153,7 +284,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
     elif (q == 3 and pozycja == 7 and on == 1):
         print("""
-                       == == ==  Działaj  == == ==         
+                       == == ==  DZIAŁAJ  == == ==         
 
                              >> Co chcesz zrobić?
                       << [1] Napraw system elektryczny
@@ -162,27 +293,32 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
             cls()
-            Uwaga()
-            q = 4
-            sleep(2)
-            cls()
-            back()
+            minigra()
         elif choice == "2":
             back()
 
 
 
+
     else:
+
         print("""
-                       == == ==  Działaj  == == == 
+
+                       == == ==  DZIAŁAJ  == == == 
+
 
                              >> Brak czynności do wykonania
+
                       << [1] Wróć
 
+
                               """)
+
         choice = input('                           ')  # przypisuje wybór
+
         if choice == "1":
             cls()
+
             back()
 
 
@@ -194,7 +330,7 @@ def quest(q):
 
          Rozejrzyj się po Kuchni w celu rozpoznania szkód oraz
          oszacuj ilość prowiantu, który Wam pozostał. Następnie
-         udaj się do dowódcy.""")
+         udaj się do Modułu Nawigacyjnego.""")
         cls2()
         menu()
 
@@ -221,6 +357,7 @@ def quest(q):
 
          COŚ TU BĘDZIE""")
         cls2()
+        menu()
 
 
 
@@ -1191,16 +1328,23 @@ def eq():
                     flash()
                     menu()
         elif (choice == "3"):
-            print
+            cls()
+            print("""                    == == == KRÓTKOFALÓWKA == == ==
+
+                                  << Aby zadzwonić do kogoś,
+                                     użyj opcji z menu
+
+                                """)
         elif (choice == "4"):
             back()
     else:
         print("""                   == == == EKWIPUNEK == == ==
 
                   << [1] Latarka : poziom baterii %d
-                  << [2] Krótkofalówka
-                  << [3] Kartki : %s """ % (bateria, len(equipment["Kartki"])))
-        print("                  << [4] Wróć")
+                  << [2] Mapa
+                  << [3] Krótkofalówka
+                  << [4] Kartki : %s """ % bateria, equipment["Kartki"])
+        print("                  << [5] Wróć")
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
             for i in range(1, 8):
@@ -1213,11 +1357,19 @@ def eq():
                     flash()
                     menu()
         elif (choice == "3"):
+            cls()
+            print("""                    == == == KRÓTKOFALÓWKA == == ==
+
+                          << Aby zadzwonić do kogoś,
+                             użyj opcji z menu
+
+                """)
+        elif (choice == "4"):
             # wyświetla tekst kartek:
 
             view_text()
 
-        elif (choice == "4"):
+        elif (choice == "5"):
                     back()
 
 
