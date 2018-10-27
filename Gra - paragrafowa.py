@@ -9,8 +9,8 @@ lock = threading.Lock()
 bateria = 5
 pozycja = 1 #globalnie bez sensu
 name = ""
-lose = 0
-win = 0
+Lose = 0
+Win = 0
 q = 1 #zmienna dla misji
 
 
@@ -1678,6 +1678,37 @@ def win():
                                   """)
 
 
+
+
+def fire1():
+    global Alive
+    global dead
+    global name
+    global Lose
+    with lock:
+        sleep(5)
+        alarm2()
+
+        #możesz zginąć w pożarze
+        for member in Alive:
+            if (member in mod["mod_botaniczny"]):
+                Alive.remove(member)
+                dead.append(member)
+                mod["mod_botaniczny"].clear()
+            elif member in mod["mod_badawczy"]:
+                Alive.remove(member)
+                dead.append(member)
+                mod["mod_badawczy"].clear()
+
+        if pozycja == gracz_mod["mod_botaniczny"]:
+            Lose = 1
+            lose()
+        elif pozycja == gracz_mod["mod_badawczy"]:
+            Lose = 1
+            lose()
+
+
+
 def lose():
     input("""
                   == == ==  ! ! P R Z E G R A N A ! !  == == ==         
@@ -1696,29 +1727,6 @@ def lose():
                             == == ==  == ==  == == ==      
 
                                   """)
-
-
-def fire1():
-    global Alive
-    global dead
-    global name
-    global lose
-    with lock:
-        sleep(5)
-        alarm2()
-
-        #możesz zginąć w pożarze
-        for member in Alive:
-            if (member in mod["mod_botaniczny"]):
-                Alive.remove(member)
-                dead.append(member)
-                mod["mod_botaniczny"].clear()
-            elif member in mod["mod_badawczy"]:
-                Alive.remove(member)
-                dead.append(member)
-                mod["mod_badawczy"].clear()
-
-
 
 
 
@@ -2046,11 +2054,14 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread5.join()
     thread6.start() #pożar w module botanicznym lub badawczym
     thread6.join()
-
-    print(slender_mod)
-    print(kartki_slender)
-    print(mod)
-    print (dead)
+    global Lose
+    if Lose == 1:
+        sys.exit()
+    else:
+        print(slender_mod)
+        print(kartki_slender)
+        print(mod)
+        print (dead)
 
 
 
