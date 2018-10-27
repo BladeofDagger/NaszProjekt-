@@ -1482,8 +1482,8 @@ def slender1():
 
 
                     kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
-                    Alive.remove(mod[key][0])
-                    dead.append(mod[key][0])  # dana osoba przenosi się do dead # edycja funkcji call potrzebna
+                    Alive.remove(mod[key][0]) # przenosimy z listy alive do dead
+                    dead.append(mod[key][0])  # dana osoba przenosi się do dead
                     mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
     else:
             # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
@@ -1491,7 +1491,7 @@ def slender1():
                 # jeśli pojawi się kartka to weź kartkę
                 # cyfy to współrzędne środka planety = mają w pewnym sensie
                 # zmylić gracza gdy bedzie musial pod koniec wpisac wspolrzedne
-    slender_mod[miejsca[index]].clear()
+    slender_mod[miejsca[index]].clear() #slender znika
 
 
 
