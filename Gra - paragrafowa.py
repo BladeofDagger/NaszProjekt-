@@ -549,7 +549,7 @@ equipment = {
 
 # pusta lista przygotowana na ofiary Slendera ;)
 dead = []
-
+Alive = ["Dave","Steve","John","Ann"]
 # nasz gracz zawsze będzie ostatnim elementem listy więc załoga[4]
 załoga = ["Dave","Steve","John","Ann"]
 osoby = załoga[0:4] # = alive
@@ -1212,70 +1212,64 @@ def call(Name):
     sleep(2)
     cls()
 
-    if Name in załoga:
-        if number_of_phonecalls[Name] < 2:
-            # funkcja call dla Dave'a
-            if Name == "Dave":
+    if Name in osoby:
+        if Name in Alive:
+            if number_of_phonecalls[Name] < 2:
+                # funkcja call dla Dave'a
+                if Name == "Dave":
 
-                for key in mod:
+                    for key in mod:
 
-                    if Name in mod[key]:
-                        if number_of_phonecalls[Name] == 0:
-                            print("""                       Dave: """, Dave_kf[key][0])
-                        else:
-                            print("""                       Dave: """, Dave_kf[key][1])
-                        number_of_phonecalls[Name] += 1
+                        if Name in mod[key]:
+                            if number_of_phonecalls[Name] == 0:
+                                print("""                       Dave: """, Dave_kf[key][0])
+                            else:
+                                print("""                       Dave: """, Dave_kf[key][1])
+                            number_of_phonecalls[Name] += 1
 
-                        cls2()
-                    else:
-                        print ("""              Nie ma sygnału...""")
-                        text_animation()
-                        cls()
-            elif Name == "John":
+                            cls2()
 
-                for key in mod:
-                    if Name in mod[key]:
-                        if number_of_phonecalls[Name] == 0:
-                            print("""                       John: """, John_kf[key][0])
-                        else:
-                            print("""                       John: """, John_kf[key][1])
-                        number_of_phonecalls[Name] += 1
+                elif Name == "John":
 
-                        cls2()
-                    else:
-                        print ("""              Nie ma sygnału...""")
-                        text_animation()
-                        cls()
-            elif Name == "Steve":
+                    for key in mod:
+                        if Name in mod[key]:
+                            if number_of_phonecalls[Name] == 0:
+                                print("""                       John: """, John_kf[key][0])
+                            else:
+                                print("""                       John: """, John_kf[key][1])
+                            number_of_phonecalls[Name] += 1
 
-                for key in mod:
-                    if Name in mod[key]:
-                        if number_of_phonecalls[Name] == 0:
-                            print("""                       Steve: """, Steve_kf[key][0])
-                        else:
-                            print("""                       Steve: """, Steve_kf[key][1])
-                        number_of_phonecalls[Name] += 1
+                            cls2()
 
-                        cls2()
-                    else:
-                        print ("""              Nie ma sygnału...""")
-                        text_animation()
-                        cls()
-            elif Name == "Ann":
+                elif Name == "Steve":
 
-                for key in mod:
-                    if Name in mod[key]:
-                        if number_of_phonecalls[Name] == 0:
-                            print("""                       Ann:  """, Ann_kf[key][0])
-                        else:
-                            print("""                       Ann:  """, Ann_kf[key][1])
+                    for key in mod:
+                        if Name in mod[key]:
+                            if number_of_phonecalls[Name] == 0:
+                                print("""                       Steve: """, Steve_kf[key][0])
+                            else:
+                                print("""                       Steve: """, Steve_kf[key][1])
+                            number_of_phonecalls[Name] += 1
 
-                        number_of_phonecalls[Name] += 1
-                        cls2()
-                    else:
-                        print ("""              Nie ma sygnału...""")
-                        text_animation()
-                        cls()
+                            cls2()
+
+                elif Name == "Ann":
+
+                    for key in mod:
+                        if Name in mod[key]:
+                            if number_of_phonecalls[Name] == 0:
+                                print("""                       Ann:  """, Ann_kf[key][0])
+                            else:
+                                print("""                       Ann:  """, Ann_kf[key][1])
+
+                            number_of_phonecalls[Name] += 1
+                            cls2()
+
+            else:
+                print("""                          Nie ma sygnału...""")
+                text_animation()
+                sleep(2)
+                cls()
         else:
             print("""                          Nie ma sygnału...""")
             text_animation()
@@ -1426,6 +1420,7 @@ def wez_kartke():
 
 
 def slender1():
+    global Alive
     thread2.start()
     sleep(5)
     shuffle(miejsca)
@@ -1435,13 +1430,14 @@ def slender1():
         for key in mod:
             if key == miejsca[index]: #sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
                 if len(mod[key]) > 0:
+                    cls2()
                     print ("""            >>>%s dzwoni!""" % (mod[key][0]))
                     cls2()
                     sleep(2)
 
-                    print("""   == == ==  KRÓTKOFALÓWKA  == == ==         
+                    print("""                       == == ==  KRÓTKOFALÓWKA  == == ==         
         
-                                        >>>%s: %s, coś jest nie tak... Ktoś jest... 
+                    >>>%s: %s, coś jest nie tak... Ktoś jest... 
                                     
                                     
                                               """ % (mod[key][0], name))
@@ -1450,6 +1446,7 @@ def slender1():
 
 
                     kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
+                    Alive.remove(mod[key][0])
                     dead.append(mod[key][0])  # dana osoba przenosi się do dead # edycja funkcji call potrzebna
                     mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
     else:
@@ -1606,6 +1603,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     
     """)
     załoga.append(name)
+    Alive.append(name)
     cls()
     print("""                           
 
@@ -1657,7 +1655,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     print(slender_mod)
     print(kartki_slender)
     print(mod)
-    menu()
+    print (dead)
+
 
 
 
