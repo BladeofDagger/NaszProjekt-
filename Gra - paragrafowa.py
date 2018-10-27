@@ -3,7 +3,7 @@ from time import sleep
 from random import *
 import sys
 import threading
-lock = threading.Lock() # do blokowania
+
 
 # zmienne ###########
 bateria = 5
@@ -112,6 +112,18 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
     global q
     global on
     cls()
+    for key in gracz_mod:
+        if (pozycja == gracz_mod[key] and len(kartki_slender[key])>0):
+            print("""
+                                   == == ==  Działaj  == == ==         
+
+                                         >> Co chcesz zrobić?
+                                  << [1] Zachowaj kartkę
+                                  << [2] Nie zabieraj kartki
+                                  """)
+            wez_kartke()
+            cls2()
+
     if (q == 2 and pozycja == 6):
         print("""
                        == == ==  Działaj  == == ==         
@@ -152,6 +164,8 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
             back()
         elif choice == "2":
             back()
+
+
 
     else:
         print("""
@@ -714,6 +728,12 @@ def mod1(q):  # Kuchnia
         poprzewracane meble. Niewiadomo, co się tutaj stało...
 
             """)
+
+    elif len(kartki_slender["mod_kuchenny"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
+
+
     global pozycja
     pozycja = 1
 
@@ -746,9 +766,10 @@ def mod2(q):
             print("""                >>> Jesteś w Module Wypoczynku <<<   
 
         Możesz wreszcie się bezpiecznie poruszać. Na podłodze
-        leżą małe części zamienne...
+        leżą małe części zamienne... """)
+    elif len(kartki_slender["mod_wypoczynkowy"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
 
-            """)
     global pozycja
     pozycja = 2
 
@@ -784,6 +805,8 @@ def mod3(q):
         poprzesuwane łóżka i porozrzucane rzeczy.
 
             """)
+    elif len(kartki_slender["mod_serwisowy"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
     global pozycja
     pozycja = 3
 
@@ -819,6 +842,8 @@ def mod4(q):
         ile wytrzyma bateria, lepiej ją oszczędzać.
 
             """)
+    elif len(kartki_slender["mod_łącznikowy"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
     global pozycja
     pozycja = 4
 
@@ -856,6 +881,8 @@ def mod5(q):
         najszybciej znajdź przyczynę awarii.
 
             """)
+    elif len(kartki_slender["mod_botaniczny"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
     global pozycja
     pozycja = 5
 
@@ -893,6 +920,8 @@ def mod6(q):
         nie ma już śladów siarkowodoru.
 
             """)
+    elif len(kartki_slender["mod_badawczy"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
     global pozycja
     pozycja = 6
 
@@ -928,6 +957,8 @@ def mod7(q):
         będzie niemożliwe!
 
             """)
+    elif len(kartki_slender["mod_ener"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
     global pozycja
     pozycja = 7
 
@@ -961,6 +992,8 @@ def mod8(q):
         Nic ciekawego tutaj nie ma. Szukaj gdzie indziej.
 
             """)
+    elif len(kartki_slender["mod_nawig"]) > 0:
+        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
     global pozycja
     pozycja = 8
 
@@ -1133,6 +1166,7 @@ def view_text():
     cls()
     for kartka in equipment["Kartki"]:
         print ("".join(kartka)),
+    cls2()
     menu()
 
 def eq():
@@ -1143,7 +1177,7 @@ def eq():
 
                   << [1] Latarka : poziom baterii %d
                   << [2] Mapa
-                  << [3] Krótkofalówka """ % bateria)
+                  << [3] Krótkofalówka """ % (bateria))
         print("                  << [4] Wróć")
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
@@ -1165,7 +1199,7 @@ def eq():
 
                   << [1] Latarka : poziom baterii %d
                   << [2] Krótkofalówka
-                  << [3] Kartki : %s """ % bateria, equipment["Kartki"])
+                  << [3] Kartki : %s """ % (bateria, len(equipment["Kartki"])))
         print("                  << [4] Wróć")
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
@@ -1179,14 +1213,15 @@ def eq():
                     flash()
                     menu()
         elif (choice == "3"):
-                    print
+            # wyświetla tekst kartek:
+
+            view_text()
+
         elif (choice == "4"):
                     back()
 
 
-        # wyświetla tekst kartek:
 
-        view_text()
 
 def text_animation():
     animation = "."
@@ -1386,34 +1421,33 @@ def dialog():
     print  # rozmawia
 
 def wez_kartke():
-    print ("""To dziwne...Jakaś kartka""")
-    sleep(1)
-    print ("""              >>>Czy chcesz odczytać jej treść?<<<
-                                        [1] Tak
-                                        [2] Nie
-                    """)
+
     choice = input("                            ")
     if choice == "1":
         for key in kartki_slender:
             if  pozycja == gracz_mod[key]:
+                sleep(1)
 
-                print ("".join(kartki_slender[key]))
-                print ("""          >>>Czy chcesz zachować kartkę?<<<
-                                        [a] Tak
-                                        [b] Nie
-                                        
-                """)
-                Choice = input('                                ')
-                if Choice == "a":
-                    equipment["Kartki"].append(kartki_slender[key])
-                    kartki_slender[key].clear()
-                    print ("""          >>>Zachowałeś kartkę<<<""")
-                else:
-                    print (""">>Nie zachowałeś kartki<<<""")
-                    #mozna kiedys dodac opcje zeby po nia wrocic
-                    cls2()
+
+                print ("Kartka: ","".join(kartki_slender[key]))
+                cls2()
+                sleep(2)
+
+
+                equipment["Kartki"].append(str(kartki_slender[key]))
+                kartki_slender[key].clear()
+                cls2()
+                print ("""                  >>>Zachowałeś kartkę<<<
+                    """)
+
+
+    elif choice == "2":
+        print(""">>Nie zachowałeś kartki<<<""")
+        # mozna kiedys dodac opcje zeby po nia wrocic
+        cls2()
+
     else:
-        print ("""              >>>To pewnie nic ważnego...""")
+        print("""              >>>To pewnie nic ważnego...""")
         cls2()
 
 
@@ -1431,13 +1465,15 @@ def slender1():
             if key == miejsca[index]: #sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
                 if len(mod[key]) > 0:
                     cls2()
-                    print ("""            >>>%s dzwoni!""" % (mod[key][0]))
+                    print ("""            >>>%s dzwoni!
+                                """ % (mod[key][0]))
                     cls2()
                     sleep(2)
 
                     print("""                       == == ==  KRÓTKOFALÓWKA  == == ==         
         
                     >>>%s: %s, coś jest nie tak... Ktoś jest... 
+                    naciśnij cokolwiek aby kontynuować.
                                     
                                     
                                               """ % (mod[key][0], name))
@@ -1445,7 +1481,7 @@ def slender1():
 
 
 
-                    kartki_slender[miejsca[index]].append("Wszystko ma swój koniec")
+                    kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
                     Alive.remove(mod[key][0])
                     dead.append(mod[key][0])  # dana osoba przenosi się do dead # edycja funkcji call potrzebna
                     mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
