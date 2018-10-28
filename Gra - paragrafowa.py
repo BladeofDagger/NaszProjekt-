@@ -2358,7 +2358,7 @@ def menu():
                               << [8] Działaj""")
 
                 choice = input('                           ')
-                if Lose == 0:
+                if (Lose == 0) or (Win==0):
                     if choice == "1":
                         move()
                     elif choice == "2":
@@ -2385,7 +2385,7 @@ def menu():
                     elif choice == "8":
                         action()
                     else:
-                        if Lose == 1:
+                        if (Lose == 1) or (Win ==1):
                             print ("Koniec Gry")
                         else:
 
@@ -2428,7 +2428,7 @@ def menu():
                               << [7] Działaj""")
 
                 choice = input('                           ')
-                if Lose == 0:
+                if (Lose == 0) or (Win == 0):
                     if choice == "1":
                         move()
                     elif choice == "2":
@@ -2454,7 +2454,7 @@ def menu():
                     elif choice == "7":
                         action()
                     else:
-                        if Lose == 1:
+                        if (Lose == 1) or (Win ==1):
                             print ("Koniec Gry")
                         else:
                             print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
@@ -2620,7 +2620,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
                 print(kartki_slender)
                 print(mod)
                 print(dead)
-                print (miejsca)
+
 
 
 
