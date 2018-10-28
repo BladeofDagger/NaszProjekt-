@@ -195,11 +195,11 @@ def alarm2():
 
                 >>>Pożar w module botanicznym i badawczym!!!!<<<
                 
-                >>> Niestety %s nie przeżyli... <<< 
+            
                 
 
 
-        """ % (" i ".join(dead)))
+        """ )
     sleep(2)
     cls2()
 
@@ -887,6 +887,7 @@ Alive = ["Dave","Steve","John","Ann"]
 # nasz gracz zawsze będzie ostatnim elementem listy więc załoga[4]
 załoga = ["Dave","Steve","John","Ann"]
 osoby = załoga[0:4] # = alive
+ogien = [] # osoby które zginęły w pożarze
 #pomocnicza lista do funkcji slender()
 miejsca = ["mod_kuchenny","mod_serwisowy","mod_wypoczynkowy","mod_łącznikowy","mod_badawczy","mod_botaniczny","mod_ener","mod_nawig"]
 # tu będą teksty które mówią poszczególne osoby
@@ -1777,7 +1778,7 @@ def wez_kartke():
         print("""              >>>To pewnie nic ważnego...""")
         cls2()
 
-# unsupported character
+
 def win():
     print ("""
                         == == ==  ! ! W Y G R A N A ! !  == == ==         
@@ -1801,6 +1802,7 @@ def win():
 
            )
 def fire1():
+    global ogien
     global Alive
     global dead
     global name
@@ -1816,18 +1818,38 @@ def fire1():
             if (member in mod["mod_botaniczny"]):
                 Alive.remove(member)
                 dead.append(member)
+                ogien.append(member)
                 mod["mod_botaniczny"].clear()
+
             elif member in mod["mod_badawczy"]:
                 Alive.remove(member)
                 dead.append(member)
+                ogien.append(member)
                 mod["mod_badawczy"].clear()
 
-        if pozycja == gracz_mod["mod_botaniczny"]:
+        print("""           >>> To niemożliwe! Ktoś musiał podłożyć ogień...<<<""")
+        cls2()
+        if ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==2):
+            ogien.append(name)
+            # miejsce na "zginales w pozarze"
             Lose = 1
             lose()
-        elif pozycja == gracz_mod["mod_badawczy"]:
+        elif ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==1):
+            ogien.append(name)
             Lose = 1
             lose()
+        elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
+            print ("""          >>>Niestety %s nie przeżyli...<<<
+                                >>>Działaj zanim ogień opanuje cały statek!<<<""" % (" i ".join(ogien)))
+            cls2()
+            sleep(2)
+        elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==1):
+            print("""          >>>Niestety %s już nigdy nie wróci...<<<
+                            >>>Ogień szaleje na statku! Musisz działać!<<<""" % ("".join(ogien)))
+            cls2()
+            sleep(2)
+
+
 
 
 
