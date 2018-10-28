@@ -1123,7 +1123,7 @@ def mod3(q):
         poprzesuwane łóżka i porozrzucane rzeczy.
 
             """)
-    
+
     global pozycja
     pozycja = 3
 
@@ -1516,9 +1516,10 @@ def eq():
         print("""                   == == == EKWIPUNEK == == ==
 
                           << [1] Latarka : poziom baterii %d
-                          << [2] Krótkofalówka
-                          << [3] Kartki : %s """ % (bateria, len(equipment["Kartki"])))
-        print("                  << [4] Wróć")
+                          << [2] Mapa
+                          << [3] Krótkofalówka
+                          << [4] Kartki : %s """ % (bateria, len(equipment["Kartki"])))
+        print("                  << [5] Wróć")
         choice = input('                           ')  # przypisuje wybór
         if (choice == "2"):
             for i in range(1, 8):
@@ -1530,11 +1531,21 @@ def eq():
             cls()
             flash()
             menu()
-        elif (choice == "3"):
+        elif (choice == "4"):
             view_text()
 
-        elif (choice == "4"):
+        elif (choice == "5"):
             back()
+        elif (choice == "3"):
+            cls()
+            print("""                    == == == KRÓTKOFALÓWKA == == ==
+
+                                              << Aby zadzwonić do kogoś,
+                                                 użyj opcji z menu
+
+                                            """)
+
+
 
 
 
@@ -2035,9 +2046,9 @@ def menu():
                 choice = input('                           ')
 
                 if choice == "1":
-                        move()
+                    move()
                 elif choice == "2":
-                        eq()
+                    eq()
                 elif choice == "3":
 
                     print('Twoi przyjaciele: %s ' % (", ".join(osoby))),
