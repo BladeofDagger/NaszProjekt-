@@ -1991,6 +1991,43 @@ def win():
 
 
 
+#slender atakuje!!!
+def slender5():
+    global pozycja
+    global Alive
+    global dead
+    i = 0
+    with lock:
+        while i < 4:
+            sleep(5)
+            shuffle(miejsca)
+            index = randint(0, 7)
+            slender_mod[miejsca[index]].append("Slender")
+            if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
+                for key in mod:
+                    if key == miejsca[index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                        if len(mod[key]) > 0:
+                            Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
+                            dead.append(mod[key][0])  # dana osoba przenosi się do dead
+
+
+                            mod[key].clear()
+            elif pozycja == gracz_mod[miejsca[index]]:
+                slenderdead()
+                sleep(3)
+                lose()
+                sleep(2)
+                end()
+                sleep(2)
+            i+=1
+            slender_mod[miejsca[index]].clear()
+
+
+
+
+
+
+
 
 
 def fire1():
@@ -2057,7 +2094,7 @@ def fire1():
                     
                             >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
                 """ % (" i ".join(ogien)))
-            sleep(2)
+
 
 
 
@@ -2144,8 +2181,7 @@ def slender4():
         slender_mod[miejsca[index]].append("Slender")
         if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
             for key in mod:
-                if key == miejsca[
-                    index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                if key == miejsca[index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
                     if len(mod[key]) > 0:
                         Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
                         dead.append(mod[key][0])  # dana osoba przenosi się do dead
@@ -2169,8 +2205,7 @@ def slender3():
         slender_mod[miejsca[index]].append("Slender")
         if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
             for key in mod:
-                if key == miejsca[
-                    index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                if key == miejsca[index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
                     if len(mod[key]) > 0:
                         Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
                         dead.append(mod[key][0])  # dana osoba przenosi się do dead
@@ -2418,6 +2453,7 @@ thread4 = threading.Thread( target = slender3)
 thread5 = threading.Thread( target = slender4)
 thread6 = threading.Thread( target = fire1)
 thread7 = threading.Thread( target = slow_death)
+thread8 = threading.Thread( target = slender5)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -2532,6 +2568,15 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
             quit()
 
         else:
+            thread8.start()
+            thread8.join()
+            if Lose == 1:
+                licznik = False
+                quit()
+            elif Win == 1:
+
+                quit()
+
             print(slender_mod)
             print(kartki_slender)
             print(mod)
