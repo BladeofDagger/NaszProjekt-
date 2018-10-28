@@ -392,42 +392,12 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
             cls()
+            q = 2
             Uwaga1()
-            ok = 1
             cls()
             back()
         elif choice == "2":
             back()
-    elif (q == 1 and pozycja == 8 and ok == 1):
-        Uwaga()
-        q = 2
-        sleep(2)
-        input("""                >>> Jesteś w Module Nawigacyjnym <<<   
-
-        To tutaj podejmowane są najważniejsze decyzje oraz znajduje
-        się tutaj panel sterowania pojazdem. Z tyłu możesz dostrzec
-        umieszczone kapsuły ewakuacyjne.
-
-
-
-             >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
-
-
-
-                  == == == ==  MENU  == == == ==
-
-                        >> Co chcesz zrobić?
-                << [1] Idź gdzieś
-                << [2] Zobacz ekwipunek
-                << [3] Zadzwoń
-                << [4] Rozmawiaj
-                << [5] Pokaż zadanie
-                << [6] Wróć
-                << [7] Działaj
-        """)
-        alarm()
-        back()
-
 
     elif (q == 2 and pozycja == 6):
         print("""
@@ -660,9 +630,10 @@ def quest(q):
 
     if (q == 4):
         print("""
-                    == == ==  Misja 4  == == == 
+                      == == ==  Misja  == == == 
 
-         COŚ TU BĘDZIE""")
+                       Brak misji do wykonania
+                """)
         cls2()
         menu()
 
@@ -1211,7 +1182,7 @@ def mod1(q):  # Kuchnia
         oznacza to poważne kłopoty...
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                         >>> Jesteś w Kuchni <<<   
 
@@ -1251,7 +1222,7 @@ def mod2(q):
         używać w takim stanie...  
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Wypoczynku <<<   
 
@@ -1286,7 +1257,7 @@ def mod3(q):
         czegoś szukać...    
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Serwisowym <<<   
 
@@ -1322,7 +1293,7 @@ def mod4(q):
         zapach, lepiej sprawdzić, skąd on pochodzi.
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Łącznikowym <<<   
 
@@ -1356,7 +1327,7 @@ def mod5(q):
          że rośliny nie zostały uszkodzone. Skąd on może pochodzić?
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Botanicznym <<<   
 
@@ -1397,7 +1368,7 @@ def mod6(q):
         ten zapach. Wdychanie go może spowodować śmierć! 
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Badawczym <<<   
 
@@ -1434,7 +1405,7 @@ def mod7(q):
         sprawdzać... 
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Energetycznym <<<   
 
@@ -1469,7 +1440,7 @@ def mod8(q):
         ich odblokować.
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Nawigacyjnym <<<    
 
