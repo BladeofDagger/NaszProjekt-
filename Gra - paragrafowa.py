@@ -488,8 +488,10 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
             choice = input("        ")
             if choice == "1":
                 door = "closed"
+                miejsca.remove("mod_botaniczny")
+                miejsca.remove("mod_badawczy")
                 Uwaga()
-                sleep(2)
+                
             elif choice == "2":
                 cls2()
                 print ("""       >>> Ogień rozprzestrzenia się w zastraszającym tempie!<<<
@@ -1565,17 +1567,35 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                            """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
-            cls()
-            mod5(q)
-            menu()
+            if ("mod_botaniczny" not in miejsca) and ("mod_badawczy" not in miejsca):
+                cls()
+                print("""                 == == == ==  MENU  == == == ==
+
+                                                >>>Śluza zamknięta<<<
+
+                                            """)
+                menu()
+            else:
+                cls()
+                mod5(q)
+                menu()
         elif choice == "2":
             cls()
             mod7(q)
             menu()
         elif choice == "3":
-            cls()
-            mod6(q)
-            menu()
+            if ("mod_botaniczny" not in miejsca) and ("mod_badawczy" not in miejsca):
+                cls()
+                print("""                 == == == ==  MENU  == == == ==
+
+                                                >>>Śluza zamknięta<<<
+
+                                            """)
+                menu()
+            else:
+                cls()
+                mod6(q)
+                menu()
         elif choice == "4":
             cls()
             mod2(q)
@@ -1993,6 +2013,7 @@ def win():
 
 #slender atakuje!!!
 def slender5():
+    global miejsca
     global Lose
     global pozycja
     global Alive
@@ -2014,7 +2035,7 @@ def slender5():
 
 
                                 mod[key].clear()
-                elif pozycja == 4:#gracz_mod[miejsca[index]]:
+                elif pozycja == gracz_mod[miejsca[index]]:
                     Lose = 1
                     slenderdead()
                     sleep(3)
@@ -2050,6 +2071,7 @@ def fire1():
     global name
     global Lose
     global poziom
+    global miejsca
     poziom = 1
     with lock:
         sleep(5)
@@ -2148,6 +2170,8 @@ def fire1():
                                 >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
                         """)
+
+
 
 
 
