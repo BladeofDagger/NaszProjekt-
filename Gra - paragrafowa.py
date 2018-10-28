@@ -4,6 +4,7 @@ from random import *
 import sys
 import threading
 lock = threading.Lock()
+licznik = True
 
 
 # zmienne ###########
@@ -155,24 +156,6 @@ def escape():
         back()
 
 
-def again():
-    print("""
-                     == == ==  UWAGA  == == ==         
-
-                    Czy chcesz zgrać ponownie?      
-
-                  << [1] Tak
-                  << [2] Nie                        
-    """)
-    choice = input('                        ')
-    if (choice == 1):
-        intro()
-
-
-    elif (choice == 2):
-        end()
-        sleep(2)
-        quit()
 
 
 
@@ -197,8 +180,8 @@ def end():
 == == == == == == == == == == == == == == == == == == == == == == == == == == == == == ==                                       
     """)
 
-    sleep(3)
-    sys.exit()
+    sleep(1)
+
 
 
 
@@ -231,6 +214,9 @@ def Uwaga1():
 
 
                           """)
+
+
+
 
 
 def gasnie():  # gaśnie światło
@@ -623,7 +609,7 @@ def slenderdead():
 
 
 def slow_death():
-    sleep(20)
+    sleep(10)
     if door =="open":
         global Lose
         Lose = 1
@@ -632,7 +618,9 @@ def slow_death():
         lose()
         sleep(2)
         cls()
-        again()
+        end()
+        sleep(2)
+
 
     else:
         pass
@@ -2041,7 +2029,9 @@ def fire1():
             lose()
             sleep(2)
             cls()
-            again()
+            end()
+            sleep(2)
+
         elif ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==1):
             ogien.append(name)
             firedead()
@@ -2050,32 +2040,65 @@ def fire1():
             lose()
             sleep(2)
             cls()
-            again()
+            end()
+            sleep(2)
+
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             print ("""          >>>Niestety %s nie przeżyli...<<<
                 
                 
-                    >>>Działaj zanim ogień opanuje cały statek!<<<
+                            >>>Działaj zanim ogień opanuje cały statek!<<<
+                            
+                            
+                            
+                            >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
                 
                     
                     
-                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
                 """ % (" i ".join(ogien)))
-            cls2()
             sleep(2)
+
+
+
+
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==1):
-            print("""          >>>Niestety %s już nigdy nie wróci...<<<
+            print("""           >>>Niestety %s już nigdy nie wróci...<<<
             
             
-                >>>Ogień szaleje na statku! Musisz działać!<<<
+                        >>>Ogień szaleje na statku! Musisz działać!<<<
+                        
+                        
+                        
+                        
+                        >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
             
                 
                 
-                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                        >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
             
             """ % ("".join(ogien)))
-            cls2()
-            sleep(2)
+
+
+
+
+        elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==0):
+            print("""           >>>Na szczęście nikomu nic się nie stało!<<<
+
+
+                                >>>Ale ogień wciąż szaleje na statku więc musisz działać!<<<
+                                
+                                
+                                
+                                
+                                >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+
+
+
+                                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+
+                        """)
+
 
 
 
@@ -2235,11 +2258,18 @@ def slender1():
 
 
 def menu():
+    global Lose
     global pozycja
     symbol()
     #licznik kontrolny
+    global licznik
     licznik = True
-    while licznik:
+
+
+
+
+
+    while Lose == 0:
         if len(equipment["Kartki"])>0:
 
                 print("""                  == == == ==  MENU  == == == ==
@@ -2255,35 +2285,57 @@ def menu():
                               << [8] Działaj""")
 
                 choice = input('                           ')
+                if Lose == 0:
+                    if choice == "1":
+                        move()
+                    elif choice == "2":
+                        eq()
+                    elif choice == "3":
 
-                if choice == "1":
-                    move()
-                elif choice == "2":
-                    eq()
-                elif choice == "3":
+                        print ('Twoi przyjaciele: %s ' % (", ".join(osoby))),
 
-                    print ('Twoi przyjaciele: %s ' % (", ".join(osoby))),
-
-                    Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-                    call(Name)
-                elif choice == "4":
-                    if (pozycja == 5 or pozycja == 6 or pozycja == 7 or pozycja == 8):
-                        dialog()
+                        Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                        call(Name)
+                    elif choice == "4":
+                        if (pozycja == 5 or pozycja == 6 or pozycja == 7 or pozycja == 8):
+                            dialog()
+                        else:
+                            cls2()
+                            print ("""          Wygląda na to, że nikogo tu nie ma...""")
+                            cls2()
+                    elif choice == "5":
+                        view_text()
+                    elif choice == "6":
+                        quest(q)
+                    elif choice == "7":
+                        back()
+                    elif choice == "8":
+                        action()
                     else:
-                        cls2()
-                        print ("""          Wygląda na to, że nikogo tu nie ma...""")
-                        cls2()
-                elif choice == "5":
-                    view_text()
-                elif choice == "6":
-                    quest(q)
-                elif choice == "7":
-                    back()
-                elif choice == "8":
-                    action()
-                else:
-                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                        if Lose == 1:
+                            print ("Koniec Gry")
+                        else:
 
+                            print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                else:
+                    if choice =="1":
+                        print ("Koniec Gry")
+                    elif choice == "2":
+                        print ("Koniec Gry")
+                    elif choice =="3":
+                        print("Koniec Gry")
+                    elif choice =="4":
+                        print("Koniec Gry")
+                    elif choice =="5":
+                        print("Koniec Gry")
+                    elif choice =="6":
+                        print("Koniec Gry")
+                    elif choice =="7":
+                        print("Koniec Gry")
+                    elif choice=="8":
+                        print("Koniec Gry")
+                    else:
+                        print("Koniec Gry")
 
 
 
@@ -2303,33 +2355,57 @@ def menu():
                               << [7] Działaj""")
 
                 choice = input('                           ')
+                if Lose == 0:
+                    if choice == "1":
+                        move()
+                    elif choice == "2":
+                        eq()
+                    elif choice == "3":
 
-                if choice == "1":
-                    move()
-                elif choice == "2":
-                    eq()
-                elif choice == "3":
+                        print('Twoi przyjaciele: %s ' % (", ".join(osoby))),
 
-                    print('Twoi przyjaciele: %s ' % (", ".join(osoby))),
+                        Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
+                        call(Name)
 
-                    Name = input('Do kogo chcesz zadzwonić? Wprowadź imię: ')
-                    call(Name)
-
-                elif choice == "4":
-                    if (pozycja == 5 or pozycja == 6 or pozycja == 7 or pozycja == 8):
-                        dialog()
+                    elif choice == "4":
+                        if (pozycja == 5 or pozycja == 6 or pozycja == 7 or pozycja == 8):
+                            dialog()
+                        else:
+                            cls2()
+                            print ("""              Wygląda na to, że nikogo tu nie ma...""")
+                            cls2()
+                    elif choice == "5":
+                        quest(q)
+                    elif choice == "6":
+                        back()
+                    elif choice == "7":
+                        action()
                     else:
-                        cls2()
-                        print ("""              Wygląda na to, że nikogo tu nie ma...""")
-                        cls2()
-                elif choice == "5":
-                    quest(q)
-                elif choice == "6":
-                    back()
-                elif choice == "7":
-                    action()
+                        if Lose == 1:
+                            print ("Koniec Gry")
+                        else:
+                            print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
                 else:
-                    print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+                    if choice =="1":
+                        print ("Koniec Gry")
+                    elif choice == "2":
+                        print ("Koniec Gry")
+                    elif choice =="3":
+                        print("Koniec Gry")
+                    elif choice =="4":
+                        print("Koniec Gry")
+                    elif choice =="5":
+                        print("Koniec Gry")
+                    elif choice =="6":
+                        print("Koniec Gry")
+                    elif choice =="7":
+                        print("Koniec Gry")
+                    elif choice=="8":
+                        print("Koniec Gry")
+                    else:
+                        print("Koniec Gry")
+
+
 
     cls2()
 
@@ -2426,7 +2502,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     print (mod)
     cls2()
     #threads
-
+    global licznik
     thread1.start() #pierwsza kartka i call()
     thread1.join()
     thread3.start()# 2 kartka
@@ -2437,19 +2513,31 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread5.join()
     thread6.start() #pożar w module botanicznym lub badawczym
     thread6.join()
-    thread7.start()
-    thread7.join()
     global Lose
     if Lose == 1:
-        again()
-    elif Win == 1:
 
+        licznik = False
         quit()
     else:
-        print(slender_mod)
-        print(kartki_slender)
-        print(mod)
-        print (dead)
+        thread7.start()
+        thread7.join()
+        if Lose == 1:
+
+            licznik = False
+            quit()
+
+
+        elif Win == 1:
+
+            quit()
+
+        else:
+            print(slender_mod)
+            print(kartki_slender)
+            print(mod)
+            print(dead)
+
+
 
 
 
