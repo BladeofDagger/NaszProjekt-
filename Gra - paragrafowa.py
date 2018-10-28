@@ -568,7 +568,7 @@ def slow_death():
         lose()
         sys.exit()
     else:
-        print #
+        pass
 
 
 
@@ -1964,12 +1964,19 @@ def fire1():
             lose()
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             print ("""          >>>Niestety %s nie przeżyli...<<<
-                                >>>Działaj zanim ogień opanuje cały statek!<<<""" % (" i ".join(ogien)))
+                >>>Działaj zanim ogień opanuje cały statek!<<<
+                
+                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                """ % (" i ".join(ogien)))
             cls2()
             sleep(2)
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==1):
             print("""          >>>Niestety %s już nigdy nie wróci...<<<
-                            >>>Ogień szaleje na statku! Musisz działać!<<<""" % ("".join(ogien)))
+            >>>Ogień szaleje na statku! Musisz działać!<<<
+            
+                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+            
+            """ % ("".join(ogien)))
             cls2()
             sleep(2)
 
@@ -1993,8 +2000,14 @@ def lose():
 
 
                                == == ==  == ==  == == ==     
-                               """)
-    print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % (",".join(dead)))
+                             """)
+    if len(dead)== 1:
+        if "Ann" in dead:
+            print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % ("".join(dead)))
+        else:
+            print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % ("'em ".join(dead)))
+    else:
+        print("""       >>> Ty, %s - jesteście już na tamtym świecie...<<<""" % ("'em ".join(dead)))
 
 
 
