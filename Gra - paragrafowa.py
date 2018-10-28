@@ -1049,8 +1049,7 @@ def mod1(q):  # Kuchnia
 
             """)
 
-    elif len(kartki_slender["mod_kuchenny"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
 
 
 
@@ -1087,8 +1086,7 @@ def mod2(q):
 
         Możesz wreszcie się bezpiecznie poruszać. Na podłodze
         leżą małe części zamienne... """)
-    elif len(kartki_slender["mod_wypoczynkowy"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+
 
     global pozycja
     pozycja = 2
@@ -1125,8 +1123,7 @@ def mod3(q):
         poprzesuwane łóżka i porozrzucane rzeczy.
 
             """)
-    elif len(kartki_slender["mod_serwisowy"]) > 0:
-        print("""           To dziwne...Jakaś kartka...Trzeba to sprawdzić!""")
+    
     global pozycja
     pozycja = 3
 
