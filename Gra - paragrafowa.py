@@ -443,7 +443,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
             elif choice == "2":
                 cls2()
                 print ("""       >>> Ogień rozprzestrzenia się w zastraszającym tempie!<<<
-                                        Lepiej zamknij śluzę!!!""")
+                                        Lepiej zamknij śluzy!!!""")
 
 
         elif pozycja == gracz_mod["mod_nawig"]:
@@ -540,8 +540,14 @@ def slenderdead():
 
 
 def slow_death():
-    sleep(10)
-
+    sleep(20)
+    if door =="open":
+        firedead()
+        sleep(2)
+        lose()
+        sys.exit()
+    else:
+        print #
 
 
 
@@ -2198,6 +2204,7 @@ thread3 = threading.Thread( target = slender2)
 thread4 = threading.Thread( target = slender3)
 thread5 = threading.Thread( target = slender4)
 thread6 = threading.Thread( target = fire1)
+thread7 = threading.Thread( target = slow_death)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -2293,6 +2300,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread5.join()
     thread6.start() #pożar w module botanicznym lub badawczym
     thread6.join()
+    thread7.start()
+    thread7.join()
     global Lose
     if Lose == 1:
         sys.exit()
