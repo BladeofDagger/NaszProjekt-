@@ -2004,10 +2004,13 @@ def lose():
     if len(dead)== 1:
         if "Ann" in dead:
             print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % ("".join(dead)))
+        elif "Steve" in dead:
+            print("""       >>> Razem ze %s jesteś już na tamtym świecie...<<<""" % ("'em ".join(dead)))
+
         else:
             print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % ("'em ".join(dead)))
     else:
-        print("""       >>> Ty, %s - jesteście już na tamtym świecie...<<<""" % ("'em ".join(dead)))
+        print("""       >>> Ty, %s - jesteście już na tamtym świecie...<<<""" % (", ".join(dead)))
 
 
 
