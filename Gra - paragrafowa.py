@@ -109,6 +109,8 @@ def escape():
                             win()
                             sleep(2)
                             end()
+                            sleep(2)
+                            quit()
 
                     else:
                         cls()
@@ -169,7 +171,9 @@ def again():
 
     elif (choice == 2):
         end()
-        sys.exit()
+        sleep(2)
+        quit()
+
 
 
 def end():
@@ -193,8 +197,8 @@ def end():
 == == == == == == == == == == == == == == == == == == == == == == == == == == == == == ==                                       
     """)
 
-sleep(3)
-sys.exit()
+    sleep(3)
+    sys.exit()
 
 
 
@@ -211,6 +215,7 @@ def Uwaga():
 
 
                           """)
+
     cls()
 
 def Uwaga1():
@@ -491,9 +496,9 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
 
             print("""          >>>Zamknij śluzy do modułów:
-                                    botanicznego i badawczego!<<<
-                                                            [1] Tak
-                                                            [2] Nie""")
+                botanicznego i badawczego!<<<
+                                [1] Tak
+                                [2] Nie""")
             choice = input("        ")
             if choice == "1":
                 door = "closed"
@@ -625,7 +630,10 @@ def slow_death():
         firedead()
         sleep(2)
         lose()
-        sys.exit()
+        sleep(2)
+        cls()
+        again()
+
     else:
         pass
 
@@ -2031,12 +2039,18 @@ def fire1():
             sleep(2)
             Lose = 1
             lose()
+            sleep(2)
+            cls()
+            again()
         elif ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==1):
             ogien.append(name)
             firedead()
             sleep(2)
             Lose = 1
             lose()
+            sleep(2)
+            cls()
+            again()
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             print ("""          >>>Niestety %s nie przeżyli...<<<
                 
@@ -2427,9 +2441,10 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread7.join()
     global Lose
     if Lose == 1:
-        sys.exit()
+        again()
     elif Win == 1:
-        sys.exit()
+
+        quit()
     else:
         print(slender_mod)
         print(kartki_slender)
