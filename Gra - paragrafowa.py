@@ -5,6 +5,7 @@ import sys
 import threading
 lock = threading.Lock()
 
+
 # zmienne ###########
 bateria = 5
 pozycja = 1 #globalnie bez sensu
@@ -1770,7 +1771,7 @@ def wez_kartke():
 
 # unsupported character
 def win():
-    print (("""
+    print ("""
                         == == ==  ! ! W Y G R A N A ! !  == == ==         
 
 
@@ -1785,13 +1786,12 @@ def win():
 
                                 == == ==  == ==  == == ==     
 
-                    >>> Gratulacje %s! Ucieczka zakończona powodzeniem!<<<
+                                                                            """)
+    print ("""          >>> Gratulacje % s! Ucieczka zakończona powodzeniem! <<<
+    
+                            >>>Niech %s spoczywają w pokoju... <<<""" % ( ",".join(Alive), ",".join(dead))
 
-                        >>>Niech %s spoczywają w pokoju... <<<
-
-                                      """) % ( ",".join(Alive), ",".join(dead)))
-
-
+           )
 def fire1():
     global Alive
     global dead
@@ -1824,7 +1824,7 @@ def fire1():
 
 
 def lose():
-    print (("""
+    print ("""
                      == == ==  ! ! P R Z E G R A N A ! !  == == ==         
 
 
@@ -1838,10 +1838,10 @@ def lose():
            @@@@@@@*           .@@@@@/             &@@@@@&            @@@@@@@@                         
 
 
-                               == == ==  == ==  == == ==      
+                               == == ==  == ==  == == ==     
+                               """)
+    print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % (",".join(dead)))
 
-                       >>> Razem z %s jesteś już na tamtym świecie...<<<
-                                     """) % (",".join(dead)))
 
 
 def slender4():
@@ -1895,6 +1895,7 @@ def slender3():
 
 
 def slender2():
+    global dead
     global Alive
     with lock:
         sleep(5)
@@ -1917,6 +1918,7 @@ def slender2():
 
 
 def slender1():
+    global dead
     global Alive
     thread2.start()
     sleep(5)
