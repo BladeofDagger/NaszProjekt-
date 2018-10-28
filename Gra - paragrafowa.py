@@ -609,7 +609,7 @@ def slenderdead():
 
 
 def slow_death():
-    sleep(10)
+    sleep(15)
     if door =="open":
         global Lose
         Lose = 1
@@ -1999,8 +1999,8 @@ def slender5():
     global dead
     i = 0
     with lock:
-        while Lose == 0:
-            while i < 4:
+        if Lose == 0:
+            while i < 3:
                 sleep(5)
                 shuffle(miejsca)
                 index = randint(0, 7)
@@ -2014,7 +2014,7 @@ def slender5():
 
 
                                 mod[key].clear()
-                elif pozycja == gracz_mod[miejsca[index]]:
+                elif pozycja == 4:#gracz_mod[miejsca[index]]:
                     Lose = 1
                     slenderdead()
                     sleep(3)
@@ -2024,6 +2024,16 @@ def slender5():
                     sleep(2)
                 i+=1
                 slender_mod[miejsca[index]].clear()
+        else:
+            Lose = 1
+            slenderdead()
+            sleep(3)
+            lose()
+            sleep(2)
+            end()
+            sleep(2)
+
+
 
 
 
@@ -2579,11 +2589,12 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
             elif Win == 1:
 
                 quit()
+            else:
 
-            print(slender_mod)
-            print(kartki_slender)
-            print(mod)
-            print(dead)
+                print(slender_mod)
+                print(kartki_slender)
+                print(mod)
+                print(dead)
 
 
 
