@@ -1917,11 +1917,23 @@ def win():
                                 == == ==  == ==  == == ==     
 
                                                                             """)
-    print ("""          >>> Gratulacje % s! Ucieczka zakończona powodzeniem! <<<
-    
-                            >>>Niech %s spoczywają w pokoju... <<<""" % ( ",".join(Alive), ",".join(dead))
+    print ("""          >>> Gratulacje % s! Ucieczka zakończona powodzeniem! <<< """ %(",".join(Alive)))
+    cls2()
+    if len(dead)==1:
+        print ("""   >>>Niech %s spoczywa w pokoju... <<<""" % (",".join(dead)))
+    elif len(dead)==2:
+        print ("""   >>>Niech %s spoczywają w pokoju... <<<""" % (" i ".join(dead)))
+    elif len(dead)==3:
+        print("""   >>>Niech %s i %s spoczywają w pokoju... <<<""" % (", ".join(dead[0:2]), "".join(dead[2])))
+    else:
+        print("""   >>>Niech %s i %s spoczywają w pokoju... <<<""" % (", ".join(dead[0:3]), "".join(dead[3])))
 
-           )
+
+
+
+
+
+
 def fire1():
     global ogien
     global Alive
@@ -1964,16 +1976,24 @@ def fire1():
             lose()
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             print ("""          >>>Niestety %s nie przeżyli...<<<
-                >>>Działaj zanim ogień opanuje cały statek!<<<
                 
+                
+                    >>>Działaj zanim ogień opanuje cały statek!<<<
+                
+                    
+                    
                     >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
                 """ % (" i ".join(ogien)))
             cls2()
             sleep(2)
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==1):
             print("""          >>>Niestety %s już nigdy nie wróci...<<<
-            >>>Ogień szaleje na statku! Musisz działać!<<<
             
+            
+                >>>Ogień szaleje na statku! Musisz działać!<<<
+            
+                
+                
                 >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
             
             """ % ("".join(ogien)))
