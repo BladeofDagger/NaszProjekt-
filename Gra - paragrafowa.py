@@ -24,7 +24,20 @@ on = 0 # 1 dla włączonej latarki, 0 dla wyłączonej
 
 # śluza do modułu botanicznego i badawczego
 door = "open"
+#bardzo wazne zmienne potrzebne do wygranej!!!!!!
+kod = str(randint(1000,9999))
+password = str(randint(1000,9999))
+a = str(randint(10,99))
+b = str(randint(10,99))
+c = str(randint(10,99))
+d = str(randint(10,99))
+e = str(randint(10,99))
+f = str(randint(10,99))
 
+Rcoordinates = [a,b,c]
+Wcoordinates = [d,e,f]
+right_coordinates = str(".".join(Rcoordinates))
+wrong_cooridinates = str(".".join(Wcoordinates))
 
 
 ######################
@@ -94,6 +107,8 @@ def escape():
                             sleep(3)
                             cls()
                             win()
+                            sleep(2)
+                            end()
 
                     else:
                         cls()
@@ -136,6 +151,50 @@ def escape():
         """)
         sleep(1)
         back()
+
+
+def again():
+    print("""
+                     == == ==  UWAGA  == == ==         
+
+                    Czy chcesz zgrać ponownie?      
+
+                  << [1] Tak
+                  << [2] Nie                        
+    """)
+    choice = input('                        ')
+    if (choice == 1):
+        intro()
+
+
+    elif (choice == 2):
+        end()
+        sys.exit()
+
+
+def end():
+    cls()
+    print("""
+== == == == == == == == == == == == == == == == == == == == == == == == == == == == == == 
+
+  KKK   KKK      OOOOO        NNN     NNN     III     EEEEEEEE       CCCCCC
+  KKK  KKK     OOO   OOO      NNNNN   NNN     III     EEE          CCC     CC
+  KKK  KK     OOO     OOO     NNN NN  NNN     III     EEEEEEE     CCC
+  KKK KK      OOO     OOO     NNN  NN NNN     III     EEE         CCC
+  KKK  KKK     OOO   OOO      NNN   NNNNN     III     EEE          CCC     CC
+  KKK   KKK      OOOOO        NNN     NNN     III     EEEEEEEE       CCCCCC
+
+                                D Z I Ę K U J E M Y
+                                        Z A
+                                    U D Z I A Ł
+                                         W
+                                      G R Z E        
+
+== == == == == == == == == == == == == == == == == == == == == == == == == == == == == ==                                       
+    """)
+
+sleep(3)
+sys.exit()
 
 
 
@@ -1017,7 +1076,7 @@ Dave_kf = {
     "mod_badawczy": ["Sprzęt w porządku. Muszę zabezpieczyć próbki","Jeszcze wiele pracy przed nami..."],
     "mod_botaniczny": ["Zająłem się oksygenatorem. Na razie działają systemy awaryjne.","Jest dobrze.Odbiór."],
     "mod_ener":["Silniki manewrowe doznały uszkodzeń.","Stabilizatory w normie."],
-    "mod_nawig":["Karta do strefy ewakuacyjnej została w module serwisowym.","Przechodzimy na sterowanie ręczne. Nasz kod to 2436"]
+    "mod_nawig":["Karta do strefy ewakuacyjnej została w module serwisowym.","Przechodzimy na sterowanie ręczne. Nasz kod to %s" % kod]
 
 
 }
@@ -1031,7 +1090,7 @@ Steve_kf = {
     "mod_badawczy": ["Wszystkie dane są bezpieczne!","Kontynuuję analizę..."],
     "mod_botaniczny": ["Rośliny w porządku. Trzeba zająć się zasilaniem.","Wszystkie urządzenia są sprawne"],
     "mod_ener":["Mamy tu poważny wyciek chłodziwa...","Możliwy czasowy zanik zasilania..."],
-    "mod_nawig":["Nie można nawiązać kontaktu ze stacją...","Spróbuję nadać sygnał. Hasło do terminala to: 3452"]
+    "mod_nawig":["Nie można nawiązać kontaktu ze stacją...","Spróbuję nadać sygnał. Hasło do terminala to: %s" % password]
 
 }
 
@@ -1041,7 +1100,7 @@ John_kf = {
     "mod_badawczy": ["Zawsze to samo...ale bałagan! To przez te turbulencje...","Nadgodziny nas wykończą..."],
     "mod_botaniczny": ["System dostarczania wody sprawny.","To nie tu tkwi problem. Trzeba się rozejrzeć."],
     "mod_ener":["Włączyłem dodatkowe osłony.","Wyrwanie się z tego pola grawitacyjnego to będzie nie lada wyzwanie"],
-    "mod_nawig":["Staram się namierzyć sygnał...","Intercom zaciął się, ale zdążył zarejestrować współrzędne: 24.67.89"]
+    "mod_nawig":["Staram się namierzyć sygnał...","Intercom zaciął się, ale zdążył zarejestrować współrzędne: %s" % right_coordinates]
 
 }
 
@@ -1059,9 +1118,9 @@ Ann_kf= {
 
 Dialog = {
     "Dave": {
-    "mod_badawczy":["Podobno w bazie Intercomu pojawiły się jakieś współrzędne..","To było: 24.67..Musisz zapytać reszty. Teraz nie mam do tego głowy."],
-    "mod_botaniczny":["Powtarzam hasło do terminala: 3452","Dużo pracy przede mną, trzeba tutaj uważać..."],
-    "mod_ener":["Co raz częściej są jakieś awarie!","Zapamiętaj kod: 2436 i zejdź mi z oczu..."],
+    "mod_badawczy":["Podobno w bazie Intercomu pojawiły się jakieś współrzędne..","Tak, to było... %s." % right_coordinates],
+    "mod_botaniczny":["Powtarzam hasło do terminala: %s" % password,"Dużo pracy przede mną, trzeba tutaj uważać..."],
+    "mod_ener":["Co raz częściej są jakieś awarie!","Zapamiętaj kod: %s i zejdź mi z oczu..." % kod],
     "mod_nawig":["Obowiązki wzywają!","Chciałbym już wrócić do domu..."]
 
 },
@@ -1069,11 +1128,11 @@ Dialog = {
     "mod_badawczy":["Jakby co, to karta pokładowa leży u mnie na łóżku.","Mam dużo pracy!"],
     "mod_botaniczny":["Te rośliny są cudowne!","Jestem głodny..."],
     "mod_ener":["Ta maszyna ciągle się psuje!","Nie mam już siły."],
-    "mod_nawig":["Na ekranie wyświetlają się współrzędne: 24.67.89. Nie wiem co to..","Może Dave jest lepiej zorientowany"]
+    "mod_nawig":["Na ekranie wyświetlają się współrzędne: %s. Nie wiem co to.." % right_coordinates,"Może Dave jest lepiej zorientowany"]
 
 } ,
     "John": {
-    "mod_badawczy":["Nie mogę sobie przypomnieć hasła do terminala..","Tak! To było 3452."],
+    "mod_badawczy":["Nie mogę sobie przypomnieć hasła do terminala..","Tak! To było %s." % password],
     "mod_botaniczny":["Tu jest tak pięknie!","Boję się ciemności"],
     "mod_ener":["Zająłem się usterkami.","Muszę się skupić!"],
     "mod_nawig":["Kapsuły ewakuacyjne są zablokowane.","Karta podobno została w module serwisowym..."]
@@ -1083,7 +1142,7 @@ Dialog = {
     "mod_badawczy":["Trochę tu bałaganu...","Już padam z sił."],
     "mod_botaniczny":["Poszłabym coś przekąsić!","Zajmiesz się tymi roślinami?"],
     "mod_ener":["System sztucznej grawitacji działa w trybie awaryjnym.","Jesteśmy na sterowaniu ręcznym.Jaki był kod?"],
-    "mod_nawig":["Mam już dość tego kosmosu!","Zapamiętaj hasło do terminala: 3452"]
+    "mod_nawig":["Mam już dość tego kosmosu!","Zapamiętaj hasło do terminala: %s" % password]
 
 }
 
@@ -1920,13 +1979,17 @@ def win():
     print ("""          >>> Gratulacje % s! Ucieczka zakończona powodzeniem! <<< """ %(",".join(Alive)))
     cls2()
     if len(dead)==1:
-        print ("""   >>>Niech %s spoczywa w pokoju... <<<""" % (",".join(dead)))
+        print ("""      >>>Niech %s spoczywa w pokoju... <<<""" % (",".join(dead)))
+        cls2()
     elif len(dead)==2:
-        print ("""   >>>Niech %s spoczywają w pokoju... <<<""" % (" i ".join(dead)))
+        print ("""      >>>Niech %s spoczywają w pokoju... <<<""" % (" i ".join(dead)))
+        cls2()
     elif len(dead)==3:
-        print("""   >>>Niech %s i %s spoczywają w pokoju... <<<""" % (", ".join(dead[0:2]), "".join(dead[2])))
+        print("""       >>>Niech %s i %s spoczywają w pokoju... <<<""" % (", ".join(dead[0:2]), "".join(dead[2])))
+        cls2()
     else:
-        print("""   >>>Niech %s i %s spoczywają w pokoju... <<<""" % (", ".join(dead[0:3]), "".join(dead[3])))
+        print("""       >>>Niech %s i %s spoczywają w pokoju... <<<""" % (", ".join(dead[0:3]), "".join(dead[3])))
+        cls2()
 
 
 
@@ -2147,7 +2210,7 @@ def slender1():
                     mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
     else:
             # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
-        kartki_slender[miejsca[index]].append("Wszystko ma swój koniec 23.74.85")
+        kartki_slender[miejsca[index]].append("Wszystko ma swój koniec %s" % wrong_cooridinates)
                 # jeśli pojawi się kartka to weź kartkę
                 # cyfy to współrzędne środka planety = mają w pewnym sensie
                 # zmylić gracza gdy bedzie musial pod koniec wpisac wspolrzedne
