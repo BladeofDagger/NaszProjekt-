@@ -447,7 +447,26 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
 
         elif pozycja == gracz_mod["mod_nawig"]:
-            escape()
+            print("""          >>Przyłóż kartę do czytnika!<<
+                                            [1] Tak
+                                            [2] Nie
+                        """)
+            choice = input("         ")
+            if choice == "1":
+                if len(equipment["Karta pokładowa"])>0:
+                    escape()
+                else:
+                    print("""          >>Nie masz wystarczających uprawnień<<
+                                            Potrzebujesz karty pokładowej
+                                                               
+                                            """)
+                    sleep(2)
+                    back()
+            else:
+                back()
+
+
+
 
 
 
@@ -542,6 +561,8 @@ def slenderdead():
 def slow_death():
     sleep(20)
     if door =="open":
+        global Lose
+        Lose = 1
         firedead()
         sleep(2)
         lose()
@@ -1931,11 +1952,14 @@ def fire1():
         cls2()
         if ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             ogien.append(name)
-            # miejsce na "zginales w pozarze"
+            firedead()
+            sleep(2)
             Lose = 1
             lose()
         elif ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==1):
             ogien.append(name)
+            firedead()
+            sleep(2)
             Lose = 1
             lose()
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
