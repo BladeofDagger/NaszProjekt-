@@ -491,7 +491,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 miejsca.remove("mod_botaniczny")
                 miejsca.remove("mod_badawczy")
                 Uwaga()
-                
+
             elif choice == "2":
                 cls2()
                 print ("""       >>> Ogień rozprzestrzenia się w zastraszającym tempie!<<<
@@ -2024,7 +2024,7 @@ def slender5():
             while i < 3:
                 sleep(5)
                 shuffle(miejsca)
-                index = randint(0, 7)
+                index = randint(0, 5) # z listy zniknely modul botan i badawczy
                 slender_mod[miejsca[index]].append("Slender")
                 if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
                     for key in mod:
@@ -2037,6 +2037,7 @@ def slender5():
                                 mod[key].clear()
                 elif pozycja == gracz_mod[miejsca[index]]:
                     Lose = 1
+                    i = 3
                     slenderdead()
                     sleep(3)
                     lose()
@@ -2044,15 +2045,15 @@ def slender5():
                     end()
                     sleep(2)
                 i+=1
-                slender_mod[miejsca[index]].clear()
-        else:
+                #slender_mod[miejsca[index]].clear()
+        """else:
             Lose = 1
             slenderdead()
             sleep(3)
             lose()
             sleep(2)
             end()
-            sleep(2)
+            sleep(2)"""
 
 
 
@@ -2619,6 +2620,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
                 print(kartki_slender)
                 print(mod)
                 print(dead)
+                print (miejsca)
 
 
 
