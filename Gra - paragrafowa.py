@@ -1993,34 +1993,37 @@ def win():
 
 #slender atakuje!!!
 def slender5():
+    global Lose
     global pozycja
     global Alive
     global dead
     i = 0
     with lock:
-        while i < 4:
-            sleep(5)
-            shuffle(miejsca)
-            index = randint(0, 7)
-            slender_mod[miejsca[index]].append("Slender")
-            if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
-                for key in mod:
-                    if key == miejsca[index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
-                        if len(mod[key]) > 0:
-                            Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
-                            dead.append(mod[key][0])  # dana osoba przenosi się do dead
+        while Lose == 0:
+            while i < 4:
+                sleep(5)
+                shuffle(miejsca)
+                index = randint(0, 7)
+                slender_mod[miejsca[index]].append("Slender")
+                if miejsca[index] in mod:  # jeśli dane pomieszczenie jest w słowniku mod z załogą
+                    for key in mod:
+                        if key == miejsca[index]:  # sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
+                            if len(mod[key]) > 0:
+                                Alive.remove(mod[key][0])  # przenosimy z listy alive do dead
+                                dead.append(mod[key][0])  # dana osoba przenosi się do dead
 
 
-                            mod[key].clear()
-            elif pozycja == gracz_mod[miejsca[index]]:
-                slenderdead()
-                sleep(3)
-                lose()
-                sleep(2)
-                end()
-                sleep(2)
-            i+=1
-            slender_mod[miejsca[index]].clear()
+                                mod[key].clear()
+                elif pozycja == gracz_mod[miejsca[index]]:
+                    Lose = 1
+                    slenderdead()
+                    sleep(3)
+                    lose()
+                    sleep(2)
+                    end()
+                    sleep(2)
+                i+=1
+                slender_mod[miejsca[index]].clear()
 
 
 
