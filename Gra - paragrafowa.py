@@ -22,6 +22,8 @@ noc = 0 # dla noc == 0 bedzie jasno, dla noc == 1 będzie ciemno i nie będzie n
 on = 0 # 1 dla włączonej latarki, 0 dla wyłączonej
 
 
+# śluza do modułu botanicznego i badawczego
+door = "open"
 
 
 
@@ -314,6 +316,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
     global q
     global on
     global ok
+    global door
     ok = 0
     cls()
     for key in gracz_mod:
@@ -426,6 +429,23 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print(" Karta w ekwipunku ")
             elif choice == "2":
                 print ("Karta została na miejscu. ")
+        elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
+
+            print("""          >>>Zamknij śluzy do modułów:
+                                    botanicznego i badawczego!<<<
+                                                            [1] Tak
+                                                            [2] Nie""")
+            choice = input("        ")
+            if choice == "1":
+                door = "closed"
+                Uwaga()
+                sleep(2)
+            elif choice == "2":
+                cls2()
+                print ("""       >>> Ogień rozprzestrzenia się w zastraszającym tempie!<<<
+                                        Lepiej zamknij śluzę!!!""")
+
+
         elif pozycja == gracz_mod["mod_nawig"]:
             escape()
 
