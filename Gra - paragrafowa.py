@@ -68,7 +68,7 @@ def card():
 
 
                               """)
-    sleep(1)
+
     back()
 
 
@@ -470,8 +470,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print(" Karta w ekwipunku ")
             elif choice == "2":
                 print ("Karta została na miejscu. ")
-                sleep(1)
-                back()
+
         elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
 
             print("""          >>>Zamknij śluzy do modułów:
@@ -1613,6 +1612,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                             >>> Śluza zamknięta <<<
     
                                                 """)
+                    menu()
 
                 elif door == "open":
 
@@ -1650,6 +1650,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                             >>> Śluza zamknięta <<<
     
                                                 """)
+                    menu()
 
                 elif door == "open":
                     Lose = 1
