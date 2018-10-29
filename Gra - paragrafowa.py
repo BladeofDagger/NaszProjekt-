@@ -2701,7 +2701,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
       """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
     # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
-    sleep(1)
+    sleep(25)
 
 
     # przypisanie reszty załogi do innych modułów
