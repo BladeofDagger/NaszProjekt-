@@ -76,31 +76,31 @@ def escape():
     cls()
     if (len(equipment["Karta pokładowa"]) > 0):
         choice =input("""       
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                        Wpisz współrzędne:
+                            Wpisz współrzędne:
 
             """)
         if (choice == right_coordinates):
             cls()
             choice=input("""       
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                            Wpisz kod:
+                                Wpisz kod:
 
                 """)
             if (choice == kod):
                     cls()
                     choice = input("""       
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                            Wpisz hasło:
+                               Wpisz hasło:
 
                             """)
                     if (choice == password):
                             cls()
                             print("""
-                     == == ==  UWAGA  == == ==                              
+                        == == ==  UWAGA  == == ==                              
                             
                 Możesz udać się do kapsuły ratunkowej
                 i opuścić statek!
@@ -118,18 +118,18 @@ def escape():
                     else:
                         cls()
                         print("""
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                            Złe hasło!
+                               Złe hasło!
                                     """)
                         sleep(1)
                         back()
             else:
                 cls()
                 print("""
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                            Zły kod!
+                                 Zły kod!
                                     """)
                 sleep(1)
                 back()
@@ -147,7 +147,7 @@ def escape():
         else:
             cls()
             print("""
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
                             Złe współrzędne!
                     """)
@@ -156,9 +156,9 @@ def escape():
     else:
         cls()
         print("""
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                        Nie masz karty!
+                            Nie masz karty!
         """)
         sleep(1)
         back()
@@ -195,12 +195,12 @@ def end():
 
 def Uwaga():
     input("""
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                          >> Udało się!
+                             >> Udało się!
 
 
-            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
@@ -210,12 +210,12 @@ def Uwaga():
 
 def Uwaga1():
     input("""
-                    == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
                     >> Udaj się do Modułu Nawigacyjnego
 
 
-            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
@@ -228,13 +228,13 @@ def Uwaga1():
 
 def gasnie():  # gaśnie światło
     input("""
-                    == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
-                        Gaśnie światło!
-                    Zobacz, co się stało!
+                            Gaśnie światło!
+                         Zobacz, co się stało!
 
 
-            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
 
 
@@ -265,11 +265,11 @@ def alarm2():
 def alarm():
     cls()
     print("""
-            !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
-            !=!                                   !=!
-            !=!   ! ! !   A  L  A  R  M   ! ! !   !=!
-            !=!                                   !=!
-            !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
+                !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
+                !=!                                   !=!
+                !=!   ! ! !   A  L  A  R  M   ! ! !   !=!
+                !=!                                   !=!
+                !=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!
 
 
 
@@ -330,7 +330,7 @@ def back():
 
 def minigra():
     global q
-    print("""                       == == ==  DZIAŁAJ  == == == 
+    print("""                        == == ==  DZIAŁAJ  == == == 
 
 
                        [1][2][3][4][5][6][7][8][9][X]
@@ -382,22 +382,22 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
     for key in gracz_mod:
         if (pozycja == gracz_mod[key] and len(kartki_slender[key])>0):
             print("""
-                                   == == ==  DZIAŁAJ  == == ==         
+                        == == ==  DZIAŁAJ  == == ==         
 
-                                         >> Co chcesz zrobić?
-                                  << [1] Zachowaj kartkę
-                                  << [2] Nie zabieraj kartki
+                            >> Co chcesz zrobić?
+                        << [1] Zachowaj kartkę
+                        << [2] Nie zabieraj kartki
                                   """)
             wez_kartke()
             cls2()
 
     if (q == 1 and pozycja == 1):
         print("""
-                       == == ==  DZIAŁAJ  == == ==         
+                        == == ==  DZIAŁAJ  == == ==         
 
-                             >> Co chcesz zrobić?
-                      << [1] Sprawdź zapasy
-                      << [2] Nic
+                            >> Co chcesz zrobić?
+                        << [1] Sprawdź zapasy
+                        << [2] Nic
                       """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
@@ -415,11 +415,11 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
     elif (q == 2 and pozycja == 6):
         print("""
-                       == == ==  DZIAŁAJ  == == ==         
+                        == == ==  DZIAŁAJ  == == ==         
 
-                             >> Co chcesz zrobić?
-                      << [1] Posprzątaj niebezpieczną substancję
-                      << [2] Nic
+                            >> Co chcesz zrobić?
+                        << [1] Posprzątaj niebezpieczną substancję
+                        << [2] Nic
                       """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
@@ -439,11 +439,11 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
     elif (q == 3 and pozycja == 7 and on == 1):
         print("""
-                       == == ==  DZIAŁAJ  == == ==         
+                        == == ==  DZIAŁAJ  == == ==         
 
-                             >> Co chcesz zrobić?
-                      << [1] Napraw system elektryczny
-                      << [2] Nic
+                            >> Co chcesz zrobić?
+                        << [1] Napraw system elektryczny
+                        << [2] Nic
                       """)
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
@@ -454,9 +454,11 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
     if poziom == 1:
         if pozycja == gracz_mod["mod_serwisowy"]:
-            print ("""          >>Zabierz kartę!<<
-                                [1] Tak
-                                [2] Nie
+            print ("""          
+                            >> Zabierz kartę! <<
+                        
+                        << [1] Tak
+                        << [2] Nie
             """)
             choice = input('   ')
             if choice == "1":
@@ -467,10 +469,12 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print ("Karta została na miejscu. ")
         elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
 
-            print("""          >>>Zamknij śluzy do modułów:
-                botanicznego i badawczego!<<<
-                                [1] Tak
-                                [2] Nie""")
+            print("""          
+                        >>> Zamknij śluzy do modułów: <<<
+                        >>> Botanicznego i Badawczego <<<
+                                
+                        << [1] Tak
+                        << [2] Nie""")
             choice = input("        ")
             if choice == "1":
                 door = "closed"
@@ -480,24 +484,30 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
             elif choice == "2":
                 cls2()
-                print ("""       >>> Ogień rozprzestrzenia się w zastraszającym tempie!<<<
-                                        Lepiej zamknij śluzy!!!""")
+                print ("""       
+                >>> Ogień rozprzestrzenia się w zastraszającym tempie! <<<
+                                       
+                                Lepiej zamknij śluzy!!!""")
                 miejsca.remove("mod_botaniczny")
                 miejsca.remove("mod_badawczy")
 
 
         elif pozycja == gracz_mod["mod_nawig"]:
-            print("""          >>Przyłóż kartę do czytnika!<<
-                                            [1] Tak
-                                            [2] Nie
+            print("""          
+                        >>> Przyłóż kartę do czytnika! <<<
+                        
+                        << [1] Tak
+                        << [2] Nie
                         """)
             choice = input("         ")
             if choice == "1":
                 if len(equipment["Karta pokładowa"])>0:
                     escape()
                 else:
-                    print("""          >>Nie masz wystarczających uprawnień<<
-                                            Potrzebujesz karty pokładowej
+                    print("""          
+                        >> Nie masz wystarczających uprawnień <<
+                                            
+                            Potrzebujesz karty pokładowej!
                                                                
                                             """)
                     sleep(2)
@@ -514,12 +524,12 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
         print("""
 
-                       == == ==  DZIAŁAJ  == == == 
+                        == == ==  DZIAŁAJ  == == == 
 
 
-                             >> Brak czynności do wykonania
+                      >> Brak czynności do wykonania <<
 
-                      << [1] Wróć
+                        << [1] Wróć
 
 
                               """)
@@ -536,21 +546,21 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
 
 def firedead():
     print("""
-                     == == ==  UWAGA  == == ==         
+                        == == ==  UWAGA  == == ==         
 
 
 
-                        Śmierć w pożarze!
-
-
-                           (  .      )
-                       )           (              )
-                             .  '   .   '  .  '  .
-                    (    , )       (.   )  (   ',    )
-                     .' ) ( . )    ,  ( ,     )   ( .
-                  ). , ( .   (  ) ( , ')  .' (  ,    )
-                 (_,) . ), ) _) _,')  (, ) '. )  ,. (' )
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
+                            Śmierć w pożarze!
+    
+    
+                               (  .      )
+                           )           (              )
+                                 .  '   .   '  .  '  .
+                        (    , )       (.   )  (   ',    )
+                         .' ) ( . )    ,  ( ,     )   ( .
+                      ). , ( .   (  ) ( , ')  .' (  ,    )
+                     (_,) . ), ) _) _,')  (, ) '. )  ,. (' )
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
     """)
 
 
@@ -558,10 +568,10 @@ def firedead():
 
 def slenderdead():
     print("""
-                     == == ==  UWAGA  == == == 
+                        == == ==  UWAGA  == == == 
 
 
-                        Dopadł Cię Slender!    
+                          Dopadł Cię Slender!    
 
 
 
@@ -598,11 +608,11 @@ def slenderdead():
 
 def slenderescape():
     print("""
-                     == == ==  UWAGA  == == == 
+                        == == ==  UWAGA  == == == 
 
 
-                        Tym razem uszedłeś
-                            z życiem!   
+                           Tym razem uszedłeś
+                                z życiem!   
 
 
 
@@ -795,7 +805,7 @@ def flash():  # latarka
 
     if (on == 0):
         print("""
-                   == == ==  LATARKA  == == ==         
+                        == == ==  LATARKA  == == ==         
 
                          >> Czy chcesz włączyć latarkę?
                   << [1] Tak
@@ -821,9 +831,9 @@ def flash():  # latarka
         print("""
                        == == ==  LATARKA  == == ==         
 
-                             >> Czy chcesz wyłączyć latarkę?
-                      << [1] Tak
-                      << [2] Nie
+                            >> Czy chcesz wyłączyć latarkę?
+                        << [1] Tak
+                        << [2] Nie
                       """)
 
         choice = input('                           ')
@@ -843,39 +853,41 @@ def flash():  # latarka
 
 def mapa(pozycja):
     if pozycja == 1:
-        print("""                         >>> Jesteś w Kuchni <<< 
+        print("""                         
+                        >>> Jesteś w Kuchni <<< 
 
 
-                     == == == ==  MAPA  == == == ==         
+                    == == == ==  MAPA  == == == ==         
 
-                 # # # # # # # # # # # # # # # #
-                 #    3    #    2    #    1    #  1. Kuchnia
-                 #         #         #         #  2. Moduł Wypoczynkowy
-                 #         |         |   [X]   #  3. Moduł Serwisowy
-                 #         #         #         #  4. Moduł Łącznikowy
-                 #         #         #         #  5. Moduł Botaniczny
-                 # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
-                 #    6    #    4    #    5    #  7. Moduł Energetyczny
-                 #         #         #         #  8. Moduł Nawigacyjny
-                 #         |         |         #  
-                 #         #         #         # [X] -  Twoja pozycja
-                 #         #         #         #  |  -  Przejście
-                 # # # # # # # ___ # # # # # # #
-                 #              7              # 
-                 #                             #  
-                 #                             #
-                 # # # # # # # ___ # # # # # # #
-                           #    8    #
-                           #         #
-                           #         #                          
-                           # # # # # #
+                         # # # # # # # # # # # # # # # #
+                         #    3    #    2    #    1    #  1. Kuchnia
+                         #         #         #         #  2. Moduł Wypoczynkowy
+                         #         |         |   [X]   #  3. Moduł Serwisowy
+                         #         #         #         #  4. Moduł Łącznikowy
+                         #         #         #         #  5. Moduł Botaniczny
+                         # # # # # # # ___ # # # # # # #  6. Moduł Badawczy
+                         #    6    #    4    #    5    #  7. Moduł Energetyczny
+                         #         #         #         #  8. Moduł Nawigacyjny
+                         #         |         |         #  
+                         #         #         #         # [X] -  Twoja pozycja
+                         #         #         #         #  |  -  Przejście
+                         # # # # # # # ___ # # # # # # #
+                         #              7              # 
+                         #                             #  
+                         #                             #
+                         # # # # # # # ___ # # # # # # #
+                                   #    8    #
+                                   #         #
+                                   #         #                          
+                                   # # # # # #
 
             """)
 
     elif pozycja == 2:
-        print("""                >>> Jesteś w Module Wypoczynku <<<   
+        print("""                
+                    >>> Jesteś w Module Wypoczynku <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                    == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -902,9 +914,10 @@ def mapa(pozycja):
                 """)
 
     elif pozycja == 3:
-        print("""                >>> Jesteś w Module Serwisowym <<<   
+        print("""                
+                    >>> Jesteś w Module Serwisowym <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                    == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -931,9 +944,10 @@ def mapa(pozycja):
                 """)
 
     elif pozycja == 4:
-        print("""                >>> Jesteś w Module łącznikowym <<<   
+        print("""                
+                    >>> Jesteś w Module łącznikowym <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                    == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -960,9 +974,10 @@ def mapa(pozycja):
                 """)
 
     elif pozycja == 5:
-        print("""                >>> Jesteś w Module Botanicznym <<<   
+        print("""                
+                        >>> Jesteś w Module Botanicznym <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                        == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -989,9 +1004,10 @@ def mapa(pozycja):
                 """)
 
     elif pozycja == 6:
-        print("""                >>> Jesteś w Module Badawczym <<<   
+        print("""                
+                        >>> Jesteś w Module Badawczym <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                        == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -1018,9 +1034,10 @@ def mapa(pozycja):
                 """)
 
     elif pozycja == 7:
-        print("""                >>> Jesteś w Module Energetycznym  <<<   
+        print("""                
+                        >>> Jesteś w Module Energetycznym  <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                        == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -1047,9 +1064,10 @@ def mapa(pozycja):
                 """)
 
     elif pozycja == 8:
-        print("""                >>> Jesteś w Module Nawigacyjnym <<<   
+        print("""                
+                        >>> Jesteś w Module Nawigacyjnym <<<   
 
-                             == == == ==  MAPA  == == == ==         
+                        == == == ==  MAPA  == == == ==         
 
                          # # # # # # # # # # # # # # # #
                          #    3    #    2    #    1    #  1. Kuchnia
@@ -1243,13 +1261,13 @@ def mod1(q):  # Kuchnia
         """)
     elif (q == 3 or q == 4):
         if (on == 0):
-            print("""                         >>> Jesteś w Kuchni <<<   
+            print("""                     >>> Jesteś w Kuchni <<<   
 
         Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
         ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
             """)
         if (on == 1):
-            print("""                         >>> Jesteś w Kuchni <<<   
+            print("""                     >>> Jesteś w Kuchni <<<   
 
         Możesz wreszcie się bezpiecznie poruszać. Widzisz
         poprzewracane meble. Niewiadomo, co się tutaj stało...
@@ -1764,10 +1782,11 @@ def eq():
                 menu()
         elif (choice == "3"):
             cls()
-            print("""                    == == == KRÓTKOFALÓWKA == == ==
+            print("""
+                        == == == KRÓTKOFALÓWKA == == ==
 
-                                  << Aby zadzwonić do kogoś,
-                                     użyj opcji z menu
+                            << Aby zadzwonić do kogoś, >>
+                               << użyj opcji z menu >>
 
                                 """)
         elif (choice == "4"):
@@ -1798,10 +1817,11 @@ def eq():
             back()
         elif (choice == "3"):
             cls()
-            print("""                    == == == KRÓTKOFALÓWKA == == ==
+            print(""" 
+                        == == == KRÓTKOFALÓWKA == == ==
 
-                                              << Aby zadzwonić do kogoś,
-                                                 użyj opcji z menu
+                            << Aby zadzwonić do kogoś, >>
+                               << użyj opcji z menu >>
 
                                             """)
 
@@ -1930,16 +1950,16 @@ def dialog():
             if member in mod["mod_botaniczny"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
+                        print (""">>> %s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][1]))
+                        print(""">>> %s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
                 else:
-                    print ("""           >>>%s nie jest już w nastroju na rozmowę...<<<""" % (member))
+                    print ("""           >>> %s nie jest już w nastroju na rozmowę... <<<""" % (member))
                     cls2()
     elif pozycja == 6:
 
@@ -1947,16 +1967,16 @@ def dialog():
             if member in mod["mod_badawczy"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
+                        print (""">>> %s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][1]))
+                        print(""">>> %s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
                 else:
-                    print(""">>>%s chce skupić się na swojej pracy...Nie przeszkadzaj!<<<""" % (member))
+                    print(""">>> %s chce skupić się na swojej pracy...Nie przeszkadzaj! <<<""" % (member))
                     cls2()
 
     elif pozycja == 7:
@@ -1965,17 +1985,17 @@ def dialog():
             if member in mod["mod_ener"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
+                        print (""">>> %s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][1]))
+                        print(""">>> %s: %s""" % (member, Dialog[str(member)]["mod_ener"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
                 else:
-                    print("""           >>>Sytuacja jest coraz bardziej napięta.
-                                    %s wydaje się mieć już dosyć twojego towarzystwa...<<<""" % (member))
+                    print("""           >>> Sytuacja jest coraz bardziej napięta.
+                                    %s wydaje się mieć już dosyć twojego towarzystwa... <<<""" % (member))
                     cls2()
 
 
@@ -1985,16 +2005,16 @@ def dialog():
             if member in mod["mod_nawig"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
+                        print (""">>> %s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][1]))
+                        print(""">>> %s: %s""" % (member, Dialog[str(member)]["mod_nawig"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
                 else:
-                    print(""" >>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
+                    print(""" >>> %s chyba już nie znajdzie dla Ciebie czasu... <<<""" % (member))
                     cls2()
 
 
@@ -2192,14 +2212,15 @@ def fire1():
             quit()
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
-            input ("""          >>>Niestety %s nie przeżyli...<<<
+            input ("""         
+                      >>> Niestety %s nie przeżyli... <<<
                 
                 
-                >>>Działaj zanim ogień opanuje cały statek!<<<
+                >>> Działaj zanim ogień opanuje cały statek! <<<
                             
                             
                             
-                  >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                  >>> UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!! <<<
                 
                     
                     
@@ -2212,15 +2233,16 @@ def fire1():
 
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==1):
-            input("""           >>>Niestety %s już nigdy nie wróci...<<<
+            input("""          
+                    >>> Niestety %s już nigdy nie wróci... <<<
             
             
-                >>>Ogień szaleje na statku! Musisz działać!<<<
+                >>> Ogień szaleje na statku! Musisz działać! <<<
                         
                         
                         
                         
-                  >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                  >>> UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!! <<<
             
                 
                 
@@ -2233,15 +2255,16 @@ def fire1():
 
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==0):
-            input ("""           >>>Na szczęście nikomu nic się nie stało!<<<
+            input ("""           
+                    >>> Na szczęście nikomu nic się nie stało! <<<
 
 
-            >>>Ale ogień wciąż szaleje na statku więc musisz działać!<<<
+            >>> Ale ogień wciąż szaleje na statku więc musisz działać! <<<
                                 
                                 
                                 
                                 
-                    >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                    >>> UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!! <<<
 
 
 
@@ -2277,14 +2300,14 @@ def lose():
                              """)
     if len(dead)== 1:
         if "Ann" in dead:
-            print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % ("".join(dead)))
+            print("""       >>> Razem z %s jesteś już na tamtym świecie... <<<""" % ("".join(dead)))
         elif "Steve" in dead:
-            print("""       >>> Razem ze %s jesteś już na tamtym świecie...<<<""" % ("'em ".join(dead)))
+            print("""       >>> Razem ze %s jesteś już na tamtym świecie... <<<""" % ("'em ".join(dead)))
 
         else:
-            print("""       >>> Razem z %s jesteś już na tamtym świecie...<<<""" % ("'em ".join(dead)))
+            print("""       >>> Razem z %s jesteś już na tamtym świecie... <<<""" % ("'em ".join(dead)))
     else:
-        print("""       >>> Ty, %s - jesteście już na tamtym świecie...<<<""" % (", ".join(dead)))
+        print("""       >>> Ty, %s - jesteście już na tamtym świecie... <<<""" % (", ".join(dead)))
 
 
 
@@ -2372,14 +2395,15 @@ def slender1():
             if key == miejsca[index]: #sprawdzamy czy nie ma kogoś tam gdzie pojawił się slender(załoga bez gracza)
                 if len(mod[key]) > 0:
                     cls2()
-                    print ("""            >>>%s dzwoni!
+                    print ("""            >>> %s dzwoni!
                                 """ % (mod[key][0]))
                     cls2()
                     sleep(2)
 
-                    print("""                       == == ==  KRÓTKOFALÓWKA  == == ==         
+                    print("""                       
+                    == == ==  KRÓTKOFALÓWKA  == == ==         
         
-                    >>>%s: %s, coś jest nie tak... Ktoś jest... 
+                >>> %s: %s, coś jest nie tak... Ktoś jest... 
                     
                     
                     
@@ -2590,6 +2614,11 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     cls2()
     global name
     name = input("""Podaj swoje imię: 
+    
+    
+    
+    
+    
     
     
     
