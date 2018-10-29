@@ -470,6 +470,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print(" Karta w ekwipunku ")
             elif choice == "2":
                 print ("Karta została na miejscu. ")
+                sleep(1)
                 back()
         elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
 
@@ -490,6 +491,8 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                                         Lepiej zamknij śluzy!!!""")
                 miejsca.remove("mod_botaniczny")
                 miejsca.remove("mod_badawczy")
+                sleep(2)
+                back()
 
 
         elif pozycja == gracz_mod["mod_nawig"]:
@@ -1610,7 +1613,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                             >>> Śluza zamknięta <<<
     
                                                 """)
-                    menu()
+
                 elif door == "open":
 
                     Lose = 1
@@ -1647,7 +1650,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                             >>> Śluza zamknięta <<<
     
                                                 """)
-                    menu()
+
                 elif door == "open":
                     Lose = 1
                     firedead()
@@ -2047,7 +2050,7 @@ def wez_kartke():
     else:
         print("""              >>>To pewnie nic ważnego...""")
         cls2()
-    menu()
+
 
 
 def win():
@@ -2096,6 +2099,8 @@ def final_dead():
     
                     """)
         sleep(1)
+        uduszenie()
+        sleep(2)
         lose()
         sleep(2)
         end()
@@ -2229,8 +2234,9 @@ def fire1():
                 
                     
                     
-                            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                            
                 """ % (" i ".join(ogien)))
+            sleep(2)
             back()
 
 
@@ -2250,9 +2256,10 @@ def fire1():
             
                 
                 
-                        >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                        
             
             """ % ("".join(ogien)))
+            sleep(2)
             back()
 
 
@@ -2271,9 +2278,10 @@ def fire1():
 
 
 
-                            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                            
 
                         """)
+            sleep(2)
             back()
 
 
@@ -2410,7 +2418,7 @@ def slender1():
                     
                     
                     
-                        naciśnij cokolwiek aby kontynuować.
+                       
                                     
                                     
                                               """ % (mod[key][0], name))
@@ -2433,7 +2441,34 @@ def slender1():
     slender_mod[miejsca[index]].clear() #slender znika
 
 
+def uduszenie():
+    print("""
+                     == == ==  UWAGA  == == ==
 
+                           Zgon w wyniku
+                             uduszenia!
+
+
+                             &&&&&&&&&&&&
+                            &$          $&
+                           &$            $&
+                          &$      %%      $&
+                         &$       %%       $&
+                         &$     %%%%%%     &%
+                          &%      %%      &%
+                          &%      %%      &%
+                           &%            &%
+                           &%            $&
+                            &%          $&
+                             &%        $&
+                             &%        $&
+                             &%        $&
+                             &%        $&
+                             &%        $&
+                             $&        $&
+                              &$&$&&$$&&
+
+""")
 
 
 def menu():
@@ -2447,7 +2482,7 @@ def menu():
 
 
 
-    if Lose == 0:
+    while Lose == 0:
         if len(equipment["Kartki"])>0:
 
                 print("""                  == == == ==  MENU  == == == ==
@@ -2495,6 +2530,7 @@ def menu():
                         else:
 
                             print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+
                 else:
                     if choice =="1":
                         print ("Koniec Gry")
@@ -2563,6 +2599,7 @@ def menu():
                             print ("Koniec Gry")
                         else:
                             print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
+
                 else:
                     if choice =="1":
                         print ("Koniec Gry")
