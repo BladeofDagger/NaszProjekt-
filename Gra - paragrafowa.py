@@ -648,7 +648,7 @@ def slenderescape():
     cls()
 
 def slow_death():
-    sleep(5)
+    sleep(20)
     if door =="open":
         global Lose
         Lose = 1
@@ -2088,7 +2088,7 @@ def win():
 
 
 def final_dead():
-    sleep(5)
+    sleep(240)
     global Lose
     with lock:
         Lose = 1
@@ -2121,7 +2121,7 @@ def slender5():
     with lock:
         if Lose == 0:
             while i < 3:
-                sleep(3)
+                sleep(30)
                 shuffle(miejsca)
                 index = randint(0, 5) # z listy zniknely modul botan i badawczy
                 slender_mod[miejsca[index]].append("Slender")
@@ -2180,7 +2180,7 @@ def fire1():
     global miejsca
     poziom = 1
     with lock:
-        sleep(5)
+        sleep(10)
         alarm2()
 
         #możesz zginąć w pożarze
@@ -2326,7 +2326,7 @@ def slender4():
     global Alive
     global dead
     with lock:
-        sleep(5)
+        sleep(30)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2350,7 +2350,7 @@ def slender3():
     global Alive
     global dead
     with lock:
-        sleep(5)
+        sleep(30)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2374,7 +2374,7 @@ def slender2():
     global dead
     global Alive
     with lock:
-        sleep(5)
+        sleep(30)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2397,7 +2397,7 @@ def slender1():
     global dead
     global Alive
     thread2.start()
-    sleep(5)
+    sleep(240)
     shuffle(miejsca)
     index = randint(0,7)
     slender_mod[miejsca[index]].append("Slender")
@@ -2476,7 +2476,8 @@ def menu():
     global Lose
     global pozycja
     symbol()
-
+    global licznik
+    licznik = True
 
 
 
