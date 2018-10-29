@@ -199,7 +199,6 @@ def Uwaga():
 
                           """)
 
-    cls()
 
 def Uwaga1():
     input("""
@@ -468,6 +467,8 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 cls2()
                 print ("""       >>> Ogień rozprzestrzenia się w zastraszającym tempie!<<<
                                         Lepiej zamknij śluzy!!!""")
+                miejsca.remove("mod_botaniczny")
+                miejsca.remove("mod_badawczy")
 
 
         elif pozycja == gracz_mod["mod_nawig"]:
@@ -1296,7 +1297,7 @@ def mod4(q):
         zapach, lepiej sprawdzić, skąd on pochodzi.
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Łącznikowym <<<   
 
@@ -1330,7 +1331,7 @@ def mod5(q):
          że rośliny nie zostały uszkodzone. Skąd on może pochodzić?
 
         """)
-    elif (q == 3):
+    elif (q == 3 or q == 4):
         if (on == 0):
             print("""                >>> Jesteś w Module Botanicznym <<<   
 
@@ -1540,13 +1541,21 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
         choice = input('                           ')  # przypisuje wybór
         if choice == "1":
             if ("mod_botaniczny" not in miejsca) and ("mod_badawczy" not in miejsca):
-                cls()
-                print("""                 == == == ==  MENU  == == == ==
-
-                                                >>>Śluza zamknięta<<<
-
-                                            """)
-                menu()
+                if door == "closed":
+                    cls()
+                    print("""                 == == == ==  MENU  == == == ==
+    
+                            >>> Śluza zamknięta <<<
+    
+                                                """)
+                    menu()
+                elif door == "open":
+                    firedead()
+                    sleep(2)
+                    lose()
+                    sleep(2)
+                    end()
+                    sleep(2)
             else:
                 cls()
                 mod5(q)
@@ -1560,7 +1569,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                 cls()
                 print("""                 == == == ==  MENU  == == == ==
 
-                                                >>>Śluza zamknięta<<<
+                        >>> Śluza zamknięta <<<
 
                                             """)
                 menu()
