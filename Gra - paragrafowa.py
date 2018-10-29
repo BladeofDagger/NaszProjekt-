@@ -114,6 +114,7 @@ def escape():
                             end()
                             quit()
 
+
                     else:
                         cls()
                         print("""
@@ -2070,18 +2071,7 @@ def win():
         cls2()
 
 
-def final_dead():
-    sleep(5)
-    global Lose
-    with lock:
-        Lose = 1
 
-        uduszenie()
-        sleep(2)
-        lose()
-        sleep(2)
-        end()
-        quit()
 
 
 
@@ -2418,30 +2408,7 @@ def slender1():
     slender_mod[miejsca[index]].clear() #slender znika
 
 
-def uduszenie():
-    print("""
-                     == == ==  UWAGA  == == ==
-                           Zgon w wyniku
-                             uduszenia!
-                             &&&&&&&&&&&&
-                            &$          $&
-                           &$            $&
-                          &$      %%      $&
-                         &$       %%       $&
-                         &$     %%%%%%     &%
-                          &%      %%      &%
-                          &%      %%      &%
-                           &%            &%
-                           &%            $&
-                            &%          $&
-                             &%        $&
-                             &%        $&
-                             &%        $&
-                             &%        $&
-                             &%        $&
-                             $&        $&
-                              &$&$&&$$&&
-""")
+
 
 
 def menu():
@@ -2605,7 +2572,7 @@ thread5 = threading.Thread( target = slender4)
 thread6 = threading.Thread( target = fire1)
 thread7 = threading.Thread( target = slow_death)
 thread8 = threading.Thread( target = slender5)
-thread9 = threading.Thread( target = final_dead)
+
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -2727,12 +2694,9 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
             elif Win == 1:
 
                 quit()
-            else:
 
-                print(slender_mod)
-                print(kartki_slender)
-                print(mod)
-                print(dead)
+
+
 
 
 
