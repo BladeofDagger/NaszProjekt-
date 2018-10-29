@@ -348,6 +348,7 @@ def minigra():
         cls()
         Uwaga()
         q = 4
+        global life
         life += 1
         sleep(2)
         cls()
@@ -395,6 +396,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         if choice == "1":
             cls()
             q = 2
+
             life += 1
             Uwaga1()
 
@@ -417,6 +419,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
             cls()
             Uwaga()
             q = 3
+
             life += 1
             sleep(2)
             cls()
@@ -1103,7 +1106,7 @@ Dave_kf = {
 
 
 Steve_kf = {
-    "mod_badawczy": ["Wszystkie dane są bezpieczne!","Kontynuuję analizę..."],
+    "mod_badawczy": ["Wszystkie dane są bezpieczne!","Miałem przekazać nowy kod awaryjny: %s..." % kod],
     "mod_botaniczny": ["Rośliny w porządku. Trzeba zająć się zasilaniem.","Wszystkie urządzenia są sprawne"],
     "mod_ener":["Mamy tu poważny wyciek chłodziwa...","Możliwy czasowy zanik zasilania..."],
     "mod_nawig":["Nie można nawiązać kontaktu ze stacją...","Spróbuję nadać sygnał. Hasło do terminala to: %s" % password]
@@ -1115,7 +1118,7 @@ Steve_kf = {
 John_kf = {
     "mod_badawczy": ["Zawsze to samo...ale bałagan! To przez te turbulencje...","Nadgodziny nas wykończą..."],
     "mod_botaniczny": ["System dostarczania wody sprawny.","To nie tu tkwi problem. Trzeba się rozejrzeć."],
-    "mod_ener":["Włączyłem dodatkowe osłony.","Wyrwanie się z tego pola grawitacyjnego to będzie nie lada wyzwanie"],
+    "mod_ener":["Włączyłem dodatkowe osłony.","Wyrwanie się z tego pola grawitacyjnego to będzie nie lada wyzwanie. Trzeba rzucić okiem na te współrzędne: %s" % right_coordinates],
     "mod_nawig":["Staram się namierzyć sygnał...","Intercom zaciął się, ale zdążył zarejestrować współrzędne: %s" % right_coordinates]
 
 }
@@ -1124,8 +1127,8 @@ John_kf = {
 
 Ann_kf= {
     "mod_badawczy": ["Ta planeta wydaje się żyć własnym życiem. Musisz zobaczyć te odczyty!","To wszystko jest niepokojące..."],
-    "mod_botaniczny": ["Plantacja dobrze funkcjonuje. Odbiór!","Wszystko jest w porządku."],
-    "mod_ener":["Silniki są uszkodzone.","Napęd nadświetlny nie działa."],
+    "mod_botaniczny": ["Przekazuję nowe hasło: %s. Odbiór!" % password,"Wszystko jest w porządku."],
+    "mod_ener":["Silniki są uszkodzone.","Napęd nadświetlny nie działa. Nasza jedyna szansa to szukanie łączności: %s" % kod],
     "mod_nawig":["Nie mogę nawiązać łączności! Jesteśmy zdani sami na siebie.","Intercom nadal nie działa. Potrzebuję pomocy."]
 }
 
@@ -1137,27 +1140,27 @@ Dialog = {
     "mod_badawczy":["Podobno w bazie Intercomu pojawiły się jakieś współrzędne..","Tak, to było... %s." % right_coordinates],
     "mod_botaniczny":["Powtarzam hasło do terminala: %s" % password,"Dużo pracy przede mną, trzeba tutaj uważać..."],
     "mod_ener":["Co raz częściej są jakieś awarie!","Zapamiętaj kod: %s i zejdź mi z oczu..." % kod],
-    "mod_nawig":["Obowiązki wzywają!","Chciałbym już wrócić do domu..."]
+    "mod_nawig":["Obowiązki wzywają! Każdy z nas niech zapamięta nowe hasło: %s" % password,"Sytuacja komplikuje się coraz bardziej. Musimy przygotować się do akcji ewakuacyjnej."]
 
 },
     "Steve": {
-    "mod_badawczy":["Jakby co, to karta pokładowa leży u mnie na łóżku.","Mam dużo pracy!"],
-    "mod_botaniczny":["Te rośliny są cudowne!","Jestem głodny..."],
-    "mod_ener":["Ta maszyna ciągle się psuje!","Nie mam już siły."],
+    "mod_badawczy":["Jakby co, to karta pokładowa leży na moim łóżku.","No tak,prawie zapomniałem! Przekazuję: %s" % right_coordinates],
+    "mod_botaniczny":["Zgodnie z rozkazem przekazuję współrzędne: %s" % right_coordinates,"W obecnej sytuacji, ten ogród botaniczny to nasze jedyne źródło tlenu...Oksygenator przestał działać!"],
+    "mod_ener":["Mamy tu spory wyciek chłodziwa...","Słyszałeś o tych tajemniczych współrzędnych? %s" % right_coordinates],
     "mod_nawig":["Na ekranie wyświetlają się współrzędne: %s. Nie wiem co to.." % right_coordinates,"Może Dave jest lepiej zorientowany"]
 
 } ,
     "John": {
-    "mod_badawczy":["Nie mogę sobie przypomnieć hasła do terminala..","Tak! To było %s." % password],
-    "mod_botaniczny":["Tu jest tak pięknie!","Boję się ciemności"],
-    "mod_ener":["Zająłem się usterkami.","Muszę się skupić!"],
+    "mod_badawczy":["Nie mogę sobie przypomnieć kodu awaryjnego..","Tak! To było %s." % kod],
+    "mod_botaniczny":["Trzeba zabezpieczyć rośliny!","Działamy w trybie awaryjnym; zapamiętaj kod: %s" % kod],
+    "mod_ener":["Zająłem się usterkami.","Muszę się skupić! Pamiętaj kod: %s. Tylko dzięki niemu procedura startu w trybie awaryjnym może dojść do skutku." % kod],
     "mod_nawig":["Kapsuły ewakuacyjne są zablokowane.","Karta podobno została w module serwisowym..."]
 
 } ,
     "Ann": {
-    "mod_badawczy":["Trochę tu bałaganu...","Już padam z sił."],
-    "mod_botaniczny":["Poszłabym coś przekąsić!","Zajmiesz się tymi roślinami?"],
-    "mod_ener":["System sztucznej grawitacji działa w trybie awaryjnym.","Jesteśmy na sterowaniu ręcznym.Jaki był kod?"],
+    "mod_badawczy":["Trochę tu bałaganu...","Na wszelki wypadek podam ci nowe hasło do terminala: %s." % password],
+    "mod_botaniczny":["Hej dobrze,że jesteś. Słyszałeś o zmianie hasła?","Nasze nowe hasło to: %s" % password],
+    "mod_ener":["System sztucznej grawitacji działa w trybie awaryjnym.","Jesteśmy na sterowaniu ręcznym. Na wszelki wypadek zapamiętaj hasło: %s" % password],
     "mod_nawig":["Mam już dość tego kosmosu!","Zapamiętaj hasło do terminala: %s" % password]
 
 }
@@ -1388,7 +1391,7 @@ def mod5(q):
         if (on == 1):
             print("""                >>> Jesteś w Module Botanicznym <<< 
 
-        Możesz wreszcie się bezpiecznie poruszać. Niewiadomo,
+        Możesz wreszcie się bezpiecznie poruszać. Nie wiadomo,
         ile wytrzyma bateria, lepiej ją oszczędzać. Rośliny
         bez światła nie są w stanie produkować tlenu, jak
         najszybciej znajdź przyczynę awarii.
@@ -1412,8 +1415,8 @@ def mod6(q):
     elif (q == 2):
         print("""                >>> Jesteś w Module Badawczym <<<   
 
-        Zauważasz rozlany na podłodze siarkowodór. Jest
-        bardzo toksyczny. To on jest odpowiedzialny za
+        Zauważasz rozlaną na podłodze substancję. Jest
+        bardzo toksyczna. To ona jest odpowiedzialny za
         ten zapach. Wdychanie go może spowodować śmierć! 
 
         """)
@@ -1427,9 +1430,9 @@ def mod6(q):
         if (on == 1):
             print("""                >>> Jesteś w Module Badawczym <<< 
 
-        Możesz wreszcie się bezpiecznie poruszać. Niewiadomo,
-        ile wytrzyma bateria, lepiej ją oszczędzać. Na szczęscie
-        nie ma już śladów siarkowodoru.
+        Możesz wreszcie bezpiecznie się poruszać. Niewiadomo,
+        ile wytrzyma bateria, lepiej ją oszczędzać. Na szczęście
+        nie ma już śladu po niebezbiecznej substancji.
 
             """)
 
@@ -1512,7 +1515,7 @@ def mod8(q):
 
 
 def move():  # funkcja poruszania sie pomiędzy pokojami
-
+    global Lose
     cls()
     # jesli jestesmy w kuchni to:
     if pozycja == 1:
@@ -1595,6 +1598,8 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                                                 """)
                     menu()
                 elif door == "open":
+                    global Lose
+                    Lose = 1
                     firedead()
                     sleep(2)
                     lose()
@@ -1815,9 +1820,9 @@ def call(Name):
 
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       Dave: """, Dave_kf[key][0])
+                                print("""  Dave: """, Dave_kf[key][0])
                             else:
-                                print("""                       Dave: """, Dave_kf[key][1])
+                                print("""  Dave: """, Dave_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1827,9 +1832,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       John: """, John_kf[key][0])
+                                print("""  John: """, John_kf[key][0])
                             else:
-                                print("""                       John: """, John_kf[key][1])
+                                print("""  John: """, John_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1839,9 +1844,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       Steve: """, Steve_kf[key][0])
+                                print(""" Steve: """, Steve_kf[key][0])
                             else:
-                                print("""                       Steve: """, Steve_kf[key][1])
+                                print(""" Steve: """, Steve_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1851,9 +1856,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       Ann:  """, Ann_kf[key][0])
+                                print(""" Ann:  """, Ann_kf[key][0])
                             else:
-                                print("""                       Ann:  """, Ann_kf[key][1])
+                                print(""" Ann:  """, Ann_kf[key][1])
 
                             number_of_phonecalls[Name] += 1
                             cls2()
@@ -1901,11 +1906,11 @@ def dialog():
             if member in mod["mod_botaniczny"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print ("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
+                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print("""           >>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][1]))
+                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_botaniczny"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
@@ -1918,16 +1923,16 @@ def dialog():
             if member in mod["mod_badawczy"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
+                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][1]))
+                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_badawczy"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
                 else:
-                    print("""           >>>%s chce skupić się na swojej pracy...Nie przeszkadzaj!<<<""" % (member))
+                    print(""">>>%s chce skupić się na swojej pracy...Nie przeszkadzaj!<<<""" % (member))
                     cls2()
 
     elif pozycja == 7:
@@ -1936,11 +1941,11 @@ def dialog():
             if member in mod["mod_ener"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
+                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][1]))
+                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_ener"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
@@ -1956,16 +1961,16 @@ def dialog():
             if member in mod["mod_nawig"]:
                 if number_of_talks[member]<2:
                     if number_of_talks[member] == 0:
-                        print ("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
+                        print (""">>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][0]))
                         number_of_talks[member] += 1
                         cls2()
                     else:
-                        print("""          >>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][1]))
+                        print(""">>>%s: %s""" % (member, Dialog[str(member)]["mod_nawig"][1]))
                         number_of_talks[member] += 1
                         cls2()
 
                 else:
-                    print("""           >>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
+                    print(""">>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
                     cls2()
 
 
@@ -2086,7 +2091,7 @@ def slender5():
                         end()
                         sleep(2)
                 i+=1
-                #slender_mod[miejsca[index]].clear()
+                slender_mod[miejsca[index]].clear() # slender znika ze statku
         """else:
             Lose = 1
             slenderdead()
@@ -2127,11 +2132,15 @@ def fire1():
                 ogien.append(member)
                 mod["mod_botaniczny"].clear()
 
+
             elif member in mod["mod_badawczy"]:
                 Alive.remove(member)
                 dead.append(member)
                 ogien.append(member)
                 mod["mod_badawczy"].clear()
+
+        miejsca.remove("mod_botaniczny")
+        miejsca.remove("mod_badawczy")
 
         print("""           >>> To niemożliwe! Ktoś musiał podłożyć ogień...<<<""")
         cls2()
@@ -2200,16 +2209,16 @@ def fire1():
             print("""           >>>Na szczęście nikomu nic się nie stało!<<<
 
 
-                                >>>Ale ogień wciąż szaleje na statku więc musisz działać!<<<
+                    >>>Ale ogień wciąż szaleje na statku więc musisz działać!<<<
                                 
                                 
                                 
                                 
-                                >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                            >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
 
 
 
-                                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
+                            >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
                         """)
 
@@ -2254,7 +2263,7 @@ def slender4():
     global Alive
     global dead
     with lock:
-        sleep(5)
+        sleep(20)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2278,7 +2287,7 @@ def slender3():
     global Alive
     global dead
     with lock:
-        sleep(5)
+        sleep(30)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2302,7 +2311,7 @@ def slender2():
     global dead
     global Alive
     with lock:
-        sleep(5)
+        sleep(60)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2325,7 +2334,7 @@ def slender1():
     global dead
     global Alive
     thread2.start()
-    sleep(5)
+    sleep(60)
     shuffle(miejsca)
     index = randint(0,7)
     slender_mod[miejsca[index]].append("Slender")
@@ -2375,9 +2384,8 @@ def menu():
     global Lose
     global pozycja
     symbol()
-    #licznik kontrolny
-    global licznik
-    licznik = True
+
+
 
 
 
@@ -2612,9 +2620,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     cls()
     mod1(q)
 
-    print (slender_mod)
-    print (kartki_slender)
-    print (mod)
+
     cls2()
     #threads
     global licznik
@@ -2626,7 +2632,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread4.join()
     thread5.start() #4 kartka
     thread5.join()
-    thread6.start() #pożar w module botanicznym lub badawczym
+    thread6.start() #pożar w module botanicznym i badawczym
     thread6.join()
     global Lose
     if Lose == 1:
