@@ -71,6 +71,7 @@ def card():
 
 
 def escape():
+    global Lose
     global Win
     cls()
     if (len(equipment["Karta pokładowa"]) > 0):
@@ -78,9 +79,10 @@ def escape():
                      == == ==  UWAGA  == == ==         
 
                         Wpisz współrzędne:
+                        (format: 00.00.00)
 
             """)
-        if (choice == "24.67.89"):
+        if (choice == right_coordinates):
             cls()
             choice=input("""       
                      == == ==  UWAGA  == == ==         
@@ -88,7 +90,7 @@ def escape():
                             Wpisz kod:
 
                 """)
-            if (choice == "2436"):
+            if (choice == kod):
                     cls()
                     choice = input("""       
                      == == ==  UWAGA  == == ==         
@@ -96,7 +98,7 @@ def escape():
                             Wpisz hasło:
 
                             """)
-                    if (choice == "3452"):
+                    if (choice == password):
                             cls()
                             print("""
                      == == ==  UWAGA  == == ==                              
@@ -106,7 +108,7 @@ def escape():
                             
                             """)
                             Win = 1
-                            sleep(3)
+                            sleep(2)
                             cls()
                             win()
                             sleep(2)
@@ -133,9 +135,16 @@ def escape():
                 sleep(1)
                 back()
 
-        elif (choice == "23.74.85"):
+        elif (choice == wrong_cooridinates):
+            Lose = 1
             cls()
+            slenderdead()
+            sleep(2)
             lose()
+            sleep(2)
+            end()
+            sleep(2)
+            quit()
 
         else:
             cls()
@@ -643,6 +652,7 @@ def slow_death():
         cls()
         end()
         sleep(2)
+        quit()
 
 
     else:
@@ -1598,7 +1608,7 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                                                 """)
                     menu()
                 elif door == "open":
-                    global Lose
+
                     Lose = 1
                     firedead()
                     sleep(2)
@@ -1606,6 +1616,18 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                     sleep(2)
                     end()
                     sleep(2)
+                    quit()
+            elif poziom == 1:
+
+                Lose = 1
+                firedead()
+                sleep(2)
+                lose()
+                sleep(2)
+                end()
+                sleep(2)
+                quit()
+
             else:
                 cls()
                 mod5(q)
@@ -1625,12 +1647,24 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
                                                 """)
                     menu()
                 elif door == "open":
+                    Lose = 1
                     firedead()
                     sleep(2)
                     lose()
                     sleep(2)
                     end()
                     sleep(2)
+                    quit()
+            elif poziom == 1:
+
+                Lose = 1
+                firedead()
+                sleep(2)
+                lose()
+                sleep(2)
+                end()
+                sleep(2)
+                quit()
             else:
                 cls()
                 mod6(q)
@@ -2062,7 +2096,7 @@ def slender5():
     with lock:
         if Lose == 0:
             while i < 3:
-                sleep(5)
+                sleep(10)
                 shuffle(miejsca)
                 index = randint(0, 5) # z listy zniknely modul botan i badawczy
                 slender_mod[miejsca[index]].append("Slender")
@@ -2090,6 +2124,7 @@ def slender5():
                         sleep(2)
                         end()
                         sleep(2)
+                        quit()
                 i+=1
                 slender_mod[miejsca[index]].clear() # slender znika ze statku
         """else:
@@ -2121,7 +2156,7 @@ def fire1():
     global miejsca
     poziom = 1
     with lock:
-        sleep(10)
+        sleep(15)
         alarm2()
 
         #możesz zginąć w pożarze
@@ -2139,8 +2174,7 @@ def fire1():
                 ogien.append(member)
                 mod["mod_badawczy"].clear()
 
-        miejsca.remove("mod_botaniczny")
-        miejsca.remove("mod_badawczy")
+
 
         print("""           >>> To niemożliwe! Ktoś musiał podłożyć ogień...<<<""")
         cls2()
@@ -2154,6 +2188,7 @@ def fire1():
             cls()
             end()
             sleep(2)
+            quit()
 
         elif ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==1):
             ogien.append(name)
@@ -2165,6 +2200,7 @@ def fire1():
             cls()
             end()
             sleep(2)
+            quit()
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             print ("""          >>>Niestety %s nie przeżyli...<<<
@@ -2263,7 +2299,7 @@ def slender4():
     global Alive
     global dead
     with lock:
-        sleep(20)
+        sleep(5)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2287,7 +2323,7 @@ def slender3():
     global Alive
     global dead
     with lock:
-        sleep(30)
+        sleep(5)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2311,7 +2347,7 @@ def slender2():
     global dead
     global Alive
     with lock:
-        sleep(60)
+        sleep(5)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2334,7 +2370,7 @@ def slender1():
     global dead
     global Alive
     thread2.start()
-    sleep(60)
+    sleep(5)
     shuffle(miejsca)
     index = randint(0,7)
     slender_mod[miejsca[index]].append("Slender")
@@ -2635,6 +2671,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread6.start() #pożar w module botanicznym i badawczym
     thread6.join()
     global Lose
+    global Win
     if Lose == 1:
 
         licznik = False
@@ -2667,6 +2704,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
                 print(kartki_slender)
                 print(mod)
                 print(dead)
+                print (life)
 
 
 
