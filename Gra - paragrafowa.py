@@ -2116,7 +2116,7 @@ def fire1():
     global miejsca
     poziom = 1
     with lock:
-        sleep(30)
+        sleep(10)
         alarm2()
 
         #możesz zginąć w pożarze
