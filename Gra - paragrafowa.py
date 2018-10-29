@@ -2605,6 +2605,7 @@ thread5 = threading.Thread( target = slender4)
 thread6 = threading.Thread( target = fire1)
 thread7 = threading.Thread( target = slow_death)
 thread8 = threading.Thread( target = slender5)
+thread9 = threading.Thread( target = final_dead)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -2698,13 +2699,14 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread5.join()
     thread6.start() #pożar w module botanicznym i badawczym
     thread6.join()
+    global Win
     global Lose
     if Lose == 1:
 
         licznik = False
         quit()
     else:
-        thread7.start()
+        thread7.start() # smierc slowdeath jesli nie zamkniesz sluzy
         thread7.join()
         if Lose == 1:
 
@@ -2717,7 +2719,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
             quit()
 
         else:
-            thread8.start()
+            thread8.start() # ostatni atak slendera
             thread8.join()
             if Lose == 1:
                 licznik = False
