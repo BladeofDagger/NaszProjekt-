@@ -16,6 +16,7 @@ Win = 0
 q = 1 #zmienna dla misji
 #kontrolka do końca misji
 poziom = 0
+life = 0
 
 noc = 0 # dla noc == 0 bedzie jasno, dla noc == 1 będzie ciemno i nie będzie nic widać bez latarki
 
@@ -347,6 +348,7 @@ def minigra():
         cls()
         Uwaga()
         q = 4
+        life += 1
         sleep(2)
         cls()
         back()
@@ -366,6 +368,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
     global on
     global ok
     global door
+    global life
     ok = 0
     cls()
     for key in gracz_mod:
@@ -392,6 +395,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         if choice == "1":
             cls()
             q = 2
+            life += 1
             Uwaga1()
 
             cls()
@@ -413,6 +417,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
             cls()
             Uwaga()
             q = 3
+            life += 1
             sleep(2)
             cls()
             gasnie()
@@ -2047,6 +2052,7 @@ def slender5():
     global pozycja
     global Alive
     global dead
+    global life
     i = 0
     with lock:
         if Lose == 0:
@@ -2065,14 +2071,20 @@ def slender5():
 
                                 mod[key].clear()
                 elif pozycja == gracz_mod[miejsca[index]]:
-                    Lose = 1
-                    i = 3
-                    slenderdead()
-                    sleep(3)
-                    lose()
-                    sleep(2)
-                    end()
-                    sleep(2)
+                    if life > 0:
+                        cls()
+                        life -= 1
+                        slenderescape()
+                        sleep(2)
+                    else:
+                        Lose = 1
+                        i = 3
+                        slenderdead()
+                        sleep(3)
+                        lose()
+                        sleep(2)
+                        end()
+                        sleep(2)
                 i+=1
                 #slender_mod[miejsca[index]].clear()
         """else:
