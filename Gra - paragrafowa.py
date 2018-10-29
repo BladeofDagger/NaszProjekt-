@@ -69,8 +69,6 @@ def card():
 
                               """)
 
-    back()
-
 
 def escape():
     global Lose
@@ -81,7 +79,6 @@ def escape():
                      == == ==  UWAGA  == == ==         
 
                         Wpisz współrzędne:
-                        (format: 00.00.00)
 
             """)
         if (choice == right_coordinates):
@@ -208,7 +205,6 @@ def Uwaga():
 
 
                           """)
-    back()
 
 
 def Uwaga1():
@@ -224,7 +220,6 @@ def Uwaga1():
 
 
                           """)
-    back()
 
 
 
@@ -244,7 +239,6 @@ def gasnie():  # gaśnie światło
 
 
                           """)
-    back()
 
 def alarm2():
     cls()
@@ -470,7 +464,6 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print(" Karta w ekwipunku ")
             elif choice == "2":
                 print ("Karta została na miejscu. ")
-
         elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
 
             print("""          >>>Zamknij śluzy do modułów:
@@ -490,8 +483,6 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                                         Lepiej zamknij śluzy!!!""")
                 miejsca.remove("mod_botaniczny")
                 miejsca.remove("mod_badawczy")
-                sleep(2)
-                back()
 
 
         elif pozycja == gracz_mod["mod_nawig"]:
@@ -603,7 +594,6 @@ def slenderdead():
 
 
     """)
-    cls()
 
 def slenderescape():
     print("""
@@ -645,10 +635,10 @@ def slenderescape():
 
 
     """)
-    cls()
+
 
 def slow_death():
-    sleep(20)
+    sleep(15)
     if door =="open":
         global Lose
         Lose = 1
@@ -1512,7 +1502,7 @@ def mod8(q):
         if (on == 0):
             print("""                >>> Jesteś w Module Nawigacyjnym <<<    
 
-        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        Wszędzie jest ciemno!  Nic nie widać. Poruszaj się
         ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
             """)
         if (on == 1):
@@ -1613,18 +1603,16 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
     
                                                 """)
                     menu()
-
                 elif door == "open":
-
+                    global Lose
                     Lose = 1
                     firedead()
                     sleep(2)
                     lose()
                     sleep(2)
                     end()
-                    quit()
-            elif poziom == 1:
-
+                    sleep(2)
+            elif poziom == 1 and door == "open":
                 Lose = 1
                 firedead()
                 sleep(2)
@@ -1651,17 +1639,14 @@ def move():  # funkcja poruszania sie pomiędzy pokojami
     
                                                 """)
                     menu()
-
                 elif door == "open":
-                    Lose = 1
                     firedead()
                     sleep(2)
                     lose()
                     sleep(2)
                     end()
-                    quit()
-            elif poziom == 1:
-
+                    sleep(2)
+            elif poziom ==1 and door == "open":
                 Lose = 1
                 firedead()
                 sleep(2)
@@ -1858,9 +1843,9 @@ def call(Name):
 
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""  Dave: """, Dave_kf[key][0])
+                                print("""                       Dave: """, Dave_kf[key][0])
                             else:
-                                print("""  Dave: """, Dave_kf[key][1])
+                                print("""                       Dave: """, Dave_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1870,9 +1855,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""  John: """, John_kf[key][0])
+                                print("""                       John: """, John_kf[key][0])
                             else:
-                                print("""  John: """, John_kf[key][1])
+                                print("""                       John: """, John_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1882,9 +1867,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print(""" Steve: """, Steve_kf[key][0])
+                                print("""                       Steve: """, Steve_kf[key][0])
                             else:
-                                print(""" Steve: """, Steve_kf[key][1])
+                                print("""                       Steve: """, Steve_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1894,9 +1879,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print(""" Ann:  """, Ann_kf[key][0])
+                                print("""                       Ann:  """, Ann_kf[key][0])
                             else:
-                                print(""" Ann:  """, Ann_kf[key][1])
+                                print("""                       Ann:  """, Ann_kf[key][1])
 
                             number_of_phonecalls[Name] += 1
                             cls2()
@@ -2008,7 +1993,7 @@ def dialog():
                         cls2()
 
                 else:
-                    print(""">>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
+                    print(""" >>>%s chyba już nie znajdzie dla Ciebie czasu...<<<""" % (member))
                     cls2()
 
 
@@ -2042,7 +2027,6 @@ def wez_kartke():
                     """)
 
 
-
     elif choice == "2":
         print(""">>Nie zachowałeś kartki<<<""")
         # mozna kiedys dodac opcje zeby po nia wrocic
@@ -2051,7 +2035,6 @@ def wez_kartke():
     else:
         print("""              >>>To pewnie nic ważnego...""")
         cls2()
-
 
 
 def win():
@@ -2088,24 +2071,18 @@ def win():
 
 
 def final_dead():
-    sleep(240)
+    sleep(5)
     global Lose
     with lock:
         Lose = 1
-        print ("""== == ==  UWAGA  == == ==                              
-                            
-                Po pożarze w module botanicznym
-                na statku nie ma już tlenu!!!!!
-                            
-    
-                    """)
-        sleep(1)
+
         uduszenie()
         sleep(2)
         lose()
         sleep(2)
         end()
         quit()
+
 
 
 
@@ -2121,7 +2098,7 @@ def slender5():
     with lock:
         if Lose == 0:
             while i < 3:
-                sleep(30)
+                sleep(5)
                 shuffle(miejsca)
                 index = randint(0, 5) # z listy zniknely modul botan i badawczy
                 slender_mod[miejsca[index]].append("Slender")
@@ -2198,7 +2175,7 @@ def fire1():
                 ogien.append(member)
                 mod["mod_badawczy"].clear()
 
-
+        #usuniete miejsca.remove
 
         print("""           >>> To niemożliwe! Ktoś musiał podłożyć ogień...<<<""")
         cls2()
@@ -2220,70 +2197,69 @@ def fire1():
             Lose = 1
             lose()
             sleep(2)
+            cls()
             end()
             quit()
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
-            print ("""          >>>Niestety %s nie przeżyli...<<<
+            input ("""          >>>Niestety %s nie przeżyli...<<<
                 
                 
-                            >>>Działaj zanim ogień opanuje cały statek!<<<
+                >>>Działaj zanim ogień opanuje cały statek!<<<
                             
                             
                             
-                            >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                  >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
                 
                     
                     
-                            
+                           
+                 >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
                 """ % (" i ".join(ogien)))
-            sleep(2)
-            back()
 
 
 
 
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==1):
-            print("""           >>>Niestety %s już nigdy nie wróci...<<<
+            input("""           >>>Niestety %s już nigdy nie wróci...<<<
             
             
-                        >>>Ogień szaleje na statku! Musisz działać!<<<
+                >>>Ogień szaleje na statku! Musisz działać!<<<
                         
                         
                         
                         
-                        >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                  >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
             
                 
                 
                         
+                  >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
             
             """ % ("".join(ogien)))
-            sleep(2)
-            back()
 
 
 
 
         elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==0):
-            print("""           >>>Na szczęście nikomu nic się nie stało!<<<
+            input ("""           >>>Na szczęście nikomu nic się nie stało!<<<
 
 
-                    >>>Ale ogień wciąż szaleje na statku więc musisz działać!<<<
+            >>>Ale ogień wciąż szaleje na statku więc musisz działać!<<<
                                 
                                 
                                 
                                 
-                            >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
+                    >>>UDAJ SIĘ DO MODUŁU ŁĄCZNIKOWEGO!!!<<<
 
 
 
                             
+                            
+                    >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
 
                         """)
-            sleep(2)
-            back()
 
 
 
@@ -2326,7 +2302,7 @@ def slender4():
     global Alive
     global dead
     with lock:
-        sleep(30)
+        sleep(20)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2374,7 +2350,7 @@ def slender2():
     global dead
     global Alive
     with lock:
-        sleep(30)
+        sleep(60)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2397,7 +2373,7 @@ def slender1():
     global dead
     global Alive
     thread2.start()
-    sleep(240)
+    sleep(60)
     shuffle(miejsca)
     index = randint(0,7)
     slender_mod[miejsca[index]].append("Slender")
@@ -2419,7 +2395,7 @@ def slender1():
                     
                     
                     
-                       
+                        
                                     
                                     
                                               """ % (mod[key][0], name))
@@ -2445,11 +2421,8 @@ def slender1():
 def uduszenie():
     print("""
                      == == ==  UWAGA  == == ==
-
                            Zgon w wyniku
                              uduszenia!
-
-
                              &&&&&&&&&&&&
                             &$          $&
                            &$            $&
@@ -2468,7 +2441,6 @@ def uduszenie():
                              &%        $&
                              $&        $&
                               &$&$&&$$&&
-
 """)
 
 
@@ -2476,8 +2448,7 @@ def menu():
     global Lose
     global pozycja
     symbol()
-    global licznik
-    licznik = True
+
 
 
 
@@ -2532,7 +2503,6 @@ def menu():
                         else:
 
                             print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
-
                 else:
                     if choice =="1":
                         print ("Koniec Gry")
@@ -2601,7 +2571,6 @@ def menu():
                             print ("Koniec Gry")
                         else:
                             print("""          Coś poszło nie tak! Spróbuj jeszcze raz.""")
-
                 else:
                     if choice =="1":
                         print ("Koniec Gry")
@@ -2636,7 +2605,6 @@ thread5 = threading.Thread( target = slender4)
 thread6 = threading.Thread( target = fire1)
 thread7 = threading.Thread( target = slow_death)
 thread8 = threading.Thread( target = slender5)
-thread9 = threading.Thread( target = final_dead)
 
 def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe intro
     global pozycja
@@ -2701,7 +2669,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
       """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
     # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
-    sleep(25)
+    sleep(1)
 
 
     # przypisanie reszty załogi do innych modułów
@@ -2719,8 +2687,6 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
     cls2()
     #threads
-    global Lose
-    global Win
     global licznik
     thread1.start() #pierwsza kartka i call()
     thread1.join()
@@ -2732,7 +2698,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread5.join()
     thread6.start() #pożar w module botanicznym i badawczym
     thread6.join()
-
+    global Lose
     if Lose == 1:
 
         licznik = False
@@ -2760,11 +2726,11 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
                 quit()
             else:
-                thread9.start()
-                thread9.join()
-                if Lose ==1:
-                    quit()
 
+                print(slender_mod)
+                print(kartki_slender)
+                print(mod)
+                print(dead)
 
 
 
