@@ -403,10 +403,8 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
         if choice == "1":
             cls()
             q = 2
-
+            Uwaga()
             life += 1
-            Uwaga1()
-
             cls()
             back()
         elif choice == "2":
@@ -1482,7 +1480,7 @@ def mod7(q):
         sprawdzać... 
 
         """)
-    elif (q == 3 or q == 4):
+    elif (q == 3):
         if (on == 0):
             print("""                >>> Jesteś w Module Energetycznym <<<   
 
@@ -1494,6 +1492,21 @@ def mod7(q):
 
         Spróbuj naprawić światło. Bez niego, funkcjonowanie
         będzie niemożliwe!
+
+            """)
+    elif (q == 4):
+        if (on == 0):
+            print("""                >>> Jesteś w Module Energetycznym <<<   
+
+        Wszedzie jest ciemno!  Nic nie widać. Poruszaj się
+        ostrożnie, ponieważ jest bałagan. Lepiej włącz latarkę.
+            """)
+        if (on == 1):
+            print("""                >>> Jesteś w Module Energetycznym <<< 
+
+        Silniki pracują coraz głośniej. Ciekawe ile będą
+        w stanie jeszcze pracować. Może lepiej tego nie
+        sprawdzać... 
 
             """)
 
