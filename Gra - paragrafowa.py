@@ -208,21 +208,6 @@ def Uwaga():
                           """)
 
 
-def Uwaga1():
-    input("""
-                        == == ==  UWAGA  == == ==         
-
-                    >> Udaj się do Modułu Nawigacyjnego
-
-
-                >>> NACIŚNIJ COKOLWIEK, ABY KONTYNUOWAĆ <<<
-
-
-
-
-                          """)
-
-
 
 
 
