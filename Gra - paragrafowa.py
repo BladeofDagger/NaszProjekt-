@@ -1864,9 +1864,9 @@ def call(Name):
 
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       Dave: """, Dave_kf[key][0])
+                                print(""">>>Dave: """, Dave_kf[key][0])
                             else:
-                                print("""                       Dave: """, Dave_kf[key][1])
+                                print(""">>>Dave: """, Dave_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1876,9 +1876,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       John: """, John_kf[key][0])
+                                print(""">>>John: """, John_kf[key][0])
                             else:
-                                print("""                       John: """, John_kf[key][1])
+                                print(""">>>John: """, John_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1888,9 +1888,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       Steve: """, Steve_kf[key][0])
+                                print(""">>>Steve: """, Steve_kf[key][0])
                             else:
-                                print("""                       Steve: """, Steve_kf[key][1])
+                                print(""">>>Steve: """, Steve_kf[key][1])
                             number_of_phonecalls[Name] += 1
 
                             cls2()
@@ -1900,9 +1900,9 @@ def call(Name):
                     for key in mod:
                         if Name in mod[key]:
                             if number_of_phonecalls[Name] == 0:
-                                print("""                       Ann:  """, Ann_kf[key][0])
+                                print(""">>>Ann:  """, Ann_kf[key][0])
                             else:
-                                print("""                       Ann:  """, Ann_kf[key][1])
+                                print(""">>>Ann:  """, Ann_kf[key][1])
 
                             number_of_phonecalls[Name] += 1
                             cls2()
