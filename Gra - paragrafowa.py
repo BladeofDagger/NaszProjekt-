@@ -2205,7 +2205,7 @@ def fire1():
 
         print("""           >>> To niemożliwe! Ktoś musiał podłożyć ogień...<<<""")
         cls2()
-        if ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==2):
+        if (((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"]))) and (len(ogien)==2):
             ogien.append(name)
             firedead()
             sleep(2)
@@ -2216,7 +2216,17 @@ def fire1():
             end()
             quit()
 
-        elif ((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and (len(ogien)==1):
+        elif (((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"]))) and (len(ogien)==1):
+            ogien.append(name)
+            firedead()
+            sleep(2)
+            Lose = 1
+            lose()
+            sleep(2)
+            cls()
+            end()
+            quit()
+        elif (((pozycja == gracz_mod["mod_botaniczny"]) or (pozycja == gracz_mod["mod_badawczy"])) and len(ogien)==0):
             ogien.append(name)
             firedead()
             sleep(2)
@@ -2227,7 +2237,8 @@ def fire1():
             end()
             quit()
 
-        if ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
+
+        elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             input ("""         
                       >>> Niestety %s nie przeżyli... <<<
                 
