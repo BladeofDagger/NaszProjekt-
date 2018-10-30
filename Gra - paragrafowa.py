@@ -465,7 +465,7 @@ def action():  # jakaś czynność, np jak w misji 1 trzeba sprawdzic zapasy, to
                 print(" Karta w ekwipunku ")
             elif choice == "2":
                 print ("Karta została na miejscu. ")
-        elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open"):
+        elif (pozycja == gracz_mod["mod_łącznikowy"]) and (door =="open") and poziom == 1:
 
             print("""          
                         >>> Zamknij śluzy do modułów: <<<
@@ -2148,7 +2148,7 @@ def slender5():
 
 
 def slow_death():
-    sleep(20)
+    sleep(35)
     if door =="open":
         global Lose
         Lose = 1
@@ -2178,10 +2178,11 @@ def fire1():
     global Lose
     global poziom
     global miejsca
-    poziom = 1
+
     with lock:
-        sleep(10)
+        sleep(40)
         alarm2()
+        poziom = 1 # poziom zmienia się dopiero po alarmie
 
         #możesz zginąć w pożarze
         for member in Alive:
@@ -2352,7 +2353,7 @@ def slender3():
     global Alive
     global dead
     with lock:
-        sleep(30)
+        sleep(50)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2376,7 +2377,7 @@ def slender2():
     global dead
     global Alive
     with lock:
-        sleep(60)
+        sleep(80)
         shuffle(miejsca)
         index = randint(0, 7)
         slender_mod[miejsca[index]].append("Slender")
@@ -2679,7 +2680,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
 
       """ % (załoga[4], załoga[0], załoga[1], załoga[2], załoga[3],załoga[0]))
     # funkcja sleep pozwala graczowi spokojnie przeczytać wstęp i po 35s jest następny cls()
-    sleep(1)
+    sleep(30)
 
 
     # przypisanie reszty załogi do innych modułów
