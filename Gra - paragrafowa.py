@@ -644,6 +644,8 @@ def slenderescape():
 
 
     """)
+    sleep(2)
+    back()
 
 
 
