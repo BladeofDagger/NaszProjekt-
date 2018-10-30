@@ -2106,7 +2106,7 @@ def slender5():
     with lock:
         if Lose == 0:
             while i < 3:
-                sleep(5)
+                sleep(10)
                 shuffle(miejsca)
                 index = randint(0, 5) # z listy zniknely modul botan i badawczy
                 slender_mod[miejsca[index]].append("Slender")
@@ -2148,7 +2148,7 @@ def slender5():
 
 
 def slow_death():
-    sleep(15)
+    sleep(20)
     if door =="open":
         global Lose
         Lose = 1
@@ -2224,7 +2224,7 @@ def fire1():
             end()
             quit()
 
-        elif ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
+        if ((pozycja != gracz_mod["mod_botaniczny"]) or (pozycja != gracz_mod["mod_badawczy"])) and (len(ogien)==2):
             input ("""         
                       >>> Niestety %s nie przeżyli... <<<
                 
@@ -2399,7 +2399,7 @@ def slender1():
     global dead
     global Alive
     thread2.start()
-    sleep(60)
+    sleep(180)
     shuffle(miejsca)
     index = randint(0,7)
     slender_mod[miejsca[index]].append("Slender")
@@ -2434,7 +2434,7 @@ def slender1():
                     Alive.remove(mod[key][0]) # przenosimy z listy alive do dead
                     dead.append(mod[key][0])  # dana osoba przenosi się do dead
                     mod[key].clear()  # czyści listę przypisaną do miejsca czyli dana osoba znika
-                    sleep(2)
+                    sleep(3)
                     back()
     else:
             # jeśli to np modserwisowy, modkuchenny albo mod wypoczynkowy czy łącznikowy
