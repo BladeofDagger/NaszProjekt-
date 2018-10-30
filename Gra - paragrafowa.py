@@ -1238,7 +1238,7 @@ def mod1(q):  # Kuchnia
     elif (q == 2):
         print("""                         >>> Jesteś w Kuchni <<<   
 
-        Dostrzegasz, że jest coś nie tak. Niektóre meble
+        Dostrzegasz, że coś jest nie tak. Niektóre meble
         są przewrócone. Co się tutaj stało?! Ktoś musiał
         być tutaj wcześniej. Spiżarnia jest prawie pusta,
         oznacza to poważne kłopoty...
@@ -1273,7 +1273,7 @@ def mod2(q):
 
         Załoga spędza tu wolny czas na ćwiczeniach indywidualnych
         i zespołowych. Różne formy rozrywki pozwalają
-        na odstresowaniu się po cięzkim dniu. 
+        na odstresowanie się po ciężkim dniu. 
 
         """)
     elif (q == 2):
@@ -1307,8 +1307,8 @@ def mod3(q):
         print("""                >>> Jesteś w Module Serwisowym <<<   
 
         Widzisz znajdujące się tutaj łóżka, rzeczy załogi
-        oraz sprzęt rozrywkowy. Wygląda na to, że nic tutaj
-        się nie działo.   
+        oraz sprzęt rozrywkowy. Wygląda na to, że nic się tutaj
+        nie działo.   
 
         """)
     elif (q == 2):
@@ -1329,7 +1329,7 @@ def mod3(q):
         if (on == 1):
             print("""                >>> Jesteś w Module Serwisowym <<<   
 
-        Możesz wreszcie się bezpiecznie poruszać. Widzisz
+        Możesz wreszcie bezpiecznie się poruszać. Widzisz
         poprzesuwane łóżka i porozrzucane rzeczy.
 
             """)
@@ -1365,7 +1365,7 @@ def mod4(q):
         if (on == 1):
             print("""                >>> Jesteś w Module Łącznikowym <<< 
 
-        Możesz wreszcie się bezpiecznie poruszać. Niewiadomo,
+        Możesz wreszcie bezpiecznie się poruszać. Nie wiadomo,
         ile wytrzyma bateria, lepiej ją oszczędzać.
 
             """)
@@ -1401,7 +1401,7 @@ def mod5(q):
         if (on == 1):
             print("""                >>> Jesteś w Module Botanicznym <<< 
 
-        Możesz wreszcie się bezpiecznie poruszać. Nie wiadomo,
+        Możesz wreszcie bezpiecznie się poruszać. Nie wiadomo,
         ile wytrzyma bateria, lepiej ją oszczędzać. Rośliny
         bez światła nie są w stanie produkować tlenu, jak
         najszybciej znajdź przyczynę awarii.
@@ -1426,7 +1426,7 @@ def mod6(q):
         print("""                >>> Jesteś w Module Badawczym <<<   
 
         Zauważasz rozlaną na podłodze substancję. Jest
-        bardzo toksyczna. To ona jest odpowiedzialny za
+        bardzo toksyczna. To ona jest odpowiedzialna za
         ten zapach. Wdychanie go może spowodować śmierć! 
 
         """)
