@@ -646,22 +646,7 @@ def slenderescape():
     """)
 
 
-def slow_death():
-    sleep(15)
-    if door =="open":
-        global Lose
-        Lose = 1
-        firedead()
-        sleep(2)
-        lose()
-        sleep(2)
-        cls()
-        end()
-        quit()
 
-
-    else:
-        pass
 
 
 
@@ -2162,7 +2147,22 @@ def slender5():
 
 
 
+def slow_death():
+    sleep(15)
+    if door =="open":
+        global Lose
+        Lose = 1
+        firedead()
+        sleep(2)
+        lose()
+        sleep(2)
+        cls()
+        end()
+        quit()
 
+
+    else:
+        pass
 
 
 
