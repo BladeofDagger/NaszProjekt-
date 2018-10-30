@@ -2164,7 +2164,7 @@ def slow_death():
 
 
     else:
-        pass
+        print (" ")
 
 
 
@@ -2708,7 +2708,8 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     cls()
     mod1(q)
 
-
+    global Win
+    global Lose
     cls2()
     #threads
     global licznik
@@ -2722,8 +2723,7 @@ def intro():  # funkcja wprowadzająca, wczesniej można dac jakieś prawdziwe i
     thread5.join()
     thread6.start() #pożar w module botanicznym i badawczym
     thread6.join()
-    global Win
-    global Lose
+
     if Lose == 1:
 
         licznik = False
